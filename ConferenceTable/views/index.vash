@@ -1,0 +1,10 @@
+﻿@html.extend('layout', function(model){
+    @html.block('content', function(model){
+    <div class="content">
+        content
+    </div>
+    })
+    @html.block('script', function(model){
+        <script src="../site/js/doc.js"></script>
+    })
+})
