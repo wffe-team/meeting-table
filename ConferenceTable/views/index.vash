@@ -5,6 +5,6 @@
     </div>
     })
     @html.block('script', function(model){
-        <script src="../site/js/doc.js"></script>
+
     })
 })
