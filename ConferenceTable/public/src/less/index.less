@@ -1,0 +1,108 @@
+﻿body {
+    font-size: 14px;
+    font-family: 'Microsoft YaHei';
+    color: #4d4d4d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    zoom: 1;
+
+    &:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0;
+    }
+}
+
+.lists-wrap {
+    margin: 50px;
+
+    .list-meeting {
+        background-color: #E2E4E6;
+        display: inline-block;
+        float: left;
+        width: 23%;
+        margin: 0 1%;
+
+        .date {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .meeting {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            position: relative;
+
+            input {
+                display: none;
+                width: 50px;
+                height: 18px;
+                line-height: 18px;
+                padding: 3px;
+                border-radius: 2px;
+                border: 1px solid #E2E4E6;
+                color: #4d4d4d;
+            }
+
+            .title {
+                height: 30px;
+                line-height: 30px;
+                font-size: 16px;
+                margin-bottom:5px;
+                input{
+                    width:217px;
+                }
+            }
+
+            .bd {
+
+
+                .details {
+                    margin-bottom:5px;
+                    div {
+                        display: inline-block;
+                        float: left;
+                        padding-right: 5px;
+                        &.meetingRoom{
+                            input{
+                                width:80px;
+                            }
+                        }
+                    }
+                }
+
+                .user {
+                    text-align: right;
+                    input{
+                        width:70px;
+                    }
+                }
+
+                .icon-edit {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                }
+            }
+        }
+
+        .metting-add {
+            color: #8c8c8c;
+            font-size: 14px;
+            padding: 5px 10px;
+            cursor:pointer;
+        }
+    }
+}

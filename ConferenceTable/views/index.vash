@@ -1,8 +1,146 @@
 ﻿@html.extend('layout', function(model){
     @html.block('content', function(model){
-    <div class="content">
-        content
+<div class="content">
+    <div class="lists-wrap clear">
+        <div class="list-meeting">
+            <div class="meeting-wrap">
+                <div class="date">2017-01-07</div>
+                <div class="meeting">
+                    <div class="title">
+                        <span>年终发奖大会</span>
+                        <input type="text" class="edit" placeholder="会议主题" />
+                    </div>
+                    <div class="bd">
+                        <div class="details clear">
+                            <div class="meetingRoom">
+                                <span>会议室231</span>
+                                <input type="text" class="edit" placeholder="会议室" />
+                            </div>
+                            <div class="timeStart">
+                                <span>14:30</span>
+                                <input type="text" class="edit" value="14:30" placeholder="开始时间" />
+                            </div>
+                            <div>-</div>
+                            <div class="timeEnd">
+                                <span>14:50</span>
+                                <input type="text" class="edit" value="14:50" placeholder="结束时间" />
+                            </div>
+                        </div>
+                        <div class="user">
+                            <span>张凯迪</span>
+                            <input type="text" class="edit" value="张凯迪" placeholder="使用人" />
+                        </div>
+                        <div class="icon-edit">123</div>
+                    </div>
+                </div>
+            </div>
+            <div class="metting-add"><a>Add Metting ...</a></div>
+        </div>
+        <div class="list-meeting">
+            <div class="meeting-wrap">
+                <div class="date">2017-01-07</div>
+                <div class="meeting">
+                    <div class="title">
+                        <span>年终发奖大会</span>
+                        <input type="text" class="edit" placeholder="会议主题" />
+                    </div>
+                    <div class="bd">
+                        <div class="details clear">
+                            <div class="meetingRoom">
+                                <span>会议室231</span>
+                                <input type="text" class="edit" placeholder="会议室" />
+                            </div>
+                            <div class="timeStart">
+                                <span>14:30</span>
+                                <input type="text" class="edit" value="14:30" placeholder="开始时间" />
+                            </div>
+                            <div>-</div>
+                            <div class="timeEnd">
+                                <span>14:50</span>
+                                <input type="text" class="edit" value="14:50" placeholder="结束时间" />
+                            </div>
+                        </div>
+                        <div class="user">
+                            <span>张凯迪</span>
+                            <input type="text" class="edit" value="张凯迪" placeholder="使用人" />
+                        </div>
+                        <div class="icon-edit">123</div>
+                    </div>
+                </div>
+            </div>
+            <div class="metting-add"><a>Add Metting ...</a></div>
+        </div>
+        <div class="list-meeting">
+            <div class="meeting-wrap">
+                <div class="date">2017-01-07</div>
+                <div class="meeting">
+                    <div class="title">
+                        <span>年终发奖大会</span>
+                        <input type="text" class="edit" placeholder="会议主题" />
+                    </div>
+                    <div class="bd">
+                        <div class="details clear">
+                            <div class="meetingRoom">
+                                <span>会议室231</span>
+                                <input type="text" class="edit" placeholder="会议室" />
+                            </div>
+                            <div class="timeStart">
+                                <span>14:30</span>
+                                <input type="text" class="edit" value="14:30" placeholder="开始时间" />
+                            </div>
+                            <div>-</div>
+                            <div class="timeEnd">
+                                <span>14:50</span>
+                                <input type="text" class="edit" value="14:50" placeholder="结束时间" />
+                            </div>
+                        </div>
+                        <div class="user">
+                            <span>张凯迪</span>
+                            <input type="text" class="edit" value="张凯迪" placeholder="使用人" />
+                        </div>
+                        <div class="icon-edit">123</div>
+                    </div>
+                </div>
+            </div>
+            <div class="metting-add"><a>Add Metting ...</a></div>
+        </div>
+        <div class="list-meeting">
+            <div class="meeting-wrap">
+                <div class="date">2017-01-07</div>
+                <div class="meeting">
+                    <div class="title">
+                        <span>年终发奖大会</span>
+                        <input type="text" class="edit" placeholder="会议主题" />
+                    </div>
+                    <div class="bd">
+                        <div class="details clear">
+                            <div class="meetingRoom">
+                                <span>会议室231</span>
+                                <input type="text" class="edit" placeholder="会议室" />
+                            </div>
+                            <div class="timeStart">
+                                <span>14:30</span>
+                                <input type="text" class="edit" value="14:30" placeholder="开始时间" />
+                            </div>
+                            <div>-</div>
+                            <div class="timeEnd">
+                                <span>14:50</span>
+                                <input type="text" class="edit" value="14:50" placeholder="结束时间" />
+                            </div>
+                        </div>
+                        <div class="user">
+                            <span>张凯迪</span>
+                            <input type="text" class="edit" value="张凯迪" placeholder="使用人" />
+                        </div>
+                        <div class="icon-edit">123</div>
+                    </div>
+                </div>
+            </div>
+            <div class="metting-add"><a>Add Metting ...</a></div>
+        </div>
+
     </div>
+</div>
     })
     @html.block('script', function(model){
 
