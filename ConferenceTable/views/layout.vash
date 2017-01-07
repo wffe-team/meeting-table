@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>@model.title</title>
-    <link href="../site/img/favicon.ico" rel="shortcut icon" />
+    <link href="../img/favicon.ico" rel="shortcut icon" />
+    <link href="../src/less/index.css" rel="stylesheet" />
 </head>
 <body>
     @html.block('content')
-    <script src="../site/js/lib/jquery-1.12.4.min.js"></script>
+    <script src="../js/lib/jquery-1.12.4.min.js"></script>
     @html.block('script')
 </body>
 </html>
