@@ -23,7 +23,7 @@
             editInput: function (editBtn,targetClass) {
                 $('body').on('click', '.' + editBtn,function () {
                     $(this).parents('.meeting').find('.edit').prop('readonly', false).addClass(targetClass);
-                    $(this).parents('.meeting').find('.save').show();
+                    $(this).parents('.meeting').find('.save,.dele').show();
                 })
             },
             saveInput: function (saveBtn,targetClass) {

@@ -38,7 +38,6 @@
   margin: 10px;
   background-color: #fff;
   border-radius: 5px;
-  position: relative;
 }
 .lists-wrap .list-meeting .meeting input {
   width: 50px;
@@ -81,13 +80,28 @@
 .lists-wrap .list-meeting .meeting .bd .user input {
   width: 70px;
 }
-.lists-wrap .list-meeting .meeting .bd .icon-edit {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.lists-wrap .list-meeting .meeting .bd .handle {
+  position: relative;
 }
-.lists-wrap .list-meeting .meeting .bd .icon-edit:hover {
+.lists-wrap .list-meeting .meeting .bd .handle .icon-edit {
+  position: absolute;
+  top: -93px;
+  right: -5px;
+}
+.lists-wrap .list-meeting .meeting .bd .handle .icon-edit:hover {
   cursor: pointer;
+}
+.lists-wrap .list-meeting .meeting .bd .handle .save,
+.lists-wrap .list-meeting .meeting .bd .handle .dele {
+  display: none;
+}
+.lists-wrap .list-meeting .meeting .bd .handle input {
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  width: 50px;
+  padding: 0;
+  margin-right: 5px;
 }
 .lists-wrap .list-meeting .metting-add {
   color: #8c8c8c;

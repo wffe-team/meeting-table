@@ -7,7 +7,7 @@
                 <div class="date">2017-01-07</div>
                 <div class="meeting">
                     <div class="title">
-                        <input type="text" class="edit" placeholder="会议主题" value="年终发奖大会"  readonly/>
+                        <input type="text" class="edit" placeholder="会议主题" value="年终发奖大会" readonly />
                     </div>
                     <div class="bd">
                         <div class="details clear">
@@ -15,18 +15,22 @@
                                 <input type="text" class="edit" placeholder="会议室" value="会议室231" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit" value="14:30" placeholder="开始时间" readonly/>
+                                <input type="text" class="edit" value="14:30" placeholder="开始时间" readonly />
                             </div>
                             <div>-</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit" value="14:50" placeholder="结束时间" readonly/>
+                                <input type="text" class="edit" value="14:50" placeholder="结束时间" readonly />
                             </div>
                         </div>
                         <div class="user">
                             <button class="save">保存</button>
-                            <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly/>
+                            <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
                         </div>
-                        <div class="icon-edit">编辑</div>
+                        <div class="handle">
+                            <input type="button" class="icon-edit" value="编辑" />
+                            <input type="button" class="save" value="保存" />
+                            <input type="button" class="dele" value="删除" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -60,7 +64,11 @@
                             <button class="save">保存</button>
                             <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
                         </div>
-                        <div class="icon-edit">编辑</div>
+                        <div class="handle">
+                            <input type="button" class="icon-edit" value="编辑" />
+                            <input type="button" class="save" value="保存" />
+                            <input type="button" class="dele" value="删除" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,13 +102,17 @@
                             <button class="save">保存</button>
                             <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
                         </div>
-                        <div class="icon-edit">编辑</div>
+                        <div class="handle">
+                            <input type="button" class="icon-edit" value="编辑" />
+                            <input type="button" class="save" value="保存" />
+                            <input type="button" class="dele" value="删除" />
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="metting-add"><a>Add Metting ...</a></div>
             <div class="metting-text">
-                <textarea  class="metting-content" name=""></textarea>
+                <textarea class="metting-content" name=""></textarea>
                 <button class="add-btn">Add</button><button class="cancal-btn">Cancal</button>
             </div>
 
@@ -129,7 +141,11 @@
                             <button class="save">保存</button>
                             <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
                         </div>
-                        <div class="icon-edit">编辑</div>
+                        <div class="handle">
+                            <input type="button" class="icon-edit" value="编辑" />
+                            <input type="button" class="save" value="保存" />
+                            <input type="button" class="dele" value="删除" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,7 +160,6 @@
 </div>
     })
     @html.block('script', function(model){
-        <script src="../js/lib/jquery-1.12.4.min.js"></script>
-        <script src="../src/js/file.js"></script>
+<script src="../src/js/edit.js"></script>
     })
 })
