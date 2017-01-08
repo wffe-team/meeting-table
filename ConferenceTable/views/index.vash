@@ -23,7 +23,6 @@
                             </div>
                         </div>
                         <div class="user">
-                            <button class="save">保存</button>
                             <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
                         </div>
                         <div class="handle">
@@ -61,7 +60,6 @@
                             </div>
                         </div>
                         <div class="user">
-                            <button class="save">保存</button>
                             <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
                         </div>
                         <div class="handle">
@@ -99,7 +97,6 @@
                             </div>
                         </div>
                         <div class="user">
-                            <button class="save">保存</button>
                             <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
                         </div>
                         <div class="handle">
@@ -138,7 +135,6 @@
                             </div>
                         </div>
                         <div class="user">
-                            <button class="save">保存</button>
                             <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
                         </div>
                         <div class="handle">
@@ -161,5 +157,6 @@
     })
     @html.block('script', function(model){
 <script src="../src/js/edit.js"></script>
+
     })
 })

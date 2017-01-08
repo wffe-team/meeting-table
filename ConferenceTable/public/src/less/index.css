@@ -86,7 +86,7 @@
 .lists-wrap .list-meeting .meeting .bd .handle .icon-edit {
   position: absolute;
   top: -93px;
-  right: -5px;
+  right: -10px;
 }
 .lists-wrap .list-meeting .meeting .bd .handle .icon-edit:hover {
   cursor: pointer;
@@ -99,7 +99,7 @@
   height: 24px;
   line-height: 24px;
   text-align: center;
-  width: 50px;
+  width: 43px;
   padding: 0;
   margin-right: 5px;
 }
