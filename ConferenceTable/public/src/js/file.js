@@ -17,7 +17,6 @@
     //inputEdit.focus('edit', 'focus-input');
     //inputEdit.blur('edit', 'focus-input');
 
-
     //编辑
     var edit = (function () {
         return {
@@ -51,9 +50,22 @@
                     $(this).parent().hide();
                     $(this).parent().prev().show();
                 })
+            },
+            addContent: function () {
+                $('body').on('click', '.add-btn', function () {
+                  var $mContent = $(this).prev().val();
+                  var mettingHtml = "<div class='meeting'><div class='title'><input type='text' class='edit' placeholder='' readonly value="+$mContent+"></div>"
+                      + "<div class='bd'><div class='details clear'><div class='meetingRoom'><input type='text' class='edit' placeholder='会议室' value='' readonly></div>"
+                      + "<div class='timeStart'><input type='text' class='edit' value='' placeholder='开始时间' readonly></div><div>-</div>"
+                      + "<div class='timeEnd'><input type='text' class='edit' value='' placeholder='结束时间' readonly></div></div>"
+                      + "<div class='user'><button class='save'>保存</button><input type='text' class='edit' value='' placeholder='使用人' readonly></div>"
+                      + "<div class='icon-edit'>编辑</div></div></div>";
+                  $(this).parents('.list-meeting').find('.meeting').last().after(mettingHtml);
+                })
             }
         }
     })()
     add.mettingAdd('metting-add', 'metting-text');
     add.cancalBtn('cancal-btn');
+    add.addContent();
 })()
