@@ -1,0 +1,81 @@
+﻿body,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+ul,
+li,
+th,
+td,
+p,
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+b,
+em,
+i,
+strong,
+th {
+    font-style: normal;
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: 400;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+input {
+    background-color: #fff;
+}
+
+img {
+    border: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th {
+    text-align: left;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+:focus {
+    outline: 0;
+}

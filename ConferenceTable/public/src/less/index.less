@@ -46,16 +46,17 @@
             position: relative;
 
             input {
-                display: none;
                 width: 50px;
                 height: 18px;
                 line-height: 18px;
                 padding: 3px;
+                color: #4d4d4d;
+                border:1px solid #fff;
+            }
+            .focus-input{
                 border-radius: 2px;
                 border: 1px solid #E2E4E6;
-                color: #4d4d4d;
             }
-
             .title {
                 height: 30px;
                 line-height: 30px;
@@ -85,6 +86,9 @@
 
                 .user {
                     text-align: right;
+                    .save{
+                        display:none;
+                    }
                     input{
                         width:70px;
                     }
@@ -94,6 +98,9 @@
                     position: absolute;
                     top: 10px;
                     right: 10px;
+                    &:hover{
+                        cursor:pointer;
+                    }
                 }
             }
         }
@@ -103,6 +110,9 @@
             font-size: 14px;
             padding: 5px 10px;
             cursor:pointer;
+        }
+        .metting-text{
+            display:none;
         }
     }
 }
