@@ -1,11 +1,7 @@
 ﻿body {
-  font-size: 14px;
+  font-size: 12px;
   font-family: 'Microsoft YaHei';
   color: #4d4d4d;
-}
-* {
-  margin: 0;
-  padding: 0;
 }
 .clear {
   zoom: 1;
@@ -102,6 +98,12 @@
   width: 43px;
   padding: 0;
   margin-right: 5px;
+}
+.lists-wrap .list-meeting .new-metting .bd .handle .save {
+  display: inline-block;
+}
+.lists-wrap .list-meeting .new-metting .bd .handle .dele {
+  display: inline-block;
 }
 .lists-wrap .list-meeting .metting-add {
   color: #8c8c8c;
