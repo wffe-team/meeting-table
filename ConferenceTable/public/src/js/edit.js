@@ -43,7 +43,7 @@
                       + "<div class='timeEnd'><input type='text' class='edit focus-input' value='' placeholder='结束时间'></div></div>"
                       + "<div class='user'><input type='text' class='edit focus-input' value='' placeholder='使用人'></div>"
                       + "<div class='handle'><input type='button' class='icon-edit' value= '编辑' /><input type='button' class='save' value= '保存' /><input type='button' class='dele' value= '删除'/></div>";
-                  $(this).parents('.list-meeting').find('.date').append(mettingHtml);
+                  $(this).parents('.list-meeting').find('.meeting-wrap').append(mettingHtml);
                 })
             }
         }
