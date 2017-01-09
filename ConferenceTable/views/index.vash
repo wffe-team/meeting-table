@@ -4,7 +4,7 @@
     <div class="lists-wrap clear">
         <div class="list-meeting">
             <div class="meeting-wrap">
-                <div class="date">2017-01-07</div>
+                <div class="date today"></div>
                 <div class="meeting">
                     <div class="title">
                         <input type="text" class="edit" placeholder="会议主题" value="年终发奖大会" readonly />
@@ -41,7 +41,7 @@
         </div>
         <div class="list-meeting">
             <div class="meeting-wrap">
-                <div class="date">2017-01-08</div>
+                <div class="date tomorrow"></div>
                 <div class="meeting">
                     <div class="title">
                         <input type="text" class="edit" placeholder="会议主题" value="年终发奖大会" readonly />
@@ -78,7 +78,7 @@
         </div>
         <div class="list-meeting">
             <div class="meeting-wrap">
-                <div class="date">2017-01-09</div>
+                <div class="date a-tomorrow"></div>
                 <div class="meeting">
                     <div class="title">
                         <input type="text" class="edit" placeholder="会议主题" value="年终发奖大会" readonly />
@@ -116,7 +116,7 @@
         </div>
         <div class="list-meeting">
             <div class="meeting-wrap">
-                <div class="date">2017-01-10</div>
+                <div class="date g-tomorrow"></div>
                 <div class="meeting">
                     <div class="title">
                         <input type="text" class="edit" placeholder="会议主题" value="年终发奖大会" readonly />
