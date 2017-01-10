@@ -17,12 +17,12 @@
                     $(this).siblings('.dele').hide(); 
                     $.ajax({
                         type: "GET",
-                        url: $('.meeting').data('url'),
+                        url: $('.lists-wrap').data('url'),
                         data: {
                             meetingtt: $('.mt').val(),
                             meetingroom: $('.mr').val(),
                             meetingst: $('.mst').val(),
-                            meetinget: $('met').val(),
+                            meetinget: $('.met').val(),
                             meetinguser:$('.mu').val()
                         },
                         success: function (result) {

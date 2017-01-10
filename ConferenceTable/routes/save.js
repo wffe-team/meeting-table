@@ -4,12 +4,19 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {    
-    var file = "c:\\test.txt";
+    var file = "result.txt";
     writeFile(file);
     readFile(file);
     function writeFile(file) {  
         // 测试用的中文  
-        var str = req.query.meetingtt + req.query.meetingroom + req.query.meetingst + req.query.meetinget + req.query.meetinguser;  
+        var data = {
+            meetingtt: req.query.meetingtt,
+            meetingroom: req.query.meetingroom,
+            meetingst: req.query.meetingst,
+            meetinget: req.query.meetinget,
+            meetinguser: req.query.meetinguser
+        };
+        var str = JSON.stringify(data);
         // appendFile，如果文件不存在，会自动创建新文件  
         // 如果用writeFile，那么会删除旧文件，直接写新文件  
         fs.appendFile(file, str, function (err) {
@@ -32,7 +39,7 @@ router.get('/', function (req, res) {
         });
     }
 
-    res.json({ result: str });
+    res.json({ result: "Express" });
 });
 
 module.exports = router;
