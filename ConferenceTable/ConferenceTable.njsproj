@@ -32,6 +32,7 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
+    <Compile Include="public\js\lib\jquery.datetimepicker.full.js" />
     <Compile Include="public\src\js\edit.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
@@ -48,6 +49,7 @@
       <SubType>Content</SubType>
       <DependentUpon>public\src\less\index.css</DependentUpon>
     </Content>
+    <Content Include="public\src\less\jquery.datetimepicker.css" />
     <Content Include="public\src\less\reset.css" />
     <Content Include="README.md" />
     <Content Include="views\index.vash" />

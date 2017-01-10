@@ -39,8 +39,8 @@
                     var $mContent = $(this).prev().val();
                     var mettingHtml = "<div class='meeting new-metting'><div class='title'><input type='text' class='edit focus-input'  placeholder='会议主题' value=" + $mContent + "></div>"
                         + "<div class='bd'><div class='details clear'><div class='meetingRoom'><input type='text' class='edit focus-input' placeholder='会议室' value=''/></div>"
-                        + "<div class='timeStart'><input type='text' class='edit focus-input' value='' placeholder='开始时间'></div><div>-</div>"
-                        + "<div class='timeEnd'><input type='text' class='edit focus-input' value='' placeholder='结束时间'></div></div>"
+                        + "<div class='timeStart'><input type='text' class='edit focus-input datetimepicker1' value='' placeholder='开始时间'></div><div>-</div>"
+                        + "<div class='timeEnd'><input type='text' class='edit focus-input datetimepicker1' value='' placeholder='结束时间'></div></div>"
                         + "<div class='user'><input type='text' class='edit focus-input' value='' placeholder='使用人'></div>"
                         + "<div class='handle'><input type='button' class='icon-edit' value= '编辑' /><input type='button' class='save' value= '保存' /><input type='button' class='dele' value= '删除'/></div>";
                     $(this).parents('.list-meeting').find('.meeting-wrap').append(mettingHtml);
@@ -64,6 +64,13 @@
                 $('.' + currentTime).text(time);
                 //考虑节假日
 
+            },
+            timePeriod: function () {
+                $('.datetimepicker1').datetimepicker({
+                    datepicker: false,
+                    format: 'H:i',
+                    step: 5
+                });
             }
         }
     })()
@@ -71,4 +78,6 @@
     time.timeShow('tomorrow', 1);
     time.timeShow('a-tomorrow', 2);
     time.timeShow('g-tomorrow', 3);
+    //start-end-time
+    time.timePeriod();
 })()

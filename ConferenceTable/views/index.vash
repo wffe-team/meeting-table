@@ -15,11 +15,11 @@
                                 <input type="text" class="edit" placeholder="会议室" value="会议室231" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit" value="14:30" placeholder="开始时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" readonly />
                             </div>
                             <div>-</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit" value="14:50" placeholder="结束时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" readonly />
                             </div>
                         </div>
                         <div class="user">
@@ -49,14 +49,14 @@
                     <div class="bd">
                         <div class="details clear">
                             <div class="meetingRoom">
-                                <input type="text" class="edit" placeholder="会议室" value="会议室231" readonly />
+                                <input type="text" class="edit " placeholder="会议室" value="会议室231" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit" value="14:30" placeholder="开始时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" readonly />
                             </div>
                             <div>-</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit" value="14:50" placeholder="结束时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" readonly />
                             </div>
                         </div>
                         <div class="user">
@@ -89,11 +89,11 @@
                                 <input type="text" class="edit" placeholder="会议室" value="会议室231" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit" value="14:30" placeholder="开始时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" readonly />
                             </div>
                             <div>-</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit" value="14:50" placeholder="结束时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" readonly />
                             </div>
                         </div>
                         <div class="user">
@@ -127,11 +127,11 @@
                                 <input type="text" class="edit" placeholder="会议室" value="会议室231" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit" value="14:30" placeholder="开始时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" readonly />
                             </div>
                             <div>-</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit" value="14:50" placeholder="结束时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" readonly />
                             </div>
                         </div>
                         <div class="user">
@@ -156,7 +156,6 @@
 </div>
     })
     @html.block('script', function(model){
-<script src="../src/js/edit.js"></script>
-
+          <script src="../src/js/edit.js"></script>
     })
 })
