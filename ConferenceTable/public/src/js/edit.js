@@ -10,27 +10,25 @@
             },
             saveInput: function (saveBtn, targetClass) {
                 $('body').on('click', '.' + saveBtn, function () {
-                    $(this).parents('.meeting').find('.edit').prop('readonly', true).removeClass(targetClass);
-                    $(this).hide();
-                    $(this).siblings('.dele').hide();
+                    var $this = $(this);
                     $.ajax({
                         type: "GET",
                         url: $('.lists-wrap').data('url'),
                         data: {
-                            meetingtt: $('.mt').val(),
-                            meetingroom: $('.mr').val(),
-                            meetingst: $('.mst').val(),
-                            meetinget: $('.met').val(),
-                            meetinguser:$('.mu').val()
+                            meetingdate: $this.parents('.meeting').siblings('.date').text(),
+                            meetingtt: $this.parents('.bd').siblings('.title').find('.mt').val(),
+                            meetingroom: $this.parent().siblings('.details').find('.mr').val(),
+                            meetingst: $this.parent().siblings('.details').find('.mst').val(),
+                            meetinget: $this.parent().siblings('.details').find('.met').val(),
+                            meetinguser: $this.parent().siblings('.user').find('.mu').val()
                         },
                         success: function (result) {
-                            alert(1);
-                        },
-                        error: function (result) {
-                            alert(2);
+                            $this.parents('.meeting').find('.edit').prop('readonly', true).removeClass(targetClass);
+                            $this.hide();
+                            $this.siblings('.dele').hide();
                         }
                     });
-                    });
+                });
             },
             deleteInput: function (deleteBtn) {
                 $('body').on('click', '.' + deleteBtn, function () {
@@ -56,7 +54,7 @@
                     var $mContent = $(this).prev().val();
                     var mettingHtml = "<div class='meeting new-metting'><div class='title'><input type='text' class='edit focus-input'  placeholder='会议主题' value=" + $mContent + "></div>"
                         + "<div class='bd'><div class='details clear'><div class='meetingRoom'><input type='text' class='edit focus-input' placeholder='会议室' value=''/></div>"
-                        + "<div class='timeStart'><input type='text' class='edit focus-input datetimepicker1' value='' placeholder='开始时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'>" 
+                        + "<div class='timeStart'><input type='text' class='edit focus-input datetimepicker1' value='' placeholder='开始时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'>"
                         + "</div><div>-</div>"
                         + "<div class='timeEnd'><input type='text' class='edit focus-input datetimepicker1' value='' placeholder='结束时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'></div></div>"
                         + "<div class='user'><input type='text' class='edit focus-input' value='' placeholder='使用人'></div>"
@@ -71,7 +69,7 @@
     //时间
     var time = (function () {
         return {
-            timeShow: function (currentTime,addDayCount) {
+            timeShow: function (currentTime, addDayCount) {
                 var time = new Date();
                 //获取AddDayCount天后的日期 
                 time.setDate(time.getDate() + addDayCount);

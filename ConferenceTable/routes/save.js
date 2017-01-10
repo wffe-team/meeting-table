@@ -10,6 +10,7 @@ router.get('/', function (req, res) {
     function writeFile(file) {  
         // 测试用的中文  
         var data = {
+            meetingdate: req.query.meetingdate,
             meetingtt: req.query.meetingtt,
             meetingroom: req.query.meetingroom,
             meetingst: req.query.meetingst,
@@ -28,13 +29,13 @@ router.get('/', function (req, res) {
     }
 
     function readFile(file) {
-        fs.readFile(file, function (err, data) {
+        fs.readFile(file,'utf8', function (err, str) {
             if (err)
                 console.log("读取文件fail " + err);
             else {  
                 // 读取成功时  
                 // 输出字节数组  
-                console.log(data);
+                console.log(str);
             }
         });
     }
