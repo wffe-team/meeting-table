@@ -6,10 +6,12 @@
     <title>会议室预定系统</title>
     <link href="../img/favicon.ico" rel="shortcut icon" />
     <link href="../src/less/index.css" rel="stylesheet" />
+    <link href="../src/less/jquery.datetimepicker.css" rel="stylesheet" />
 </head>
 <body>
     @html.block('content')
     <script src="../js/lib/jquery-1.12.4.min.js"></script>
+    <script src="../js/lib/jquery.datetimepicker.full.js"></script>
     @html.block('script')
 </body>
 </html>
