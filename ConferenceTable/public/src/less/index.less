@@ -3,6 +3,7 @@
     font-family: 'Microsoft YaHei';
     color: #4d4d4d;
 }
+
 .clear {
     zoom: 1;
 
@@ -15,34 +16,43 @@
     }
 }
 
+* {
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    outline: none;
+}
+
 .lists-wrap {
     margin: 50px;
 
     .list-meeting {
-        background-color: #E2E4E6;
-        display: inline-block;
         float: left;
+        display: inline-block;
         width: 23%;
         margin: 0 1%;
+        background-color: #E2E4E6;
 
         .date {
+            margin-top: 10px;
             text-align: center;
             font-size: 24px;
-            margin-top: 10px;
         }
 
         .meeting {
-            border: 1px solid #ddd;
             padding: 10px;
             margin: 10px;
-            background-color: #fff;
+            border: 1px solid #ddd;
             border-radius: 5px;
+            background-color: #fff;
 
             input {
                 width: 50px;
                 height: 18px;
-                line-height: 18px;
                 padding: 3px;
+                line-height: 18px;
                 color: #4d4d4d;
                 border: 1px solid #fff;
             }
@@ -54,9 +64,9 @@
 
             .title {
                 height: 30px;
+                margin-bottom: 5px;
                 line-height: 30px;
                 font-size: 16px;
-                margin-bottom: 5px;
 
                 input {
                     width: 217px;
@@ -80,10 +90,37 @@
                             }
                         }
                     }
+
+                    .timeStart {
+                        .edit {
+                            width: 68px;
+                            text-align: center;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .timeEnd {
+                        .edit {
+                            width: 68px;
+                            text-align: center;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
                 }
 
                 .user {
                     text-align: right;
+
+                    .edit {
+                        width: 50px;
+                        text-align: center;
+                    }
 
                     .save {
                         display: none;
@@ -101,8 +138,9 @@
 
                     .icon-edit {
                         position: absolute;
-                        top: -93px;
-                        right: -10px;
+                        top: -89px;
+                        right: -4px;
+
 
                         &:hover {
                             cursor: pointer;
@@ -111,6 +149,10 @@
 
                     .save, .dele {
                         display: none;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
                     }
 
                     input {
@@ -129,20 +171,20 @@
             .bd {
                 .handle {
                     .save {
-                        display:inline-block;
+                        display: inline-block;
                     }
 
                     .dele {
-                        display:inline-block;
+                        display: inline-block;
                     }
                 }
             }
         }
 
         .metting-add {
+            padding: 5px 10px;
             color: #8c8c8c;
             font-size: 14px;
-            padding: 5px 10px;
             cursor: pointer;
         }
 

@@ -15,11 +15,11 @@
                                     <input type="text" class="edit mr" placeholder="会议室" value="" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit datetimepicker1 mst" value="" placeholder="开始时间" readonly />
+                                <input type="text" class="edit datetimepicker1 mst" value="" placeholder="开始时间" disabled />
                             </div>
-                            <div>-</div>
+                            <div>--</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit datetimepicker1 met" value="" placeholder="结束时间" readonly />
+                                <input type="text" class="edit datetimepicker1 met" value="" placeholder="结束时间" disabled />
                             </div>
                         </div>
                         <div class="user">
@@ -52,11 +52,11 @@
                                 <input type="text" class="edit " placeholder="会议室" value="会议室231" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" disabled />
                             </div>
-                            <div>-</div>
+                            <div>--</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" disabled />
                             </div>
                         </div>
                         <div class="user">
@@ -89,11 +89,11 @@
                                 <input type="text" class="edit" placeholder="会议室" value="会议室231" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" disabled />
                             </div>
-                            <div>-</div>
+                            <div>--</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" disabled />
                             </div>
                         </div>
                         <div class="user">
@@ -127,11 +127,11 @@
                                 <input type="text" class="edit" placeholder="会议室" value="会议室231" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" disabled />
                             </div>
-                            <div>-</div>
+                            <div>--</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" readonly />
+                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" disabled />
                             </div>
                         </div>
                         <div class="user">
