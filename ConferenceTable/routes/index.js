@@ -4,10 +4,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    //var file = "c:\\test.txt"; 
+    //var file = "c:\\test.txt";
     //writeFile(file);
     //readFile(file);
-
     //function writeFile(file) {  
     //    // 测试用的中文  
     //    var str = "liuyue";  
@@ -32,6 +31,7 @@ router.get('/', function (req, res) {
     //        }
     //    });
     //}  
+
     res.render('index', { title: 'Express' });
 });
 

@@ -8,12 +8,29 @@
                     $(this).parents('.meeting').find('.save,.dele').show();
                 })
             },
-            saveInput: function (saveBtn,targetClass) {
-                $('body').on('click','.' + saveBtn,function () {
+            saveInput: function (saveBtn, targetClass) {
+                $('body').on('click', '.' + saveBtn, function () {
                     $(this).parents('.meeting').find('.edit').prop('readonly', true).removeClass(targetClass);
                     $(this).hide();
                     $(this).siblings('.dele').hide();
-                })
+                    $.ajax({
+                        type: "GET",
+                        url: $('.meeting').data('url'),
+                        data: {
+                            meetingtt: $('.mt').val(),
+                            meetingroom: $('.mr').val(),
+                            meetingst: $('.mst').val(),
+                            meetinget: $('met').val(),
+                            meetinguser:$('.mu').val()
+                        },
+                        success: function (result) {
+                            alert(1);
+                        },
+                        error: function (result) {
+                            alert(2);
+                        }
+                    });
+                    });
             },
             deleteInput: function (deleteBtn) {
                 $('body').on('click', '.' + deleteBtn, function () {

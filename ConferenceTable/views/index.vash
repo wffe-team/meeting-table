@@ -5,32 +5,32 @@
         <div class="list-meeting">
             <div class="meeting-wrap">
                 <div class="date">2017-01-07</div>
-                <div class="meeting">
-                    <div class="title">
-                        <input type="text" class="edit" placeholder="会议主题" value="年终发奖大会" readonly />
-                    </div>
-                    <div class="bd">
-                        <div class="details clear">
-                            <div class="meetingRoom">
-                                <input type="text" class="edit" placeholder="会议室" value="会议室231" readonly />
+                <div class="meeting" data-url="/save">
+                        <div class="title">
+                            <input type="text" class="edit mt" placeholder="会议主题" value="年终发奖大会" name="edit" readonly />
+                        </div>
+                        <div class="bd">
+                            <div class="details clear">
+                                <div class="meetingRoom">
+                                    <input type="text" class="edit mr" placeholder="会议室" value="" readonly />
+                                </div>
+                                <div class="timeStart">
+                                    <input type="text" class="edit mst" value="14:30" placeholder="开始时间" readonly />
+                                </div>
+                                <div>-</div>
+                                <div class="timeEnd">
+                                    <input type="text" class="edit met" value="14:50" placeholder="结束时间" readonly />
+                                </div>
                             </div>
-                            <div class="timeStart">
-                                <input type="text" class="edit" value="14:30" placeholder="开始时间" readonly />
+                            <div class="user">
+                                <input type="text" class="edit mu" value="张凯迪" placeholder="使用人" readonly />
                             </div>
-                            <div>-</div>
-                            <div class="timeEnd">
-                                <input type="text" class="edit" value="14:50" placeholder="结束时间" readonly />
+                            <div class="handle">
+                                <input type="button" class="icon-edit" value="编辑" />
+                                <input type="button" class="save" value="保存" />
+                                <input type="button" class="dele" value="删除" />
                             </div>
                         </div>
-                        <div class="user">
-                            <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
-                        </div>
-                        <div class="handle">
-                            <input type="button" class="icon-edit" value="编辑" />
-                            <input type="button" class="save" value="保存" />
-                            <input type="button" class="dele" value="删除" />
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="metting-add"><a>Add Metting ...</a></div>

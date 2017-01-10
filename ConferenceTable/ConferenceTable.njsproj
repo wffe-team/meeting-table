@@ -34,6 +34,7 @@
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
     <Compile Include="public\src\js\edit.js" />
     <Compile Include="routes\index.js" />
+    <Compile Include="routes\save.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
     <None Include="compilerconfig.json" />
@@ -50,6 +51,7 @@
     </Content>
     <Content Include="public\src\less\reset.css" />
     <Content Include="README.md" />
+    <Content Include="result.txt" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
     <Content Include="views\error.vash" />
