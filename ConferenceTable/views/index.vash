@@ -1,11 +1,11 @@
 ﻿@html.extend('layout', function(model){
     @html.block('content', function(model){
 <div class="content">
-    <div class="lists-wrap clear">
+    <div class="lists-wrap clear" data-url="/save">
         <div class="list-meeting">
             <div class="meeting-wrap">
                 <div class="date today"></div>
-                <div class="meeting" data-url="/save">
+                <div class="meeting">
                     <div class="title">
                             <input type="text" class="edit mt" placeholder="会议主题" value="年终发奖大会" name="edit" readonly />
                     </div>
