@@ -5,25 +5,25 @@
         <div class="list-meeting">
             <div class="meeting-wrap">
                 <div class="date today"></div>
-                <div class="meeting">
+                <div class="meeting" data-url="/save">
                     <div class="title">
-                        <input type="text" class="edit" placeholder="会议主题" value="年终发奖大会" readonly />
+                            <input type="text" class="edit mt" placeholder="会议主题" value="年终发奖大会" name="edit" readonly />
                     </div>
                     <div class="bd">
                         <div class="details clear">
                             <div class="meetingRoom">
-                                <input type="text" class="edit" placeholder="会议室" value="会议室231" readonly />
+                                    <input type="text" class="edit mr" placeholder="会议室" value="" readonly />
                             </div>
                             <div class="timeStart">
-                                <input type="text" class="edit datetimepicker1" value="" placeholder="开始时间" readonly />
+                                <input type="text" class="edit datetimepicker1 mst" value="" placeholder="开始时间" readonly />
                             </div>
                             <div>-</div>
                             <div class="timeEnd">
-                                <input type="text" class="edit datetimepicker1" value="" placeholder="结束时间" readonly />
+                                <input type="text" class="edit datetimepicker1 met" value="" placeholder="结束时间" readonly />
                             </div>
                         </div>
                         <div class="user">
-                            <input type="text" class="edit" value="张凯迪" placeholder="使用人" readonly />
+                                <input type="text" class="edit mu" value="张凯迪" placeholder="使用人" readonly />
                         </div>
                         <div class="handle">
                             <input type="button" class="icon-edit" value="编辑" />
@@ -156,6 +156,6 @@
 </div>
     })
     @html.block('script', function(model){
-          <script src="../src/js/edit.js"></script>
+<script src="../src/js/edit.js"></script>
     })
 })

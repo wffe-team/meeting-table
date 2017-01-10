@@ -35,6 +35,7 @@
     <Compile Include="public\js\lib\jquery.datetimepicker.full.js" />
     <Compile Include="public\src\js\edit.js" />
     <Compile Include="routes\index.js" />
+    <Compile Include="routes\save.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
     <None Include="compilerconfig.json" />
@@ -52,6 +53,7 @@
     <Content Include="public\src\less\jquery.datetimepicker.css" />
     <Content Include="public\src\less\reset.css" />
     <Content Include="README.md" />
+    <Content Include="result.txt" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
     <Content Include="views\error.vash" />
