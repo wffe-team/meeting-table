@@ -28,6 +28,23 @@ input {
 .lists-wrap {
     margin: 50px;
 
+    .meeting-wrap {
+        position: relative;
+    }
+
+    .dustbin {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 20px;
+        top: 5px;
+        transition: transform .5s;
+    }
+
+    .open {
+        transform: scale(1.4);
+    }
+
     .list-meeting {
         float: left;
         display: inline-block;
@@ -41,12 +58,21 @@ input {
             font-size: 24px;
         }
 
+        .metting-bg {
+            margin: 0 auto;
+            background-color: #ddd;
+        }
+
         .meeting {
             padding: 10px;
             margin: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             background-color: #fff;
+
+            &:hover {
+                cursor: pointer;
+            }
 
             input {
                 width: 50px;
@@ -147,7 +173,7 @@ input {
                         }
                     }
 
-                    .save, .dele {
+                    .save, .cancal {
                         display: none;
 
                         &:hover {
@@ -167,6 +193,9 @@ input {
             }
         }
 
+        .drag-active {
+        }
+
         .new-metting {
             .bd {
                 .handle {
@@ -174,7 +203,7 @@ input {
                         display: inline-block;
                     }
 
-                    .dele {
+                    .cancal {
                         display: inline-block;
                     }
                 }
