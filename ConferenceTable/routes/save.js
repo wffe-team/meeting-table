@@ -5,12 +5,12 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function (req, res) {    
     var file = "result.txt";
-    writeFile(file);
     readFile(file);
+    writeFile(file);
     function writeFile(file) {  
         // 测试用的中文  
         var data = {
-            id: req.query.meetingdate+req.query.meetingst,
+            id: req.query.meetingdate + req.query.meetingst + req.query.meetingroom,
             meetingdate: req.query.meetingdate,
             meetingtt: req.query.meetingtt,
             meetingroom: req.query.meetingroom,
@@ -36,12 +36,19 @@ router.get('/', function (req, res) {
             else {  
                 // 读取成功时  
                 // 输出字节数组  
-                console.log(str);
+                var strs = str.substring(1, str.length)
+                var array = strs.split('\r\n');
+                //for (var i = 0; i < array.length; i++) {
+                //    var json = JSON.parse(array[i])
+                //}
+                //var json = JSON.parse(array[0]);
+                //console.log(json.meetingst);
             }
         });
     }
 
     res.json({ result: "Express" });
+    //res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
