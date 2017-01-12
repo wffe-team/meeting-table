@@ -12,7 +12,7 @@
 <body>
     @html.block('content')
     <script src="../js/lib/jquery-1.12.4.min.js"></script>
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="../js/lib/jquery.datetimepicker.full.js"></script>
     @html.block('script')
 </body>

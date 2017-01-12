@@ -70,11 +70,15 @@
                         + "<div class='user'><input type='text' class='edit focus-input' value='' placeholder='使用人'></div>"
                         + "<div class='handle'><input type='button' class='icon-edit' value= '编辑' /><input type='button' class='save' value= '保存' /><input type='button' class='cancal' value= '取消'/></div></div>";
                     $(this).parents('.list-meeting').find('.meeting-wrap').append(mettingHtml);
+                    //解决默认添加，点击两次才能出现下拉时间段
                     $('.datetimepicker1').click();
                     $('.meeting').draggable({
                         cursor: "move",
                         revert: true,
-                        opacity: 0.7
+                        revertDuration: 200,
+                        opacity: 0.7,
+                        zIndex: 100,
+                        axis: "y" 
                     });
                 })
             }
@@ -116,25 +120,23 @@
     var drag = (function () {
         return {
             drag: function () {
-                var $dustbin = $('.dustbin'),
-                    $meeting = $('.meeting');
-                $meeting.draggable({
+                var dustbin = $('.dustbin'),
+                    meeting = $('.meeting');
+                meeting.draggable({
                     cursor: "move",
                     revert: true,
-                    opacity: 0.7
+                    revertDuration:200,
+                    opacity: 0.7,
+                    zIndex: 100,
+                    axis: "y" 
                 });
-                $dustbin.droppable({
-                    drop: function (event, ui) {
+                dustbin.droppable({
+                    activeClass: "open",
+                    drop: function (event,ui) {
                         ui.draggable.remove();
-                    },
-                    activate: function () {
-                        $dustbin.addClass('open');
-                    },
-                    deactivate: function () {
-                        $dustbin.removeClass('open');
                     }
                 });
-            }
+            },
         }
     })()
     drag.drag();
