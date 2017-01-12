@@ -7,7 +7,7 @@
                 <div class="date today"></div>
                 <div class="meeting">
                     <div class="title">
-                            <input type="text" class="edit mt" placeholder="会议主题" value="年终发奖大会" name="edit" readonly />
+                            <input type="text" class="edit mt" placeholder="会议主题" value="" name="edit" readonly />
                     </div>
                     <div class="bd">
                         <div class="details clear">
@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div class="user">
-                                <input type="text" class="edit mu" value="张凯迪" placeholder="使用人" readonly />
+                                <input type="text" class="edit mu" value="" placeholder="使用人" readonly />
                         </div>
                         <div class="handle">
                             <input type="button" class="icon-edit" value="编辑" />

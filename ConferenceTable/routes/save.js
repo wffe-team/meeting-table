@@ -10,6 +10,7 @@ router.get('/', function (req, res) {
     function writeFile(file) {  
         // 测试用的中文  
         var data = {
+            id: req.query.meetingdate+req.query.meetingst,
             meetingdate: req.query.meetingdate,
             meetingtt: req.query.meetingtt,
             meetingroom: req.query.meetingroom,
@@ -17,7 +18,7 @@ router.get('/', function (req, res) {
             meetinget: req.query.meetinget,
             meetinguser: req.query.meetinguser
         };
-        var str = JSON.stringify(data);
+        var str = JSON.stringify(data)+"\r\n";
         // appendFile，如果文件不存在，会自动创建新文件  
         // 如果用writeFile，那么会删除旧文件，直接写新文件  
         fs.appendFile(file, str, function (err) {
