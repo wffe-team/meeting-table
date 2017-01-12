@@ -20,8 +20,25 @@
 input {
   outline: none;
 }
+.active-drag {
+  border: 1px solid red;
+}
 .lists-wrap {
   margin: 50px;
+}
+.lists-wrap .meeting-wrap {
+  position: relative;
+}
+.lists-wrap .dustbin {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 20px;
+  top: 5px;
+  transition: transform .5s;
+}
+.lists-wrap .open {
+  transform: scale(1.4);
 }
 .lists-wrap .list-meeting {
   float: left;
@@ -35,12 +52,19 @@ input {
   text-align: center;
   font-size: 24px;
 }
+.lists-wrap .list-meeting .metting-bg {
+  margin: 0 auto;
+  background-color: #ddd;
+}
 .lists-wrap .list-meeting .meeting {
   padding: 10px;
   margin: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #fff;
+}
+.lists-wrap .list-meeting .meeting:hover {
+  cursor: pointer;
 }
 .lists-wrap .list-meeting .meeting input {
   width: 50px;
@@ -113,11 +137,11 @@ input {
   cursor: pointer;
 }
 .lists-wrap .list-meeting .meeting .bd .handle .save,
-.lists-wrap .list-meeting .meeting .bd .handle .dele {
+.lists-wrap .list-meeting .meeting .bd .handle .cancal {
   display: none;
 }
 .lists-wrap .list-meeting .meeting .bd .handle .save:hover,
-.lists-wrap .list-meeting .meeting .bd .handle .dele:hover {
+.lists-wrap .list-meeting .meeting .bd .handle .cancal:hover {
   cursor: pointer;
 }
 .lists-wrap .list-meeting .meeting .bd .handle input {
@@ -131,7 +155,7 @@ input {
 .lists-wrap .list-meeting .new-metting .bd .handle .save {
   display: inline-block;
 }
-.lists-wrap .list-meeting .new-metting .bd .handle .dele {
+.lists-wrap .list-meeting .new-metting .bd .handle .cancal {
   display: inline-block;
 }
 .lists-wrap .list-meeting .metting-add {
