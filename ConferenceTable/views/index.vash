@@ -5,7 +5,7 @@
         <div class="list-meeting">
             <div class="meeting-wrap">
                 <div class="date today"></div>
-                <img  class="dustbin"  src="../src/imgs/dustbin.png" />
+                    <img class="dustbin" id="droppable" src="../src/imgs/dustbin.png" />
                 <div class="metting-bg">
                 <div class="meeting">
                     <div class="title">
