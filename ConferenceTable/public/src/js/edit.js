@@ -16,7 +16,7 @@
                         type: "GET",
                         url: $('.lists-wrap').data('url'),
                         data: {
-                            meetingdate: $this.parents('.meeting').siblings('.date').text(),
+                            meetingdate: $this.parents('.meeting').siblings('.cancal').text(),
                             meetingtt: $this.parents('.bd').siblings('.title').find('.mt').val(),
                             meetingroom: $this.parent().siblings('.details').find('.mr').val(),
                             meetingst: $this.parent().siblings('.details').find('.mst').val(),
@@ -27,7 +27,7 @@
                             $this.parents('.meeting').find('.datetimepicker1').prop('disabled', true).removeClass(targetClass);
                             $this.parents('.meeting').find('.edit').prop('readonly', true).removeClass(targetClass);
                             $this.hide();
-                            $this.siblings('.dele').hide();
+                            $this.siblings('.cancal').hide();
                         }
                     });
                 });
@@ -78,7 +78,6 @@
                         revertDuration: 200,
                         opacity: 0.7,
                         zIndex: 100,
-                        axis: "y" 
                     });
                 })
             }
@@ -92,14 +91,22 @@
             timeShow: function (currentTime, addDayCount) {
                 var time = new Date();
                 //获取AddDayCount天后的日期 
-                time.setDate(time.getDate() + addDayCount);
+                var td = time.getDate();
+                time.setDate(td+ addDayCount);
+                var dd = time.getDay();
                 var y = time.getFullYear();
                 var m = time.getMonth() + 1;
+                ////考虑周末
+                //if (dd == 6 || dd == 0) {
+                //    time.setDate(td + addDayCount + 2);
+                //} 
+                //if (dd == 1 && currentTime =='g-tomorrow') {
+                //    time.setDate(td + addDayCount + 2);
+                //}
                 var d = time.getDate();
+                //输出时间
                 var time = y + "-" + m + "-" + d;
                 $('.' + currentTime).text(time);
-                //考虑节假日
-
             },
             timePeriod: function () {
                 $('.datetimepicker1').datetimepicker({
@@ -125,14 +132,14 @@
                 meeting.draggable({
                     cursor: "move",
                     revert: true,
-                    revertDuration:200,
+                    revertDuration: 200,
                     opacity: 0.7,
                     zIndex: 100,
-                    axis: "y" 
                 });
                 dustbin.droppable({
-                    activeClass: "open",
-                    drop: function (event,ui) {
+                    activeClass: "active-drag",
+                    hoverClass:"open",
+                    drop: function (event, ui) {
                         ui.draggable.remove();
                     }
                 });
