@@ -16,7 +16,8 @@
                         type: "GET",
                         url: $('.lists-wrap').data('url'),
                         data: {
-                            meetingdate: $this.parents('.meeting').siblings('.cancal').text(),
+                            id: $this.parents('.meeting').siblings('.date').text() + $this.parent().siblings('.details').find('.mst').val(),
+                            meetingdate: $this.parents('.meeting').siblings('.date').text(),
                             meetingtt: $this.parents('.bd').siblings('.title').find('.mt').val(),
                             meetingroom: $this.parent().siblings('.details').find('.mr').val(),
                             meetingst: $this.parent().siblings('.details').find('.mst').val(),
