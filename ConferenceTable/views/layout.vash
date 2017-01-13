@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>会议室预定系统</title>
-
-    <link href="../src/imgs/metting.png" rel="shortcut icon" />
     <link href="../src/less/index.css" rel="stylesheet" />
     <link href="../src/less/jquery.datetimepicker.css" rel="stylesheet" />
 </head>
