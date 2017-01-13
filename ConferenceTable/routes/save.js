@@ -5,12 +5,10 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function (req, res) {    
     var file = "result.txt";
-    readFile(file);
     writeFile(file);
     function writeFile(file) {  
         // 测试用的中文  
         var data = {
-            id: req.query.meetingdate + req.query.meetingst + req.query.meetingroom,
             meetingdate: req.query.meetingdate,
             meetingtt: req.query.meetingtt,
             meetingroom: req.query.meetingroom,
@@ -28,38 +26,7 @@ router.get('/', function (req, res) {
                 console.log("写入文件ok");
         });
     }
-
-    function readFile(file) {
-        fs.readFile(file,'utf8', function (err, str) {
-            if (err)
-                console.log("读取文件fail " + err);
-            else {  
-                // 读取成功时  
-                // 输出字节数组  
-                var strs = str.substring(1, str.length)
-                var array = strs.split('\r\n');
-                //for (var i = 0; i < array.length; i++) {
-                //    var json = JSON.parse(array[i])
-                //}
-                //var json = JSON.parse(array[0]);
-                //console.log(json.meetingst);
-            }
-        });
-    }
-    
-    //function unlink(file) {
-    //    fs.unlink(file, function (err) {
-    //        var deleteData = {
-    //                id: req.query.meetingdate + req.query.meetingst + req.query.meetingroom,
-    //        }
-    //        if (err) {
-    //            return console.error(err);
-    //        }
-    //    });
-
-    //}
     res.json({ result: "Express" });
-    //res.render('index', { title: 'Express' });
 });
 
 module.exports = router;

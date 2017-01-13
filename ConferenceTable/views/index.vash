@@ -2,39 +2,43 @@
     @html.block('content', function(model){
 <div class="content">
     <div class="lists-wrap clear" data-url="/save">
+        @for(var i=0;i < model.value.length; i++)
+        {
         <div class="list-meeting">
             <div class="meeting-wrap">
-                <div class="date today"></div>
-                    <img class="dustbin" id="droppable" src="../src/imgs/dustbin.png" />
+                <img class="dustbin" id="droppable" src="../src/imgs/dustbin.png" />
+                <div class="date">@model.value[i].date</div>
+                @for(var j=0;j < model.value[i].value.length;j++){
                 <div class="metting-bg">
-                <div class="meeting">
-                    <div class="title">
-                            <input type="text" class="edit mt" placeholder="会议主题" value="" name="edit" readonly />
-                    </div>
-                    <div class="bd">
-                        <div class="details clear">
-                            <div class="meetingRoom">
-                                    <input type="text" class="edit mr" placeholder="会议室" value="" readonly />
-                            </div>
-                            <div class="timeStart">
-                                <input type="text" class="edit datetimepicker1 mst" value="" placeholder="开始时间" disabled />
-                            </div>
-                            <div>--</div>
-                            <div class="timeEnd">
-                                <input type="text" class="edit datetimepicker1 met" value="" placeholder="结束时间" disabled />
-                            </div>
+                    <div class="meeting">
+                        <div class="title">
+                            <input type="text" class="edit mt" placeholder="会议主题" value="@model.value[i].value[j].meetingtt" name="edit" readonly />
                         </div>
-                        <div class="user">
-                                <input type="text" class="edit mu" value="" placeholder="使用人" readonly />
-                        </div>
-                        <div class="handle">
-                            <input type="button" class="icon-edit" value="编辑" />
-                            <input type="button" class="save" value="保存" />
+                        <div class="bd">
+                            <div class="details clear">
+                                <div class="meetingRoom">
+                                    <input type="text" class="edit mr" placeholder="会议室" value="@model.value[i].value[j].meetingroom" readonly />
+                                </div>
+                                <div class="timeStart">
+                                    <input type="text" class="edit datetimepicker1 mst" value="@model.value[i].value[j].meetingst" placeholder="开始时间" disabled />
+                                </div>
+                                <div>--</div>
+                                <div class="timeEnd">
+                                    <input type="text" class="edit datetimepicker1 met" value="@model.value[i].value[j].meetinget" placeholder="结束时间" disabled />
+                                </div>
+                            </div>
+                            <div class="user">
+                                <input type="text" class="edit mu" value="@model.value[i].value[j].meetinguser" placeholder="使用人" readonly />
+                            </div>
+                            <div class="handle">
+                                <input type="button" class="icon-edit" value="编辑" />
+                                <input type="button" class="save" value="保存" />
                                 <input type="button" class="cancal" value="取消" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                }
             </div>
             <div class="metting-add"><a>Add Metting ...</a></div>
             <div class="metting-text">
@@ -42,126 +46,7 @@
                 <button class="add-btn">Add</button><button class="cancal-btn">Cancal</button>
             </div>
         </div>
-        <div class="list-meeting">
-            <div class="meeting-wrap">
-                <div class="date tomorrow"></div>
-                <img class="dustbin event-stop" src="../src/imgs/dustbin.png" />
-                <div class="metting-bg">
-                <div class="meeting">
-                    <div class="title">
-                            <input type="text" class="edit mt" placeholder="会议主题" value="年终发奖大会" name="edit" readonly />
-                    </div>
-                    <div class="bd">
-                        <div class="details clear">
-                            <div class="meetingRoom">
-                                    <input type="text" class="edit mr" placeholder="会议室" value="" readonly />
-                            </div>
-                            <div class="timeStart">
-                                    <input type="text" class="edit datetimepicker1 mst" value="" placeholder="开始时间" disabled />
-                            </div>
-                            <div>--</div>
-                            <div class="timeEnd">
-                                    <input type="text" class="edit datetimepicker1 met" value="" placeholder="结束时间" disabled />
-                            </div>
-                        </div>
-                        <div class="user">
-                                <input type="text" class="edit mu" value="张凯迪" placeholder="使用人" readonly />
-                        </div>
-                        <div class="handle">
-                            <input type="button" class="icon-edit" value="编辑" />
-                            <input type="button" class="save" value="保存" />
-                                <input type="button" class="cancal" value="取消" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="metting-add"><a>Add Metting ...</a></div>
-            <div class="metting-text">
-                <textarea class="metting-content" name=""></textarea>
-                <button class="add-btn">Add</button><button class="cancal-btn">Cancal</button>
-            </div>
-        </div>
-        <div class="list-meeting">
-            <div class="meeting-wrap">
-                <div class="date a-tomorrow"></div>
-                <img class="dustbin" src="../src/imgs/dustbin.png" />
-                <div class="metting-bg">
-                <div class="meeting">
-                    <div class="title">
-                            <input type="text" class="edit mt" placeholder="会议主题" value="年终发奖大会" name="edit" readonly />
-                    </div>
-                    <div class="bd">
-                        <div class="details clear">
-                            <div class="meetingRoom">
-                                    <input type="text" class="edit mr" placeholder="会议室" value="" readonly />
-                            </div>
-                            <div class="timeStart">
-                                    <input type="text" class="edit datetimepicker1 mst" value="" placeholder="开始时间" disabled />
-                            </div>
-                            <div>--</div>
-                            <div class="timeEnd">
-                                    <input type="text" class="edit datetimepicker1 met" value="" placeholder="结束时间" disabled />
-                            </div>
-                        </div>
-                        <div class="user">
-                                <input type="text" class="edit mu" value="张凯迪" placeholder="使用人" readonly />
-                        </div>
-                        <div class="handle">
-                            <input type="button" class="icon-edit" value="编辑" />
-                            <input type="button" class="save" value="保存" />
-                                <input type="button" class="cancal" value="取消" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="metting-add"><a>Add Metting ...</a></div>
-            <div class="metting-text">
-                <textarea class="metting-content" name=""></textarea>
-                <button class="add-btn">Add</button><button class="cancal-btn">Cancal</button>
-            </div>
-        </div>
-        <div class="list-meeting">
-            <div class="meeting-wrap">
-                <div class="date g-tomorrow"></div>
-                <img class="dustbin" src="../src/imgs/dustbin.png" />
-                <div class="metting-bg">
-                <div class="meeting">
-                    <div class="title">
-                            <input type="text" class="edit mt" placeholder="会议主题" value="年终发奖大会" name="edit" readonly />
-                    </div>
-                    <div class="bd">
-                        <div class="details clear">
-                            <div class="meetingRoom">
-                                    <input type="text" class="edit mr" placeholder="会议室" value="" readonly />
-                            </div>
-                            <div class="timeStart">
-                                    <input type="text" class="edit datetimepicker1 mst" value="" placeholder="开始时间" disabled />
-                            </div>
-                            <div>--</div>
-                            <div class="timeEnd">
-                                    <input type="text" class="edit datetimepicker1 met" value="" placeholder="结束时间" disabled />
-                            </div>
-                        </div>
-                        <div class="user">
-                                <input type="text" class="edit mu" value="张凯迪" placeholder="使用人" readonly />
-                        </div>
-                        <div class="handle">
-                            <input type="button" class="icon-edit" value="编辑" />
-                            <input type="button" class="save" value="保存" />
-                                <input type="button" class="cancal" value="取消" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="metting-add"><a>Add Metting ...</a></div>
-            <div class="metting-text">
-                <textarea class="metting-content" name=""></textarea>
-                <button class="add-btn">Add</button><button class="cancal-btn">Cancal</button>
-            </div>
-        </div>
+        }
     </div>
 </div>
     })

@@ -1,1 +1,5 @@
 ﻿
+{"meetingdate":"2017-1-13","meetingtt":"年终总结","meetingroom":"231","meetingst":"09:15","meetinget":"10:05","meetinguser":"张凯迪"}
+{"meetingdate":"2017-1-14","meetingtt":"项目验收","meetingroom":"233","meetingst":"16:45","meetinget":"17:00","meetinguser":"张凯迪"}
+{"meetingdate":"2017-1-15","meetingtt":"项目验收","meetingroom":"231","meetingst":"16:50","meetinget":"17:10","meetinguser":"张凯迪"}
+{"meetingdate":"2017-1-16","meetingtt":"年终总结","meetingroom":"233","meetingst":"16:50","meetinget":"17:15","meetinguser":"张凯迪"}
