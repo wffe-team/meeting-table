@@ -46,7 +46,18 @@ router.get('/', function (req, res) {
             }
         });
     }
+    
+    //function unlink(file) {
+    //    fs.unlink(file, function (err) {
+    //        var deleteData = {
+    //                id: req.query.meetingdate + req.query.meetingst + req.query.meetingroom,
+    //        }
+    //        if (err) {
+    //            return console.error(err);
+    //        }
+    //    });
 
+    //}
     res.json({ result: "Express" });
     //res.render('index', { title: 'Express' });
 });

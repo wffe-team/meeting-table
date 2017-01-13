@@ -44,8 +44,8 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
     <Content Include="package.json" />
+    <Content Include="public\favicon.ico" />
     <Content Include="public\src\imgs\dustbin.png" />
-    <Content Include="public\src\imgs\metting.png" />
     <Content Include="public\src\less\index.css" />
     <Content Include="public\src\less\index.less" />
     <Content Include="public\src\less\index.min.css">

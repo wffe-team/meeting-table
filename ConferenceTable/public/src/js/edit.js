@@ -142,6 +142,16 @@
                     hoverClass:"open",
                     drop: function (event, ui) {
                         ui.draggable.remove();
+                        //$.ajax({
+                        //    type: "GET",
+                        //    url: $('.lists-wrap').data('url'),
+                        //    data: {
+                        //        id: meeting.parents('.metting-bg').siblings('.date').text() + meeting.parent().siblings('.details').find('.mst').val() + meeting.parent().siblings('.details').find('.mr').val(),
+                        // },
+                        //    success: function (result) {
+                        //        alert(result.id);
+                        //    }
+                        //});
                     }
                 });
             },
