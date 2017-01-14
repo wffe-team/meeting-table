@@ -1,5 +1,5 @@
-{"id":"1484362506310","meetingdate":"2017-1-15","meetingtt":"会议1","meetingroom":"564","meetingst":"11:00","meetinget":"11:40","meetinguser":"飒飒"}
-{"id":"1484362509972","meetingdate":"2017-1-16","meetingtt":"会议1","meetingroom":"132","meetingst":"11:10","meetinget":"11:20","meetinguser":"仨"}
-{"id":"1484362513335","meetingdate":"2017-1-17","meetingtt":"会议1","meetingroom":"456","meetingst":"08:10","meetinget":"08:40","meetinguser":"飒飒"}
-{"id":"1484385276830","meetingdate":"2017-1-15","meetingtt":"会议1","meetingroom":"277","meetingst":"17:25","meetinget":"17:30","meetinguser":"sasa"}
-{"id":"1484387122487","meetingdate":"2017-1-14","meetingtt":"会议1","meetingroom":"276","meetingst":"08:40","meetinget":"08:50","meetinguser":"sasa"}
+{"id":"1484362506310","meetingdate":"2017-1-15","meetingtt":"1","meetingroom":"564","meetingst":"11:00","meetinget":"11:40","meetinguser":""}
+{"id":"1484362509972","meetingdate":"2017-1-16","meetingtt":"1","meetingroom":"132","meetingst":"11:10","meetinget":"11:20","meetinguser":""}
+{"id":"1484362513335","meetingdate":"2017-1-17","meetingtt":"1","meetingroom":"456","meetingst":"08:10","meetinget":"08:40","meetinguser":""}
+{"id":"1484385276830","meetingdate":"2017-1-15","meetingtt":"1","meetingroom":"277","meetingst":"17:25","meetinget":"17:30","meetinguser":"sasa"}
+{"id":"1484387122487","meetingdate":"2017-1-14","meetingtt":"1","meetingroom":"276","meetingst":"08:40","meetinget":"08:50","meetinguser":"sasa"}
