@@ -22,6 +22,7 @@
                         }
                     })
                     if (number == 1) {
+                    //add meeting
                         if ($this.parents('.metting-bg').attr('id') == undefined) {
                         $.ajax({
                             type: "GET",
@@ -42,7 +43,9 @@
                                     location.reload();
                                 }
                             });
-                        } else {
+                        }
+                        //edit meeting
+                        else {
                             $.ajax({
                                 type: "GET",
                                 url: $('.lists-wrap').data('url'),

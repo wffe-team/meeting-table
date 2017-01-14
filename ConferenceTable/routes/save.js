@@ -10,7 +10,8 @@ router.get('/', function (req, res) {
         fs.readFile(file, 'utf8', function (err, str) {
             var strs = str.substring(0, str.length)
             var array = strs.split('\r\n');
-            if (req.query.id == '' || req.query.id == undefined) {
+            //add meeting
+            if (req.query.id == undefined) {
                 var date = new Date();
                 var time = date.getTime();
                 var data = {
@@ -31,7 +32,9 @@ router.get('/', function (req, res) {
                     else
                         console.log("写入文件ok");
                 });
-            } else {
+            }
+            //edit meeting
+            else {
                 var strs = str.substring(0, str.length)
                 var array = strs.split('\r\n');
                 for (var i = 0; i < array.length; i++) {
