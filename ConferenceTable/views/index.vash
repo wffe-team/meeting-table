@@ -16,7 +16,7 @@
                 <div class="metting-bg" id="@model.value[i].value[j].id">
                     <div class="meeting">
                         <div class="title">
-                            <input type="text" class="edit-text mt" placeholder="会议主题" value="@model.value[i].value[j].meetingtt" name="edit" readonly />
+                            <input type="text" class="edit-text mt" placeholder="会议主题" value="@model.value[i].value[j].meetingtt" readonly />
                         </div>
                         <div class="bd">
                             <div class="details clear">

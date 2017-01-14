@@ -13,9 +13,9 @@ router.get('/', function (req, res) {
             else {  
                 // 读取成功时  
                 // 输出字节数组  
-                var strs = str.substring(1, str.length)
+                var strs = str.substring(0, str.length)
                 var array = strs.split('\r\n');
-                var arr=[], arr1 = [], arr2 = [], arr3 = [], arr4 = [];
+                var arr = [], arr1 = [], arr2 = [], arr3 = [], arr4 = [];
                 var date = new Date();
                 var y = date.getFullYear();
                 var m = date.getMonth() + 1;
@@ -40,10 +40,10 @@ router.get('/', function (req, res) {
                     } else if (jsonarr.meetingdate == gtm) {
                         arr4.push(jsonarr);
                     }
-                } 
+                }
                 for (var i = 0; i < arr1.length; i++) {
-                    if (arr1[i + 1] == ''||arr1[i+1]==undefined) { continue; }
-                    arr1.sort(sortNumber(arr1[i].meetingst, arr1[i+1].meetingst));
+                    if (arr1[i + 1] == '' || arr1[i + 1] == undefined) { continue; }
+                    arr1.sort(sortNumber(arr1[i].meetingst, arr1[i + 1].meetingst));
                 }
                 arr.push({ date: td, value: arr1 });//今天所有会议数组
                 arr.push({ date: tm, value: arr2 });//明天所有会议数组
@@ -59,10 +59,9 @@ router.get('/', function (req, res) {
                 return 1;
             } else if (a < b == false) {
                 return -1;
-            } 
+            }
         }
-    }
-    
+    }    
 });
 
 module.exports = router;

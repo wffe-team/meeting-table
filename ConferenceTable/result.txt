@@ -1,8 +1,6 @@
-﻿{"meetingdate":"2017-1-14","meetingtt":"sasa","meetingroom":"276","meetingst":"12:40","meetinget":"12:45","meetinguser":"sasa"}
-{"meetingdate":"2017-1-14","meetingtt":"zasa","meetingroom":"276","meetingst":"12:40","meetinget":"12:55","meetinguser":"sasa"}
-{"meetingdate":"2017-1-15","meetingtt":"wasasa","meetingroom":"275","meetingst":"12:50","meetinget":"12:50","meetinguser":"sasa"}
-{"meetingdate":"2017-1-16","meetingtt":"sasas","meetingroom":"275","meetingst":"12:40","meetinget":"12:45","meetinguser":"sasas"}
-{"meetingdate":"2017-1-17","meetingtt":"sasza","meetingroom":"276","meetingst":"12:55","meetinget":"13:10","meetinguser":"sasas"}
-{"meetingdate":"2017-1-15","meetingtt":"sasasa","meetingroom":"276","meetingst":"12:45","meetinget":"12:50","meetinguser":"sasa"}
-{"meetingdate":"2017-1-14","meetingtt":"sasa","meetingroom":"277","meetingst":"12:40","meetinget":"12:45","meetinguser":"sasa"}
-{"meetingdate":"2017-1-14","meetingtt":"sasa","meetingroom":"276","meetingst":"12:40","meetinget":"12:45","meetinguser":"sasa"}
+{"id":1484362497764,"meetingdate":"2017-1-14","meetingtt":"会议001","meetingroom":"274","meetingst":"10:30","meetinget":"10:40","meetinguser":""}
+{"id":1484362504486,"meetingdate":"2017-1-14","meetingtt":"会议001","meetingroom":"275","meetingst":"10:30","meetinget":"10:40","meetinguser":""}
+{"id":1484362506310,"meetingdate":"2017-1-15","meetingtt":"会议001","meetingroom":"564","meetingst":"10:35","meetinget":"10:40","meetinguser":""}
+{"id":1484362507958,"meetingdate":"2017-1-16","meetingtt":"是是是","meetingroom":"132","meetingst":"","meetinget":"","meetinguser":""}
+{"id":1484362509972,"meetingdate":"2017-1-16","meetingtt":"是是是","meetingroom":"132","meetingst":"10:35","meetinget":"10:35","meetinguser":""}
+{"id":1484362513335,"meetingdate":"2017-1-17","meetingtt":" 会议002","meetingroom":"456","meetingst":"","meetinget":"","meetinguser":""}
