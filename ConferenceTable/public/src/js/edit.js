@@ -34,7 +34,17 @@
             },
             deleteInput: function (deleteBtn) {
                 $('body').on('click', '.' + deleteBtn, function () {
-                    $(this).parents('.meeting').remove();
+                    var $this = $(this);
+                    $.ajax({
+                        type: "GET",
+                        url: $('.lists-wrap').data('delurl'),
+                        data: {
+                            id: $this.parents('.metting-bg').attr('id')
+                        },
+                        success: function (result) {
+                            $this.parents('.metting-bg').remove();
+                        }
+                    });                   
                 })
             },
             cancalInput: function (cancalBtn, targetClass) {
