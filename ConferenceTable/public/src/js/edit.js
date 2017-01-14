@@ -8,7 +8,6 @@
                     $(this).parents('.meeting').find('.mr').prop('readonly', true).prop('disabled', false).addClass(targetClass);
                     $(this).parents('.meeting').find('.datetimepicker1').prop('disabled', false).addClass(targetClass);
                     $(this).parents('.meeting').find('.save,.cancal,.delete').show();
-
                 });
             },
             saveInput: function (saveBtn, targetClass) {
@@ -126,47 +125,26 @@
     //时间
     var time = (function () {
         return {
-            timeShow: function (currentTime, addDayCount) {
-                var time = new Date();
-                //获取AddDayCount天后的日期 
-                var td = time.getDate();
-                time.setDate(td + addDayCount);
-                var dd = time.getDay();
-                var y = time.getFullYear();
-                var m = time.getMonth() + 1;
-                ////考虑周末
-                //if (dd == 6 || dd == 0) {
-                //    time.setDate(td + addDayCount + 2);
-                //} 
-                //if (dd == 1 && currentTime =='g-tomorrow') {
-                //    time.setDate(td + addDayCount + 2);
-                //}
-                var d = time.getDate();
-                //输出时间
-                var time = y + "-" + m + "-" + d;
-                $('.' + currentTime).text(time);
-            },
             timePeriod: function () {
                 $('.datetimepicker1').datetimepicker({
                     datepicker: false,
                     format: 'H:i',
-                    step: 5
+                    step: 10,
+                    hourMin: 8,
+                    hourMax: 17
                 });
             }
         }
     })()
-    time.timeShow('today', 0);
-    time.timeShow('tomorrow', 1);
-    time.timeShow('a-tomorrow', 2);
-    time.timeShow('g-tomorrow', 3);
     //start-end-time
     time.timePeriod();
     //下拉菜单
     var select = (function () {
         return {
             showList: function (clickInput) {
-                $('body').on('click', '.' + clickInput, function () {
+                $('body').on('click', '.' + clickInput, function (event) {
                     $(this).next().toggle();
+                    event.stopPropagation();
                 })
             },
             selectValue: function (selectVal, targetVal) {
@@ -175,9 +153,15 @@
                     $(this).parents('.meeting-room').find('.' + targetVal).val($chooseVal);
                     $('.room-list').hide();
                 })
+            },
+            hide: function () {
+                $('body').on('click', function () {
+                    $('.room-list').hide();
+                })
             }
         }
     })();
     select.showList('mr')
     select.selectValue('room-list a', 'mr')
+    select.hide();
 })()

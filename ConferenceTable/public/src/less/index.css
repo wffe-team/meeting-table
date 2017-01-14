@@ -2,7 +2,17 @@
   font-size: 12px;
   font-family: 'Microsoft YaHei';
   color: #4d4d4d;
-  background-color: #b04632;
+  background: rebeccapurple;
+}
+.clear {
+  zoom: 1;
+}
+.clear:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
 }
 .nav {
   overflow: hidden;
@@ -16,7 +26,8 @@
   margin: 2px auto;
 }
 .lists-wrap {
-  margin: 50px;
+  width: 1300px;
+  margin: 50px auto;
 }
 .lists-wrap .meeting-wrap {
   position: relative;
@@ -24,7 +35,7 @@
 .lists-wrap .list-meeting {
   display: inline-block;
   float: left;
-  width: 23%;
+  width: 290px;
   margin: 0 1%;
   border-radius: 3px;
   background-color: #E2E4E6;
@@ -95,12 +106,18 @@
   line-height: 24px;
   text-align: center;
 }
+.lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover {
+  background-color: #ff8000 ;
+}
+.lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover a {
+  color: #fff;
+}
 .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list a {
   color: #4d4d4d;
   text-decoration: none;
 }
 .lists-wrap .list-meeting .meeting .bd .details .time-start .edit-text {
-  width: 63px;
+  width: 65px;
   text-align: center;
 }
 .lists-wrap .list-meeting .meeting .bd .details .time-start .edit-text:hover {
@@ -110,7 +127,7 @@
   line-height: 24px;
 }
 .lists-wrap .list-meeting .meeting .bd .details .time-end .edit-text {
-  width: 68px;
+  width: 65px;
   text-align: center;
 }
 .lists-wrap .list-meeting .meeting .bd .details .time-end .edit-text:hover {

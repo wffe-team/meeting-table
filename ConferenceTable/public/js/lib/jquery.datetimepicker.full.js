@@ -2294,7 +2294,7 @@ var DateFormatter;
 						};
 
 						if (!options.allowTimes || !$.isArray(options.allowTimes) || !options.allowTimes.length) {
-							for (i = 0, j = 0; i < (options.hours12 ? 12 : 24); i += 1) {
+							for (i = 8, j = 0; i < (options.hours12 ? 12 : 17); i += 1) {
 								for (j = 0; j < 60; j += options.step) {
 									h = (i < 10 ? '0' : '') + i;
 									m = (j < 10 ? '0' : '') + j;
