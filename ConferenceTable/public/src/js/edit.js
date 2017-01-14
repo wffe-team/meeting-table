@@ -11,7 +11,6 @@
                 })
             },
             saveInput: function (saveBtn, targetClass) {
-               
                 $('body').on('click', '.' + saveBtn, function () {
                     var $this = $(this);
                     var number = 1;
@@ -73,8 +72,8 @@
                     $(this).parent().prev().show();
                 })
             },
-            addContent: function () {
-                $('body').on('click', '.metting-add', function () {
+            addContent: function (mtAdd) {
+                $('body').on('click', '.' + mtAdd, function () {
                     var $mContent = $(this).prev().val();
                     var mettingHtml = "<div class='metting-bg'><div class='meeting new-metting'><div class='title'><input type='text' class='edit-text focus-input mt'  placeholder='会议主题' value=" + $mContent + "></div>"
                         + "<div class='bd'><div class='details clear'><div class='meeting-room'><input type='text' class='edit-text mr focus-input ' placeholder='会议室' readonly value=''/>"
@@ -92,7 +91,7 @@
         }
     })()
     add.cancalBtn('cancal-btn');
-    add.addContent();
+    add.addContent('metting-add');
     //时间
     var time = (function () {
         return {
