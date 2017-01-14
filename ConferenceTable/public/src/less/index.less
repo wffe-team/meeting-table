@@ -4,31 +4,6 @@
     color: #4d4d4d;
 }
 
-.clear {
-    zoom: 1;
-
-    &:after {
-        display: block;
-        clear: both;
-        content: "";
-        visibility: hidden;
-        height: 0;
-    }
-}
-
-* {
-    padding: 0;
-    margin: 0;
-}
-
-input {
-    outline: none;
-}
-
-.active-drag {
-    border: 1px solid red;
-}
-
 .lists-wrap {
     margin: 50px;
 
@@ -36,24 +11,12 @@ input {
         position: relative;
     }
 
-    .dustbin {
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        right: 20px;
-        top: 5px;
-        transition: transform .5s;
-    }
-
-    .open {
-        transform: scale(1.4);
-    }
-
     .list-meeting {
-        float: left;
         display: inline-block;
+        float: left;
         width: 23%;
         margin: 0 1%;
+        border-radius:3px;
         background-color: #E2E4E6;
 
         .date {
@@ -62,34 +25,27 @@ input {
             font-size: 24px;
         }
 
-        .metting-bg {
-            margin: 0 auto;
-            background-color: #ddd;
-        }
 
         .meeting {
+            position: relative;
             padding: 10px;
             margin: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             background-color: #fff;
 
-            &:hover {
-                cursor: pointer;
-            }
-
             input {
                 width: 50px;
                 height: 18px;
                 padding: 3px;
+                border: 1px solid #fff;
                 line-height: 18px;
                 color: #4d4d4d;
-                border: 1px solid #fff;
             }
 
             .focus-input {
-                border-radius: 2px;
                 border: 1px solid #E2E4E6;
+                border-radius: 2px;
             }
 
             .title {
@@ -98,14 +54,12 @@ input {
                 line-height: 30px;
                 font-size: 16px;
 
-                input {
-                    width: 217px;
+                .mt {
+                    width: 70%;
                 }
             }
 
             .bd {
-
-
                 .details {
                     margin-bottom: 5px;
 
@@ -114,15 +68,15 @@ input {
                         float: left;
                         padding-right: 5px;
 
-                        &.meetingRoom {
-                            input {
-                                width: 80px;
+                        &.meeting-room {
+                            .mr {
+                                width: 60px;
                             }
                         }
                     }
 
-                    .timeStart {
-                        .edit {
+                    .time-start {
+                        .edit-text {
                             width: 63px;
                             text-align: center;
 
@@ -132,8 +86,12 @@ input {
                         }
                     }
 
-                    .timeEnd {
-                        .edit {
+                    .line {
+                        line-height: 24px;
+                    }
+
+                    .time-end {
+                        .edit-text {
                             width: 68px;
                             text-align: center;
 
@@ -147,7 +105,7 @@ input {
                 .user {
                     text-align: right;
 
-                    .edit {
+                    .edit-text {
                         width: 50px;
                         text-align: center;
                     }
@@ -161,23 +119,20 @@ input {
                     }
                 }
 
-
-
                 .handle {
-                    position: relative;
+                    margin-top: 8px;
 
-                    .icon-edit {
+                    .edit {
                         position: absolute;
-                        top: -89px;
-                        right: -4px;
-
+                        top: 12px;
+                        right: 12px;
 
                         &:hover {
                             cursor: pointer;
                         }
                     }
 
-                    .save, .cancal {
+                    .save, .cancal, .delete {
                         display: none;
 
                         &:hover {
@@ -185,30 +140,29 @@ input {
                         }
                     }
 
-                    input {
-                        height: 24px;
-                        line-height: 24px;
-                        text-align: center;
+                    .btn {
                         width: 43px;
+                        height: 24px;
                         padding: 0;
                         margin-right: 5px;
+                        line-height: 24px;
+                        text-align: center;
+                        background-color: #ddd;
                     }
                 }
             }
         }
 
-        .drag-active {
-        }
-
         .new-metting {
             .bd {
                 .handle {
-                    .save {
+                    .btn {
                         display: inline-block;
-                    }
-
-                    .cancal {
-                        display: inline-block;
+                        width: 43px;
+                        height: 24px;
+                        margin-right: 5px;
+                        line-height: 24px;
+                        text-align: center;
                     }
                 }
             }

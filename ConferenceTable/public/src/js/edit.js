@@ -4,9 +4,9 @@
         return {
             editInput: function (editBtn, targetClass) {
                 $('body').on('click', '.' + editBtn, function () {
-                    $(this).parents('.meeting').find('.edit').prop('readonly', false).addClass(targetClass);
+                    $(this).parents('.meeting').find('.edit-text').prop('readonly', false).addClass(targetClass);
                     $(this).parents('.meeting').find('.datetimepicker1').prop('disabled', false).addClass(targetClass);
-                    $(this).parents('.meeting').find('.save,.cancal').show();
+                    $(this).parents('.meeting').find('.save,.cancal,.delete').show();
                 })
             },
             saveInput: function (saveBtn, targetClass) {
@@ -25,9 +25,9 @@
                         },
                         success: function (result) {
                             $this.parents('.meeting').find('.datetimepicker1').prop('disabled', true).removeClass(targetClass);
-                            $this.parents('.meeting').find('.edit').prop('readonly', true).removeClass(targetClass);
+                            $this.parents('.meeting').find('.edit-text').prop('readonly', true).removeClass(targetClass);
                             $this.hide();
-                            $this.siblings('.cancal').hide();
+                            $this.siblings('.cancal,.delete').hide();
                         }
                     });
                 });
@@ -39,16 +39,17 @@
             },
             cancalInput: function (cancalBtn, targetClass) {
                 $('body').on('click', '.' + cancalBtn, function () {
-                    $(this).parents('.meeting').find('.edit').prop('readonly', true).removeClass(targetClass);
+                    $(this).parents('.meeting').find('.edit-text').prop('readonly', true).removeClass(targetClass);
                     $(this).parents('.meeting').find('.datetimepicker1').prop('disabled', true).removeClass(targetClass);
-                    $(this).parents('.meeting').find('.save,.cancal').hide();
+                    $(this).parents('.meeting').find('.save,.cancal,.delete').hide();
+                    location.reload();
                 })
             }
         }
     })()
-    edit.editInput('icon-edit', 'focus-input');
+    edit.editInput('edit', 'focus-input');
     edit.saveInput('save', 'focus-input');
-    edit.deleteInput('dele');
+    edit.deleteInput('delete');
     edit.cancalInput('cancal', 'focus-input');
     //增加
     var add = (function () {
@@ -62,23 +63,16 @@
             addContent: function () {
                 $('body').on('click', '.metting-add', function () {
                     var $mContent = $(this).prev().val();
-                    var mettingHtml = "<div class='metting-bg'><div class='meeting new-metting'><div class='title'><input type='text' class='edit focus-input mt'  placeholder='会议主题' value=" + $mContent + "></div>"
-                        + "<div class='bd'><div class='details clear'><div class='meetingRoom'><input type='text' class='edit focus-input mr' placeholder='会议室' value=''/></div>"
-                        + "<div class='timeStart'><input type='text' class='edit focus-input datetimepicker1 mst' value=''  placeholder='开始时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'>"
+                    var mettingHtml = "<div class='metting-bg'><div class='meeting new-metting'><div class='title'><input type='text' class='edit-text focus-input mt'  placeholder='会议主题' value=" + $mContent + "></div>"
+                        + "<div class='bd'><div class='details clear'><div class='meeting-room'><input type='text' class='edit-text focus-input mr' placeholder='会议室' value=''/></div>"
+                        + "<div class='time-start'><input type='text' class='edit-text focus-input datetimepicker1 mst' value=''  placeholder='开始时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'>"
                         + "</div><div>--</div>"
-                        + "<div class='timeEnd'><input type='text' class='edit focus-input datetimepicker1 met' value=''  placeholder='结束时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'></div></div>"
-                        + "<div class='user'><input type='text' class='edit focus-input mu' value='' placeholder='使用人'></div>"
-                        + "<div class='handle'><input type='button' class='icon-edit' value= '编辑' /><input type='button' class='save' value= '保存' /><input type='button' class='cancal' value= '取消'/></div></div>";
+                        + "<div class='time-end'><input type='text' class='edit-text focus-input datetimepicker1 met' value=''  placeholder='结束时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'></div></div>"
+                        + "<div class='user'><input type='text' class='edit-text focus-input mu' value='' placeholder='使用人'></div>"
+                        + "<div class='handle'><input type='button' class='btn edit' value= '编辑' /><input type='button' class='btn save' value= '保存' /><input type='button' class='btn cancal' value= '取消'/><input type='button' class='btn delete' value= '删除'/></div></div>";
                     $(this).parents('.list-meeting').find('.meeting-wrap').append(mettingHtml);
                     //解决默认添加，点击两次才能出现下拉时间段
                     $('.datetimepicker1').click();
-                    $('.meeting').draggable({
-                        cursor: "move",
-                        revert: true,
-                        revertDuration: 200,
-                        opacity: 0.7,
-                        zIndex: 100,
-                    });
                 })
             }
         }
@@ -123,38 +117,4 @@
     time.timeShow('g-tomorrow', 3);
     //start-end-time
     time.timePeriod();
-    //拖拽删除
-    var drag = (function () {
-        return {
-            drag: function () {
-                var dustbin = $('.dustbin'),
-                    meeting = $('.meeting');
-                meeting.draggable({
-                    cursor: "move",
-                    revert: true,
-                    revertDuration: 200,
-                    opacity: 0.7,
-                    zIndex: 100,
-                });
-                dustbin.droppable({
-                    activeClass: "active-drag",
-                    hoverClass:"open",
-                    drop: function (event, ui) {
-                        ui.draggable.remove();
-                        //$.ajax({
-                        //    type: "GET",
-                        //    url: $('.lists-wrap').data('url'),
-                        //    data: {
-                        //        id: meeting.parents('.metting-bg').siblings('.date').text() + meeting.parent().siblings('.details').find('.mst').val() + meeting.parent().siblings('.details').find('.mr').val(),
-                        // },
-                        //    success: function (result) {
-                        //        alert(result.id);
-                        //    }
-                        //});
-                    }
-                });
-            },
-        }
-    })()
-    drag.drag();
 })()

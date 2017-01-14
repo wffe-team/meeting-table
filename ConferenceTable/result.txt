@@ -1,6 +1,7 @@
-﻿{"id":1484302586269,"meetingdate":"2017-1-13","meetingtt":"年终总结","meetingroom":"231","meetingst":"18:15","meetinget":"18:25","meetinguser":"张凯迪"}
-{"id":1484302601233,"meetingdate":"2017-1-14","meetingtt":"立项","meetingroom":"231","meetingst":"18:15","meetinget":"18:30","meetinguser":"安晓凯"}
-{"id":1484302615578,"meetingdate":"2017-1-15","meetingtt":"结项","meetingroom":"233","meetingst":"18:15","meetinget":"18:30","meetinguser":"崔维娜"}
-{"id":1484302633595,"meetingdate":"2017-1-16","meetingtt":"验收","meetingroom":"233","meetingst":"18:15","meetinget":"18:30","meetinguser":"鹿丹"}
-{"id":1484353958057,"meetingdate":"2017-1-14","meetingtt":"","meetingroom":"","meetingst":"08:30","meetinget":"","meetinguser":""}
-{"id":1484358527969,"meetingdate":"2017-1-14","meetingtt":"","meetingroom":"","meetingst":"10:00","meetinget":"","meetinguser":""}
+﻿{"meetingdate":"2017-1-14","meetingtt":"会议001","meetingroom":"274","meetingst":"10:30","meetinget":"10:40","meetinguser":""}
+{"meetingdate":"2017-1-14","meetingtt":"会议001","meetingroom":"275","meetingst":"10:30","meetinget":"10:40","meetinguser":""}
+{"meetingdate":"2017-1-15","meetingtt":"会议001","meetingroom":"564","meetingst":"10:35","meetinget":"10:40","meetinguser":""}
+{"meetingdate":"2017-1-16","meetingtt":"是是是","meetingroom":"132","meetingst":"","meetinget":"","meetinguser":""}
+{"meetingdate":"2017-1-16","meetingtt":"是是是","meetingroom":"132","meetingst":"10:35","meetinget":"10:35","meetinguser":""}
+{"meetingdate":"2017-1-16","meetingtt":"是是是","meetingroom":"132","meetingst":"10:35","meetinget":"10:35","meetinguser":""}
+{"meetingdate":"2017-1-17","meetingtt":" 会议002","meetingroom":"456","meetingst":"","meetinget":"","meetinguser":""}
