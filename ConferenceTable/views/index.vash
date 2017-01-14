@@ -1,7 +1,7 @@
 ﻿@html.extend('layout', function(model){
     @html.block('content', function(model){
 <div class="content">
-    <div class="lists-wrap clear" data-url="/save" data-editurl="/edit" data-delurl="/delete">
+    <div class="lists-wrap clear" data-url="/save" data-delurl="/delete">
         @for(var i=0;i < model.value.length; i++)
         {
         <div class="list-meeting">
