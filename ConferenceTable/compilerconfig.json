@@ -2,5 +2,9 @@
   {
     "outputFile": "public/src/less/index.css",
     "inputFile": "public/src/less/index.less"
+  },
+  {
+    "outputFile": "public/src/less/shake.css",
+    "inputFile": "public/src/less/shake.less"
   }
 ]

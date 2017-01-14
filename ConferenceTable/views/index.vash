@@ -16,7 +16,14 @@
                         <div class="bd">
                             <div class="details clear">
                                 <div class="meeting-room">
-                                    <input type="text" class="edit-text mr" placeholder="会议室" value="@model.value[i].value[j].meetingroom" readonly />
+                                    <input type="text" class="edit-text mr" placeholder="会议室" value="@model.value[i].value[j].meetingroom" disabled />
+                                    <ul class="room-list">
+                                        <li><a href="#">274</a></li>
+                                        <li><a href="#">275</a></li>
+                                        <li><a href="#">276</a></li>
+                                        <li><a href="#">277</a></li>
+                                        <li><a href="#">278</a></li>
+                                    </ul>
                                 </div>
                                 <div class="time-start">
                                     <input type="text" class="edit-text datetimepicker1 mst" value="@model.value[i].value[j].meetingst" placeholder="开始时间" disabled />

@@ -16,7 +16,7 @@
         float: left;
         width: 23%;
         margin: 0 1%;
-        border-radius:3px;
+        border-radius: 3px;
         background-color: #E2E4E6;
 
         .date {
@@ -56,6 +56,7 @@
 
                 .mt {
                     width: 70%;
+                    text-indent: 18px;
                 }
             }
 
@@ -69,8 +70,36 @@
                         padding-right: 5px;
 
                         &.meeting-room {
+                            position: relative;
+
                             .mr {
                                 width: 60px;
+                                text-indent: 18px;
+
+
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+
+                            .room-list {
+                                display: none;
+                                z-index: 2;
+                                position: absolute;
+                                top: 25px;
+                                width: 66px;
+                                background-color: #fff;
+                                border: 1px solid #e2e4e6;
+
+                                li {
+                                    line-height: 24px;
+                                    text-align: center;
+                                }
+
+                                a {
+                                    color: #4d4d4d;
+                                    text-decoration: none;
+                                }
                             }
                         }
                     }
@@ -179,4 +208,40 @@
             display: none;
         }
     }
+}
+
+@keyframes sharkbd {
+    0% {
+        -webkit-transform: translateX(3px) rotate(2deg);
+        border: 1px solid red;
+    }
+
+    20% {
+        -webkit-transform: translateX(-3px) rotate(-2deg);
+        border: 1px solid red;
+    }
+
+    40% {
+        -webkit-transform: translateX(3px) rotate(2deg);
+        border: 1px solid red;
+    }
+
+    60% {
+        -webkit-transform: translateX(-3px) rotate(-2deg);
+        border: 1px solid red;
+    }
+
+    80% {
+        -webkit-transform: translateX(3px) rotate(2deg);
+        border: 1px solid red;
+    }
+
+    100% {
+        -webkit-transform: translateX(-3px) rotate(-2deg);
+        border: 1px solid red;
+    }
+}
+
+.shake {
+    animation: sharkbd 1s;
 }
