@@ -8,7 +8,8 @@
                     $(this).parents('.meeting').find('.mr').prop('readonly', true).prop('disabled', false).addClass(targetClass);
                     $(this).parents('.meeting').find('.datetimepicker1').prop('disabled', false).addClass(targetClass);
                     $(this).parents('.meeting').find('.save,.cancal,.delete').show();
-                })
+
+                });
             },
             saveInput: function (saveBtn, targetClass) {
                 $('body').on('click', '.' + saveBtn, function () {
@@ -22,6 +23,7 @@
                         }
                     })
                     if (number == 1) {
+                        if ($this.parents('.metting-bg').attr('id') == undefined) {
                         $.ajax({
                             type: "GET",
                             url: $('.lists-wrap').data('url'),
@@ -38,8 +40,27 @@
                                 $this.parents('.meeting').find('.edit-text').prop('readonly', true).removeClass(targetClass);
                                 $this.hide();
                                 $this.siblings('.cancal,.delete').hide();
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            $.ajax({
+                                type: "GET",
+                                url: $('.lists-wrap').data('url'),
+                                data: {
+                                    id: $this.parents('.metting-bg').attr('id'),
+                                    meetingdate: $this.parents('.metting-bg').siblings('.date').text(),
+                                    meetingtt: $this.parents('.bd').siblings('.title').find('.mt').val(),
+                                    meetingroom: $this.parent().siblings('.details').find('.mr').val(),
+                                    meetingst: $this.parent().siblings('.details').find('.mst').val(),
+                                    meetinget: $this.parent().siblings('.details').find('.met').val(),
+                                    meetinguser: $this.parent().siblings('.user').find('.mu').val()
+                                },
+                                success: function (result) {
+                                    location.reload();
                             }
                         });
+                    }
                     }
                 });
             },
