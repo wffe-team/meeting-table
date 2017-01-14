@@ -39,20 +39,28 @@
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
     <None Include="compilerconfig.json" />
+    <None Include="bundleconfig.json" />
     <Content Include="compilerconfig.json.defaults">
       <SubType>Content</SubType>
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
     <Content Include="package.json" />
+    <Content Include="public\css\global.css" />
+    <Content Include="public\css\global.min.css">
+      <SubType>Content</SubType>
+      <DependentUpon>public\css\global.css</DependentUpon>
+    </Content>
     <Content Include="public\favicon.ico" />
-    <Content Include="public\src\imgs\dustbin.png" />
-    <Content Include="public\src\less\index.css" />
+    <Content Include="public\src\less\index.css">
+      <SubType>Content</SubType>
+      <DependentUpon>public\src\less\index.less</DependentUpon>
+    </Content>
     <Content Include="public\src\less\index.less" />
+    <Content Include="public\css\jquery.datetimepicker.css" />
     <Content Include="public\src\less\index.min.css">
       <SubType>Content</SubType>
       <DependentUpon>public\src\less\index.css</DependentUpon>
     </Content>
-    <Content Include="public\src\less\jquery.datetimepicker.css" />
     <Content Include="public\src\less\reset.css" />
     <Content Include="README.md" />
     <Content Include="result.txt" />
@@ -72,7 +80,6 @@
     <Folder Include="public\src\img\" />
     <Folder Include="public\src\js\" />
     <Folder Include="public\src\less\" />
-    <Folder Include="public\src\imgs\" />
     <Folder Include="routes\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />

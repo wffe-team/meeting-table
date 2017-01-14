@@ -4,14 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>会议室预定系统</title>
-    <link href="../src/less/index.css" rel="stylesheet" />
-    <link href="../src/less/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="../css/global.min.css" rel="stylesheet" />
+    <link href="../css/jquery.datetimepicker.css" rel="stylesheet" />
 </head>
 <body>
     @html.block('content')
-    <script src="../js/lib/jquery-1.12.4.min.js"></script>
-    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script src="../js/lib/jquery.datetimepicker.full.js"></script>
     @html.block('script')
 </body>
 </html>
