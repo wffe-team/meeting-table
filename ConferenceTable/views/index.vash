@@ -23,11 +23,11 @@
                                 <div class="meeting-room">
                                     <input type="text" class="edit-text mr" placeholder="会议室" value="@model.value[i].value[j].meetingroom" disabled />
                                     <ul class="room-list">
-                                        <li><a href="#">274</a></li>
-                                        <li><a href="#">275</a></li>
-                                        <li><a href="#">276</a></li>
-                                        <li><a href="#">277</a></li>
-                                        <li><a href="#">278</a></li>
+                                        <li><a href="javascript:;">274</a></li>
+                                        <li><a href="javascript:;">275</a></li>
+                                        <li><a href="javascript:;">276</a></li>
+                                        <li><a href="javascript:;">277</a></li>
+                                        <li><a href="javascript:;">278</a></li>
                                     </ul>
                                 </div>
                                 <div class="time-start">

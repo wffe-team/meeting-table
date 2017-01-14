@@ -27,11 +27,11 @@
                             url: $('.lists-wrap').data('url'),
                             data: {
                                 meetingdate: $this.parents('.metting-bg').siblings('.date').text(),
-                                meetingtt: $this.parents('.bd').siblings('.title').find('.mt').val(),
+                                meetingtt: $.trim($this.parents('.bd').siblings('.title').find('.mt').val()),
                                 meetingroom: $this.parent().siblings('.details').find('.mr').val(),
                                 meetingst: $this.parent().siblings('.details').find('.mst').val(),
                                 meetinget: $this.parent().siblings('.details').find('.met').val(),
-                                meetinguser: $this.parent().siblings('.user').find('.mu').val()
+                                meetinguser: $.trim($this.parent().siblings('.user').find('.mu').val())
                             },
                             success: function (result) {
                                 $this.parents('.meeting').find('.datetimepicker1').prop('disabled', true).removeClass(targetClass);
@@ -87,7 +87,7 @@
                     var $mContent = $(this).prev().val();
                     var mettingHtml = "<div class='metting-bg'><div class='meeting new-metting'><div class='title'><input type='text' class='edit-text focus-input mt'  placeholder='会议主题' value=" + $mContent + "></div>"
                         + "<div class='bd'><div class='details clear'><div class='meeting-room'><input type='text' class='edit-text mr focus-input ' placeholder='会议室' readonly value=''/>"
-                        + "<ul class='room-list'><li> <a href='#'>274</a></li><li><a href='#'>275</a></li><li><a href='#'>276</a></li><li><a href='#'>277</a></li><li><a href='#'>278</a></li></ul ></div>"
+                        + "<ul class='room-list'><li> <a href='javascript:;'>274</a></li><li><a href='javascript:;'>275</a></li><li><a href='javascript:;'>276</a></li><li><a href='javascript:;'>277</a></li><li><a href='javascript:;'>278</a></li></ul ></div>"
                         + "<div class='time-start'><input type='text' class='edit-text focus-input datetimepicker1 mst' value=''  placeholder='开始时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'>"
                         + "</div><div class='line'>--</div>"
                         + "<div class='time-end'><input type='text' class='edit-text focus-input datetimepicker1 met' value=''  placeholder='结束时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'></div></div>"
