@@ -9,7 +9,7 @@
                 <img class="dustbin" id="droppable" src="../src/imgs/dustbin.png" />
                 <div class="date">@model.value[i].date</div>
                 @for(var j=0;j < model.value[i].value.length;j++){
-                <div class="metting-bg">
+                <div class="metting-bg" id="@model.value[i].value[j].id">
                     <div class="meeting">
                         <div class="title">
                             <input type="text" class="edit mt" placeholder="会议主题" value="@model.value[i].value[j].meetingtt" name="edit" readonly />
