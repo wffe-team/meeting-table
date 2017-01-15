@@ -22,24 +22,24 @@
                         }
                     })
                     if (number == 1) {
-                    //add meeting
+                        //add meeting
                         if ($this.parents('.metting-bg').attr('id') == undefined) {
-                        $.ajax({
-                            type: "GET",
-                            url: $('.lists-wrap').data('url'),
-                            data: {
-                                meetingdate: $this.parents('.metting-bg').siblings('.date').text(),
-                                meetingtt: $.trim($this.parents('.bd').siblings('.title').find('.mt').val()),
-                                meetingroom: $this.parent().siblings('.details').find('.mr').val(),
-                                meetingst: $this.parent().siblings('.details').find('.mst').val(),
-                                meetinget: $this.parent().siblings('.details').find('.met').val(),
-                                meetinguser: $.trim($this.parent().siblings('.user').find('.mu').val())
-                            },
-                            success: function (result) {
-                                $this.parents('.meeting').find('.datetimepicker1').prop('disabled', true).removeClass(targetClass);
-                                $this.parents('.meeting').find('.edit-text').prop('readonly', true).removeClass(targetClass);
-                                $this.hide();
-                                $this.siblings('.cancal,.delete').hide();
+                            $.ajax({
+                                type: "GET",
+                                url: $('.lists-wrap').data('url'),
+                                data: {
+                                    meetingdate: $this.parents('.metting-bg').siblings('.date').text(),
+                                    meetingtt: $.trim($this.parents('.bd').siblings('.title').find('.mt').val()),
+                                    meetingroom: $this.parent().siblings('.details').find('.mr').val(),
+                                    meetingst: $this.parent().siblings('.details').find('.mst').val(),
+                                    meetinget: $this.parent().siblings('.details').find('.met').val(),
+                                    meetinguser: $.trim($this.parent().siblings('.user').find('.mu').val())
+                                },
+                                success: function (result) {
+                                    $this.parents('.meeting').find('.datetimepicker1').prop('disabled', true).removeClass(targetClass);
+                                    $this.parents('.meeting').find('.edit-text').prop('readonly', true).removeClass(targetClass);
+                                    $this.hide();
+                                    $this.siblings('.cancal,.delete').hide();
                                     location.reload();
                                 }
                             });
@@ -60,9 +60,9 @@
                                 },
                                 success: function (result) {
                                     location.reload();
-                            }
-                        });
-                    }
+                                }
+                            });
+                        }
                     }
                 });
             },
@@ -78,16 +78,25 @@
                         success: function (result) {
                             $this.parents('.metting-bg').remove();
                         }
-                    });                   
+                    });
                 })
             },
             cancalInput: function (cancalBtn, targetClass) {
                 $('body').on('click', '.' + cancalBtn, function () {
+                    var $mt = $(this).parents('.meeting').find('.mt').data('text');
+                    var $mr = $(this).parents('.meeting').find('.mr').data('text');
+                    var $mst = $(this).parents('.meeting').find('.mst').data('text');
+                    var $met = $(this).parents('.meeting').find('.met').data('text');
+                    var $mu = $(this).parents('.meeting').find('.mu').data('text');
+                    $(this).parents('.meeting').find('.mt').val($mt);
+                    $(this).parents('.meeting').find('.mr').val($mr);
+                    $(this).parents('.meeting').find('.mst').val($mst);
+                    $(this).parents('.meeting').find('.mr').val($mr);
+                    $(this).parents('.meeting').find('.mu').val($mu);
                     $(this).parents('.meeting').find('.edit-text').prop('readonly', true).removeClass(targetClass);
-                    $(this).parents('.meeting').find('.mr').prop('disabled', true).addClass(targetClass);
+                    $(this).parents('.meeting').find('.mr').prop('disabled', true).removeClass(targetClass);
                     $(this).parents('.meeting').find('.datetimepicker1').prop('disabled', true).removeClass(targetClass);
                     $(this).parents('.meeting').find('.save,.cancal,.delete').hide();
-                    location.reload();
                 })
             }
         }
@@ -117,10 +126,10 @@
                         + "<div class='user'><input type='text' class='edit-text focus-input mu' value='' placeholder='使用人'></div>"
                         + "<div class='handle'><input type='button' class='btn edit' value= '编辑' /><input type='button' class='btn save' value= '保存' /><input type='button' class='btn cancal' value= '取消'/><input type='button' class='btn delete' value= '删除'/></div></div>";
                     $(this).parents('.list-meeting').find('.meeting-wrap').append(mettingHtml);
-                    
+
                     //解决默认添加，点击两次才能出现下拉时间段
                     $('.datetimepicker1').click();
-                   
+
                 })
             }
         }

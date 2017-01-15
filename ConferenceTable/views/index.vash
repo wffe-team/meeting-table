@@ -16,12 +16,12 @@
                 <div class="metting-bg" id="@model.value[i].value[j].id">
                     <div class="meeting">
                         <div class="title">
-                            <input type="text" class="edit-text mt" placeholder="会议主题" value="@model.value[i].value[j].meetingtt" readonly />
+                            <input type="text" class="edit-text mt" placeholder="会议主题" data-text="@model.value[i].value[j].meetingtt" value="@model.value[i].value[j].meetingtt" readonly />
                         </div>
                         <div class="bd">
                             <div class="details clear">
                                 <div class="meeting-room">
-                                    <input type="text" class="edit-text mr" placeholder="会议室" value="@model.value[i].value[j].meetingroom" disabled />
+                                    <input type="text" class="edit-text mr" placeholder="会议室" data-text="@model.value[i].value[j].meetingroom" value="@model.value[i].value[j].meetingroom" disabled />
                                     <ul class="room-list">
                                         <li><a href="javascript:;">274</a></li>
                                         <li><a href="javascript:;">275</a></li>
@@ -31,15 +31,15 @@
                                     </ul>
                                 </div>
                                 <div class="time-start">
-                                    <input type="text" class="edit-text datetimepicker1 mst" value="@model.value[i].value[j].meetingst" placeholder="开始时间" disabled />
+                                    <input type="text" class="edit-text datetimepicker1 mst" data-text="@model.value[i].value[j].meetingst" value="@model.value[i].value[j].meetingst" placeholder="开始时间" disabled />
                                 </div>
                                 <div class="line">--</div>
                                 <div class="time-end">
-                                    <input type="text" class="edit-text datetimepicker1 met" value="@model.value[i].value[j].meetinget" placeholder="结束时间" disabled />
+                                    <input type="text" class="edit-text datetimepicker1 met" data-text="@model.value[i].value[j].meetinget" value="@model.value[i].value[j].meetinget" placeholder="结束时间" disabled />
                                 </div>
                             </div>
                             <div class="user">
-                                <input type="text" class="edit-text mu" value="@model.value[i].value[j].meetinguser" placeholder="使用人" readonly />
+                                <input type="text" class="edit-text mu" data-text="@model.value[i].value[j].meetinguser" value="@model.value[i].value[j].meetinguser" placeholder="使用人" readonly />
                             </div>
                             <div class="handle">
                                 <input type="button" class="btn edit" value="编辑" />
