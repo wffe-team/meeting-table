@@ -134,6 +134,7 @@ body {
   cursor: pointer;
 }
 .lists-wrap .list-meeting .meeting .bd .user {
+  margin-right: 9px;
   text-align: right;
 }
 .lists-wrap .list-meeting .meeting .bd .user .edit-text {
