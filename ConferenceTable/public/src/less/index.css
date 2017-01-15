@@ -73,7 +73,7 @@
 }
 .lists-wrap .list-meeting .meeting .title .mt {
   width: 70%;
-  text-indent: 18px;
+  text-indent: 13px;
 }
 .lists-wrap .list-meeting .meeting .bd .details {
   margin-bottom: 5px;
@@ -88,7 +88,7 @@
 }
 .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr {
   width: 60px;
-  text-indent: 18px;
+  text-indent: 13px;
 }
 .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr:hover {
   cursor: pointer;
