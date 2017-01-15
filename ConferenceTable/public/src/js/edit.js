@@ -21,6 +21,16 @@
                             return false;
                         }
                     })
+                    $this.parents('.list-meeting').find('.metting-bg').each(function () {
+                        if ($(this).find('.met').val() < $(this).find('.mst').val()) {
+                            alert('结束时间小于开始时间，请重新选择！');
+                            number = 0;
+                        }
+                        if ($(this).find('.mst').val() <= $(this).prev().find('.met').val()) {
+                            alert('时间存在冲突，请重新选择！');
+                            number = 0;
+                        }
+                    });
                     if (number == 1) {
                         //add meeting
                         if ($this.parents('.metting-bg').attr('id') == undefined) {
