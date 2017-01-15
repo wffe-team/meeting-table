@@ -41,9 +41,16 @@ router.get('/', function (req, res) {
                         arr4.push(jsonarr);
                     }
                 }
-                for (var i = 0; i < arr1.length; i++) {
-                    if (arr1[i + 1] == '' || arr1[i + 1] == undefined) { continue; }
-                    arr1.sort(sortNumber(arr1[i].meetingst, arr1[i + 1].meetingst));
+                arr1.sort(sortNumber);
+                arr2.sort(sortNumber);
+                arr3.sort(sortNumber);
+                arr4.sort(sortNumber);
+                function sortNumber(a, b) {
+                    if (a.meetingst > b.meetingst)
+                        return 1;
+                    else {
+                        return -1;
+                    }
                 }
                 arr.push({ date: td, value: arr1 });//今天所有会议数组
                 arr.push({ date: tm, value: arr2 });//明天所有会议数组
@@ -54,13 +61,6 @@ router.get('/', function (req, res) {
 
             }
         });
-        function sortNumber(a, b) {
-            if (a > b == true) {
-                return 1;
-            } else if (a < b == false) {
-                return -1;
-            }
-        }
     }    
 });
 
