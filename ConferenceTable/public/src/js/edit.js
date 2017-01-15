@@ -111,14 +111,16 @@
                     var mettingHtml = "<div class='metting-bg'><div class='meeting new-metting'><div class='title'><input type='text' class='edit-text focus-input mt'  placeholder='会议主题' value=" + $mContent + "></div>"
                         + "<div class='bd'><div class='details clear'><div class='meeting-room'><input type='text' class='edit-text mr focus-input ' placeholder='会议室' readonly value=''/>"
                         + "<ul class='room-list'><li> <a href='javascript:;'>274</a></li><li><a href='javascript:;'>275</a></li><li><a href='javascript:;'>276</a></li><li><a href='javascript:;'>277</a></li><li><a href='javascript:;'>278</a></li></ul ></div>"
-                        + "<div class='time-start'><input type='text' class='edit-text focus-input datetimepicker1 mst' value=''  placeholder='开始时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'>"
+                        + "<div class='time-start'><input type='text' class='edit-text focus-input datetimepicker1 mst' value=''  placeholder='开始时间' onclick='$(this).datetimepicker({ datepicker: false, step: 10,format: &quot;H:i&quot})'>"
                         + "</div><div class='line'>--</div>"
-                        + "<div class='time-end'><input type='text' class='edit-text focus-input datetimepicker1 met' value=''  placeholder='结束时间' onclick='$(this).datetimepicker({ datepicker: false, step: 5,format: &quot;H:i&quot})'></div></div>"
+                        + "<div class='time-end'><input type='text' class='edit-text focus-input datetimepicker1 met' value=''  placeholder='结束时间' onclick='$(this).datetimepicker({ datepicker: false, step: 10,format: &quot;H:i&quot})'></div></div>"
                         + "<div class='user'><input type='text' class='edit-text focus-input mu' value='' placeholder='使用人'></div>"
                         + "<div class='handle'><input type='button' class='btn edit' value= '编辑' /><input type='button' class='btn save' value= '保存' /><input type='button' class='btn cancal' value= '取消'/><input type='button' class='btn delete' value= '删除'/></div></div>";
                     $(this).parents('.list-meeting').find('.meeting-wrap').append(mettingHtml);
+                    
                     //解决默认添加，点击两次才能出现下拉时间段
                     $('.datetimepicker1').click();
+                   
                 })
             }
         }
@@ -132,9 +134,7 @@
                 $('.datetimepicker1').datetimepicker({
                     datepicker: false,
                     format: 'H:i',
-                    step: 10,
-                    hourMin: 8,
-                    hourMax: 17
+                    step: 10
                 });
             }
         }

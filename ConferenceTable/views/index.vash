@@ -54,7 +54,6 @@
             </div>
             <div class="metting-add"><a>Add Metting ...</a></div>
             <div class="metting-text">
-                <textarea class="metting-content" name=""></textarea>
                 <button class="add-btn">Add</button><button class="cancal-btn">Cancal</button>
             </div>
         </div>
