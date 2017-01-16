@@ -26,7 +26,7 @@
                             $(this).parent('.meeting-wrap').find('.error-show').fadeIn().fadeOut(3000);
                             number = 0;
                         }
-                        if ($(this).find('.mst').val() != '' && $(this).find('.mst').val() <= $(this).prev().find('.met').val() && $(this).find('.mst').val() > $(this).prev().find('.mst').val()) {
+                        if ($(this).find('.mst').val() != '' && $(this).find('.mst').val() <= $(this).prev().find('.met').val() && $(this).find('.mst').val() >= $(this).prev().find('.mst').val()) {
                             $(this).parent('.meeting-wrap').find('.error-show').fadeIn().fadeOut(3000);
                             number = 0;
                         }
