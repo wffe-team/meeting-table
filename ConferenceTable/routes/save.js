@@ -8,8 +8,7 @@ router.get('/', function (req, res) {
     updateFile(file);
     function updateFile(file) {
         fs.readFile(file, 'utf8', function (err, str) {
-            var strs = str.substring(0, str.length)
-            var array = strs.split('\r\n');
+            var array = str.split('\r\n');
             //add meeting
             if (req.query.id == undefined) {
                 var date = new Date();
@@ -35,8 +34,7 @@ router.get('/', function (req, res) {
             }
             //edit meeting
             else {
-                var strs = str.substring(0, str.length)
-                var array = strs.split('\r\n');
+                var array = str.split('\r\n');
                 for (var i = 0; i < array.length; i++) {
                     if (array[i] == "") {
                         continue;

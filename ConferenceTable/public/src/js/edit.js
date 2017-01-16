@@ -13,6 +13,8 @@
             saveInput: function (saveBtn, targetClass) {
                 $('body').on('click', '.' + saveBtn, function () {
                     var $this = $(this);
+                    var date = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
+                    var time = new Date().getHours() + ':' + new Date().getMinutes();
                     var number = 1;
                     $(this).parents('.meeting').find('.edit-text').each(function () {
                         if ($(this).val() == null || $(this).val() == '') {
@@ -29,8 +31,16 @@
                         if ($(this).find('.mst').val() != '' && $(this).find('.mst').val() <= $(this).prev().find('.met').val() && $(this).find('.mst').val() >= $(this).prev().find('.mst').val()) {
                             $(this).parent('.meeting-wrap').find('.error-show').fadeIn().fadeOut(3000);
                             number = 0;
-                        }
+                        }                        
                     });
+                    //只能选择当天当前时间之后的时间
+                    if ($this.parents('.meeting-wrap').find('.date').text() == date) {
+                        if ($this.parent().siblings('.details').find('.mst').val() < time || $this.parent().siblings('.details').find('.met').val() < time) {
+                            $this.parents('.meeting-wrap').find('.error-show').fadeIn().fadeOut(3000);
+                            number = 0;
+                            return false;
+                        }
+                    }
                     if (number == 1) {
                         //add meeting
                         if ($this.parents('.metting-bg').attr('id') == undefined) {
