@@ -88,7 +88,7 @@
 }
 .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr {
   width: 60px;
-  text-indent: 13px;
+  text-align: center;
 }
 .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr:hover {
   cursor: pointer;
@@ -107,12 +107,14 @@
   text-align: center;
 }
 .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover {
-  background-color: #ff8000 ;
+  background-color: #ff8000;
 }
 .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover a {
   color: #fff;
 }
 .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list a {
+  display: inline-block;
+  width: 100%;
   color: #4d4d4d;
   text-decoration: none;
 }

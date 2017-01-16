@@ -83,15 +83,15 @@
             },
             cancalInput: function (cancalBtn, targetClass) {
                 $('body').on('click', '.' + cancalBtn, function () {
-                    var $mt = $(this).parents('.meeting').find('.mt').data('text');
-                    var $mr = $(this).parents('.meeting').find('.mr').data('text');
-                    var $mst = $(this).parents('.meeting').find('.mst').data('text');
-                    var $met = $(this).parents('.meeting').find('.met').data('text');
-                    var $mu = $(this).parents('.meeting').find('.mu').data('text');
+                    var $mt = $(this).parents('.meeting').find('.mt').data('time');
+                    var $mr = $(this).parents('.meeting').find('.mr').data('time');
+                    var $mst = $(this).parents('.meeting').find('.mst').data('time');
+                    var $met = $(this).parents('.meeting').find('.met').data('time');
+                    var $mu = $(this).parents('.meeting').find('.mu').data('time');
                     $(this).parents('.meeting').find('.mt').val($mt);
                     $(this).parents('.meeting').find('.mr').val($mr);
                     $(this).parents('.meeting').find('.mst').val($mst);
-                    $(this).parents('.meeting').find('.mr').val($mr);
+                    $(this).parents('.meeting').find('.met').val($met);
                     $(this).parents('.meeting').find('.mu').val($mu);
                     $(this).parents('.meeting').find('.edit-text').prop('readonly', true).removeClass(targetClass);
                     $(this).parents('.meeting').find('.mr').prop('disabled', true).removeClass(targetClass);
@@ -170,6 +170,10 @@
                 $('body').on('click', function () {
                     $('.room-list').hide();
                 })
+                //$('.met').click(function () {
+                //    var $mst = $(this).parents('.details').find('.mst').val();
+                //    alert($mst)
+                //})
             }
         }
     })();
