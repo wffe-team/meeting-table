@@ -28,232 +28,236 @@
         margin:2px auto;
     }
 }
-.lists-wrap {
-    position: relative;
-    width: 1300px;
-    margin: 50px auto;
-
-    .error-show {
-        display:none;
-        position: absolute;
-        top: 7px;
-        left: 12px;
-        width: 60px;
-        text-align: center;
-        color: #FFFFFF;
-        background-color: tomato;
-    }
-
-    .meeting-wrap {
+.content {
+       height:100%;
+       overflow-x:auto;
+       overflow-y:hidden;
+    .lists-wrap {
         position: relative;
-    }
-
-    .list-meeting {
-        display: inline-block;
-        float: left;
-        width: 290px;
-        margin: 0 1%;
-        border-radius: 3px;
-        background-color: #E2E4E6;
-
-        .date {
-            margin-top: 10px;
+        min-height: 800px;
+        .error-show {
+            display: none;
+            position: absolute;
+            top: 7px;
+            left: 12px;
+            width: 60px;
             text-align: center;
-            font-size: 24px;
+            color: #FFFFFF;
+            background-color: tomato;
         }
 
-
-        .meeting {
+        .meeting-wrap {
             position: relative;
-            padding: 10px;
-            margin: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
+            white-space: nowrap;
+        }
+        .list-meeting {
+            display: inline-block;
+            float: left;
+            width: 290px;
+            margin: 0 20px;
+            border-radius: 3px;
+            background-color: #E2E4E6;
+            
 
-            input {
-                width: 50px;
-                height: 18px;
-                padding: 3px;
-                border: 1px solid #fff;
-                line-height: 18px;
-                color: #4d4d4d;
+            .date {
+                margin-top: 10px;
+                text-align: center;
+                font-size: 24px;
             }
 
-            .focus-input {
-                border: 1px solid #E2E4E6;
-                border-radius: 2px;
-            }
 
-            .title {
-                height: 30px;
-                margin-bottom: 5px;
-                line-height: 30px;
-                font-size: 16px;
+            .meeting {
+                position: relative;
+                padding: 10px;
+                margin: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #fff;
 
-                .mt {
-                    width: 70%;
-                    text-indent: 13px;
+                input {
+                    width: 50px;
+                    height: 18px;
+                    padding: 3px;
+                    border: 1px solid #fff;
+                    line-height: 18px;
+                    color: #4d4d4d;
                 }
-            }
 
-            .bd {
-                .details {
+                .focus-input {
+                    border: 1px solid #E2E4E6;
+                    border-radius: 2px;
+                }
+
+                .title {
+                    height: 30px;
                     margin-bottom: 5px;
+                    line-height: 30px;
+                    font-size: 16px;
 
-                    div {
-                        display: inline-block;
-                        float: left;
-                        padding-right: 5px;
+                    .mt {
+                        width: 70%;
+                        text-indent: 13px;
+                    }
+                }
 
-                        &.meeting-room {
-                            position: relative;
+                .bd {
+                    .details {
+                        margin-bottom: 5px;
 
-                            .mr {
-                                width: 60px;
+                        div {
+                            display: inline-block;
+                            float: left;
+                            padding-right: 5px;
+
+                            &.meeting-room {
+                                position: relative;
+
+                                .mr {
+                                    width: 60px;
+                                    text-align: center;
+
+
+                                    &:hover {
+                                        cursor: pointer;
+                                    }
+                                }
+
+                                .room-list {
+                                    display: none;
+                                    z-index: 2;
+                                    position: absolute;
+                                    top: 25px;
+                                    width: 66px;
+                                    background-color: #fff;
+                                    border: 1px solid #e2e4e6;
+
+                                    li {
+                                        line-height: 24px;
+                                        text-align: center;
+
+                                        &:hover {
+                                            background-color: #ff8000;
+
+                                            a {
+                                                color: #fff;
+                                            }
+                                        }
+                                    }
+
+                                    a {
+                                        display: inline-block;
+                                        width: 100%;
+                                        color: #4d4d4d;
+                                        text-decoration: none;
+                                    }
+                                }
+                            }
+                        }
+
+                        .time-start {
+                            .edit-text {
+                                width: 65px;
                                 text-align: center;
-
 
                                 &:hover {
                                     cursor: pointer;
                                 }
                             }
+                        }
 
-                            .room-list {
-                                display: none;
-                                z-index: 2;
-                                position: absolute;
-                                top: 25px;
-                                width: 66px;
-                                background-color: #fff;
-                                border: 1px solid #e2e4e6;
+                        .line {
+                            line-height: 24px;
+                        }
 
-                                li {
-                                    line-height: 24px;
-                                    text-align: center;
+                        .time-end {
+                            .edit-text {
+                                width: 65px;
+                                text-align: center;
 
-                                    &:hover {
-                                        background-color: #ff8000;
-
-                                        a {
-                                            color: #fff;
-                                        }
-                                    }
-                                }
-
-                                a {
-                                    display: inline-block;
-                                    width: 100%;
-                                    color: #4d4d4d;
-                                    text-decoration: none;
+                                &:hover {
+                                    cursor: pointer;
                                 }
                             }
                         }
                     }
 
-                    .time-start {
+                    .user {
+                        margin-right: 9px;
+                        text-align: right;
+
                         .edit-text {
-                            width: 65px;
+                            width: 50px;
                             text-align: center;
+                        }
+
+                        .save {
+                            display: none;
+                        }
+
+                        input {
+                            width: 70px;
+                        }
+                    }
+
+                    .handle {
+                        margin-top: 8px;
+
+                        .edit {
+                            position: absolute;
+                            top: 12px;
+                            right: 12px;
 
                             &:hover {
                                 cursor: pointer;
                             }
                         }
-                    }
 
-                    .line {
-                        line-height: 24px;
-                    }
-
-                    .time-end {
-                        .edit-text {
-                            width: 65px;
-                            text-align: center;
+                        .save, .cancal, .delete {
+                            display: none;
 
                             &:hover {
                                 cursor: pointer;
                             }
                         }
-                    }
-                }
 
-                .user {
-                    margin-right: 9px;
-                    text-align: right;
-
-                    .edit-text {
-                        width: 50px;
-                        text-align: center;
-                    }
-
-                    .save {
-                        display: none;
-                    }
-
-                    input {
-                        width: 70px;
-                    }
-                }
-
-                .handle {
-                    margin-top: 8px;
-
-                    .edit {
-                        position: absolute;
-                        top: 12px;
-                        right: 12px;
-
-                        &:hover {
-                            cursor: pointer;
+                        .btn {
+                            width: 43px;
+                            height: 24px;
+                            padding: 0;
+                            margin-right: 5px;
+                            line-height: 24px;
+                            text-align: center;
+                            background-color: #ddd;
                         }
-                    }
-
-                    .save, .cancal, .delete {
-                        display: none;
-
-                        &:hover {
-                            cursor: pointer;
-                        }
-                    }
-
-                    .btn {
-                        width: 43px;
-                        height: 24px;
-                        padding: 0;
-                        margin-right: 5px;
-                        line-height: 24px;
-                        text-align: center;
-                        background-color: #ddd;
                     }
                 }
             }
-        }
 
-        .new-metting {
-            .bd {
-                .handle {
-                    .btn {
-                        display: inline-block;
-                        width: 43px;
-                        height: 24px;
-                        margin-right: 5px;
-                        line-height: 24px;
-                        text-align: center;
+            .new-metting {
+                .bd {
+                    .handle {
+                        .btn {
+                            display: inline-block;
+                            width: 43px;
+                            height: 24px;
+                            margin-right: 5px;
+                            line-height: 24px;
+                            text-align: center;
+                        }
                     }
                 }
             }
-        }
 
-        .metting-add {
-            padding: 5px 10px;
-            color: #8c8c8c;
-            font-size: 14px;
-            cursor: pointer;
-        }
+            .metting-add {
+                padding: 5px 10px;
+                color: #8c8c8c;
+                font-size: 14px;
+                cursor: pointer;
+            }
 
-        .metting-text {
-            display: none;
+            .metting-text {
+                display: none;
+            }
         }
     }
 }

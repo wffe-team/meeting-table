@@ -1,11 +1,11 @@
 ﻿@html.extend('layout', function(model){
     @html.block('content', function(model){
-<div class="content">
-    <div class="nav">
-        <div class="icon-img">
-            <img src="../src/img/icon.png" alt="icon" />
-        </div>
+<div class="nav">
+    <div class="icon-img">
+        <img src="../src/img/icon.png" alt="icon" />
     </div>
+</div>
+<div class="content">
     <div class="lists-wrap clear" data-url="/save" data-delurl="/delete">
         @for(var i=0;i < model.value.length; i++)
         {

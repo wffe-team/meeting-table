@@ -25,12 +25,16 @@
   height: 30px;
   margin: 2px auto;
 }
-.lists-wrap {
-  position: relative;
-  width: 1300px;
-  margin: 50px auto;
+.content {
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-.lists-wrap .error-show {
+.content .lists-wrap {
+  position: relative;
+  min-height: 800px;
+}
+.content .lists-wrap .error-show {
   display: none;
   position: absolute;
   top: 7px;
@@ -40,23 +44,24 @@
   color: #FFFFFF;
   background-color: tomato;
 }
-.lists-wrap .meeting-wrap {
+.content .lists-wrap .meeting-wrap {
   position: relative;
+  white-space: nowrap;
 }
-.lists-wrap .list-meeting {
+.content .lists-wrap .list-meeting {
   display: inline-block;
   float: left;
   width: 290px;
-  margin: 0 1%;
+  margin: 0 20px;
   border-radius: 3px;
   background-color: #E2E4E6;
 }
-.lists-wrap .list-meeting .date {
+.content .lists-wrap .list-meeting .date {
   margin-top: 10px;
   text-align: center;
   font-size: 24px;
 }
-.lists-wrap .list-meeting .meeting {
+.content .lists-wrap .list-meeting .meeting {
   position: relative;
   padding: 10px;
   margin: 10px;
@@ -64,7 +69,7 @@
   border-radius: 5px;
   background-color: #fff;
 }
-.lists-wrap .list-meeting .meeting input {
+.content .lists-wrap .list-meeting .meeting input {
   width: 50px;
   height: 18px;
   padding: 3px;
@@ -72,39 +77,39 @@
   line-height: 18px;
   color: #4d4d4d;
 }
-.lists-wrap .list-meeting .meeting .focus-input {
+.content .lists-wrap .list-meeting .meeting .focus-input {
   border: 1px solid #E2E4E6;
   border-radius: 2px;
 }
-.lists-wrap .list-meeting .meeting .title {
+.content .lists-wrap .list-meeting .meeting .title {
   height: 30px;
   margin-bottom: 5px;
   line-height: 30px;
   font-size: 16px;
 }
-.lists-wrap .list-meeting .meeting .title .mt {
+.content .lists-wrap .list-meeting .meeting .title .mt {
   width: 70%;
   text-indent: 13px;
 }
-.lists-wrap .list-meeting .meeting .bd .details {
+.content .lists-wrap .list-meeting .meeting .bd .details {
   margin-bottom: 5px;
 }
-.lists-wrap .list-meeting .meeting .bd .details div {
+.content .lists-wrap .list-meeting .meeting .bd .details div {
   display: inline-block;
   float: left;
   padding-right: 5px;
 }
-.lists-wrap .list-meeting .meeting .bd .details div.meeting-room {
+.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room {
   position: relative;
 }
-.lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr {
+.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr {
   width: 60px;
   text-align: center;
 }
-.lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr:hover {
+.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr:hover {
   cursor: pointer;
 }
-.lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list {
+.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list {
   display: none;
   z-index: 2;
   position: absolute;
@@ -113,75 +118,75 @@
   background-color: #fff;
   border: 1px solid #e2e4e6;
 }
-.lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li {
+.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li {
   line-height: 24px;
   text-align: center;
 }
-.lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover {
+.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover {
   background-color: #ff8000;
 }
-.lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover a {
+.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover a {
   color: #fff;
 }
-.lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list a {
+.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list a {
   display: inline-block;
   width: 100%;
   color: #4d4d4d;
   text-decoration: none;
 }
-.lists-wrap .list-meeting .meeting .bd .details .time-start .edit-text {
+.content .lists-wrap .list-meeting .meeting .bd .details .time-start .edit-text {
   width: 65px;
   text-align: center;
 }
-.lists-wrap .list-meeting .meeting .bd .details .time-start .edit-text:hover {
+.content .lists-wrap .list-meeting .meeting .bd .details .time-start .edit-text:hover {
   cursor: pointer;
 }
-.lists-wrap .list-meeting .meeting .bd .details .line {
+.content .lists-wrap .list-meeting .meeting .bd .details .line {
   line-height: 24px;
 }
-.lists-wrap .list-meeting .meeting .bd .details .time-end .edit-text {
+.content .lists-wrap .list-meeting .meeting .bd .details .time-end .edit-text {
   width: 65px;
   text-align: center;
 }
-.lists-wrap .list-meeting .meeting .bd .details .time-end .edit-text:hover {
+.content .lists-wrap .list-meeting .meeting .bd .details .time-end .edit-text:hover {
   cursor: pointer;
 }
-.lists-wrap .list-meeting .meeting .bd .user {
+.content .lists-wrap .list-meeting .meeting .bd .user {
   margin-right: 9px;
   text-align: right;
 }
-.lists-wrap .list-meeting .meeting .bd .user .edit-text {
+.content .lists-wrap .list-meeting .meeting .bd .user .edit-text {
   width: 50px;
   text-align: center;
 }
-.lists-wrap .list-meeting .meeting .bd .user .save {
+.content .lists-wrap .list-meeting .meeting .bd .user .save {
   display: none;
 }
-.lists-wrap .list-meeting .meeting .bd .user input {
+.content .lists-wrap .list-meeting .meeting .bd .user input {
   width: 70px;
 }
-.lists-wrap .list-meeting .meeting .bd .handle {
+.content .lists-wrap .list-meeting .meeting .bd .handle {
   margin-top: 8px;
 }
-.lists-wrap .list-meeting .meeting .bd .handle .edit {
+.content .lists-wrap .list-meeting .meeting .bd .handle .edit {
   position: absolute;
   top: 12px;
   right: 12px;
 }
-.lists-wrap .list-meeting .meeting .bd .handle .edit:hover {
+.content .lists-wrap .list-meeting .meeting .bd .handle .edit:hover {
   cursor: pointer;
 }
-.lists-wrap .list-meeting .meeting .bd .handle .save,
-.lists-wrap .list-meeting .meeting .bd .handle .cancal,
-.lists-wrap .list-meeting .meeting .bd .handle .delete {
+.content .lists-wrap .list-meeting .meeting .bd .handle .save,
+.content .lists-wrap .list-meeting .meeting .bd .handle .cancal,
+.content .lists-wrap .list-meeting .meeting .bd .handle .delete {
   display: none;
 }
-.lists-wrap .list-meeting .meeting .bd .handle .save:hover,
-.lists-wrap .list-meeting .meeting .bd .handle .cancal:hover,
-.lists-wrap .list-meeting .meeting .bd .handle .delete:hover {
+.content .lists-wrap .list-meeting .meeting .bd .handle .save:hover,
+.content .lists-wrap .list-meeting .meeting .bd .handle .cancal:hover,
+.content .lists-wrap .list-meeting .meeting .bd .handle .delete:hover {
   cursor: pointer;
 }
-.lists-wrap .list-meeting .meeting .bd .handle .btn {
+.content .lists-wrap .list-meeting .meeting .bd .handle .btn {
   width: 43px;
   height: 24px;
   padding: 0;
@@ -190,7 +195,7 @@
   text-align: center;
   background-color: #ddd;
 }
-.lists-wrap .list-meeting .new-metting .bd .handle .btn {
+.content .lists-wrap .list-meeting .new-metting .bd .handle .btn {
   display: inline-block;
   width: 43px;
   height: 24px;
@@ -198,13 +203,13 @@
   line-height: 24px;
   text-align: center;
 }
-.lists-wrap .list-meeting .metting-add {
+.content .lists-wrap .list-meeting .metting-add {
   padding: 5px 10px;
   color: #8c8c8c;
   font-size: 14px;
   cursor: pointer;
 }
-.lists-wrap .list-meeting .metting-text {
+.content .lists-wrap .list-meeting .metting-text {
   display: none;
 }
 @keyframes sharkbd {

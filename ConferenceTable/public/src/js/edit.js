@@ -200,4 +200,16 @@
     select.showList('mr')
     select.selectValue('room-list a', 'mr')
     select.hide();
+    //获取页面宽度
+    var pageWidth = (function () {
+        return {
+            pageW :function () {
+                var w = $(window).width();
+               // $('.content').width(w);
+                var n = $('.list-meeting').length;
+                $('.lists-wrap').width(330 * n);
+            }
+        }
+    })()
+    pageWidth.pageW();
 })()
