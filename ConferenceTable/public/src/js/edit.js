@@ -22,7 +22,7 @@
                         }
                     })
                     $this.parents('.list-meeting').find('.metting-bg').each(function () {
-                        if ($(this).find('.met').val() < $(this).find('.mst').val()) {
+                        if ($(this).find('.met').val() <= $(this).find('.mst').val()) {
                             alert('结束时间小于开始时间，请重新选择！');
                             number = 0;
                         }
