@@ -14,7 +14,9 @@
                 $('body').on('click', '.' + saveBtn, function () {
                     var $this = $(this);
                     var date = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
-                    var time = new Date().getHours() + ':' + new Date().getMinutes();
+                    var h = new Date().getHours(), m = new Date().getMinutes();
+                    if (h <= 9) { h = '0' + h;}
+                    var time = h + ':' + m;
                     var number = 1;
                     $(this).parents('.meeting').find('.edit-text').each(function () {
                         if ($(this).val() == null || $(this).val() == '') {
@@ -35,10 +37,14 @@
                     });
                     //只能选择当天当前时间之后的时间
                     if ($this.parents('.meeting-wrap').find('.date').text() == date) {
-                        if ($this.parent().siblings('.details').find('.mst').val() < time || $this.parent().siblings('.details').find('.met').val() < time) {
-                            $this.parents('.meeting-wrap').find('.error-show').fadeIn().fadeOut(3000);
-                            number = 0;
-                            return false;
+                        var stime = $this.parent().siblings('.details').find('.mst').val(),
+                            etime = $this.parent().siblings('.details').find('.met').val();
+                        if (stime != '' && etime != '') {
+                            if (stime < time || etime < time) {
+                                $this.parents('.meeting-wrap').find('.error-show').fadeIn().fadeOut(3000);
+                                number = 0;
+                                return false;
+                            }
                         }
                     }
                     if (number == 1) {
