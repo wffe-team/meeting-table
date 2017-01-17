@@ -29,27 +29,18 @@
     }
 }
 .content {
-       height:100%;
-       overflow-x:auto;
-       overflow-y:hidden;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
     .lists-wrap {
-        position: relative;
-        min-height: 800px;
-        .error-show {
-            display: none;
-            position: absolute;
-            top: 7px;
-            left: 12px;
-            width: 60px;
-            text-align: center;
-            color: #FFFFFF;
-            background-color: tomato;
-        }
+        min-height: 650px;
 
         .meeting-wrap {
             position: relative;
             white-space: nowrap;
         }
+
         .list-meeting {
             display: inline-block;
             float: left;
@@ -57,7 +48,7 @@
             margin: 0 20px;
             border-radius: 3px;
             background-color: #E2E4E6;
-            
+
 
             .date {
                 margin-top: 10px;
@@ -103,6 +94,8 @@
                 .bd {
                     .details {
                         margin-bottom: 5px;
+
+
 
                         div {
                             display: inline-block;
@@ -182,8 +175,20 @@
                     }
 
                     .user {
+                        position: relative;
                         margin-right: 9px;
                         text-align: right;
+
+                        .error-show {
+                            display:none;
+                            position: absolute;
+                            top: 7px;
+                            left: 12px;
+                            width: 60px;
+                            text-align: center;
+                            color: #FFFFFF;
+                            background-color: tomato;
+                        }
 
                         .edit-text {
                             width: 50px;

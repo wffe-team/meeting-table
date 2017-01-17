@@ -31,18 +31,7 @@
   overflow-y: hidden;
 }
 .content .lists-wrap {
-  position: relative;
-  min-height: 800px;
-}
-.content .lists-wrap .error-show {
-  display: none;
-  position: absolute;
-  top: 7px;
-  left: 12px;
-  width: 60px;
-  text-align: center;
-  color: #FFFFFF;
-  background-color: tomato;
+  min-height: 650px;
 }
 .content .lists-wrap .meeting-wrap {
   position: relative;
@@ -152,8 +141,19 @@
   cursor: pointer;
 }
 .content .lists-wrap .list-meeting .meeting .bd .user {
+  position: relative;
   margin-right: 9px;
   text-align: right;
+}
+.content .lists-wrap .list-meeting .meeting .bd .user .error-show {
+  display: none;
+  position: absolute;
+  top: 7px;
+  left: 12px;
+  width: 60px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: tomato;
 }
 .content .lists-wrap .list-meeting .meeting .bd .user .edit-text {
   width: 50px;
