@@ -15,7 +15,8 @@
                     var $this = $(this);
                     var date = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
                     var h = new Date().getHours(), m = new Date().getMinutes();
-                    if (h <= 9) { h = '0' + h;}
+                    if (h <= 9) { h = '0' + h; }
+                    if (m <= 9) { m = '0' + m };
                     var time = h + ':' + m;
                     var number = 1;
                     $(this).parents('.meeting').find('.edit-text').each(function () {
@@ -27,13 +28,15 @@
                     })
                     $this.parents('.list-meeting').find('.metting-bg').each(function () {
                         if ($(this).find('.met').val() != '' && $(this).find('.met').val() <= $(this).find('.mst').val()) {
-                            $(this).parent('.meeting-wrap').find('.error-show').fadeIn().fadeOut(3000);
+                            $(this).find('.error-show').text('结束时间小于开始时间').css('width', '130px').fadeIn().fadeOut(3000);
                             number = 0;
                         }
-                        if ($(this).find('.mst').val() != '' && $(this).find('.mst').val() <= $(this).prev().find('.met').val() && $(this).find('.mst').val() >= $(this).prev().find('.mst').val()) {
-                            $(this).parent('.meeting-wrap').find('.error-show').fadeIn().fadeOut(3000);
-                            number = 0;
-                        }                        
+                        if ($(this).find('.mst').val() != '') {
+                            if ($(this).find('.mst').val() <= $(this).prev().find('.met').val() && $(this).find('.met').val() >= $(this).prev().find('.mst').val()) {
+                                $(this).find('.error-show').fadeIn().fadeOut(3000);
+                                number = 0;
+                            }
+                        }
                     });
                     //只能选择当天当前时间之后的时间
                     if ($this.parents('.meeting-wrap').find('.date').text() == date) {
@@ -41,7 +44,7 @@
                             etime = $this.parent().siblings('.details').find('.met').val();
                         if (stime != '' && etime != '') {
                             if (stime < time || etime < time) {
-                                $this.parents('.meeting-wrap').find('.error-show').fadeIn().fadeOut(3000);
+                                $this.parent().prev('.user').find('.error-show').text('您选择的时间已过').css('width', '104px').fadeIn().fadeOut(3000);
                                 number = 0;
                                 return false;
                             }
@@ -149,7 +152,7 @@
                         + "<div class='time-start'><input type='text' class='edit-text focus-input datetimepicker1 mst' value=''  placeholder='开始时间' onclick='$(this).datetimepicker({ datepicker: false, step: 10,format: &quot;H:i&quot})'>"
                         + "</div><div class='line'>--</div>"
                         + "<div class='time-end'><input type='text' class='edit-text focus-input datetimepicker1 met' value=''  placeholder='结束时间' onclick='$(this).datetimepicker({ datepicker: false, step: 10,format: &quot;H:i&quot})'></div></div>"
-                        + "<div class='user'><input type='text' class='edit-text focus-input mu' value='' placeholder='使用人'></div>"
+                        + "<div class='user'><div class='error-show'>时间冲突</div><input type='text' class='edit-text focus-input mu' value='' placeholder='使用人'></div>"
                         + "<div class='handle'><input type='button' class='btn edit' value= '编辑' /><input type='button' class='btn save' value= '保存' /><input type='button' class='btn cancal' value= '取消'/><input type='button' class='btn delete' value= '删除'/></div></div>";
                     $(this).parents('.list-meeting').find('.meeting-wrap').append(mettingHtml);
 
@@ -209,9 +212,9 @@
     //获取页面宽度
     var pageWidth = (function () {
         return {
-            pageW :function () {
+            pageW: function () {
                 var w = $(window).width();
-               // $('.content').width(w);
+                // $('.content').width(w);
                 var n = $('.list-meeting').length;
                 $('.lists-wrap').width(330 * n);
             }
