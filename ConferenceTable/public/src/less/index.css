@@ -2,7 +2,7 @@
   font-size: 12px;
   font-family: 'Microsoft YaHei';
   color: #4d4d4d;
-  background: rebeccapurple;
+  background: #639;
 }
 .clear {
   zoom: 1;
@@ -32,6 +32,7 @@
 }
 .content .lists-wrap {
   min-height: 650px;
+  margin-top: 20px;
 }
 .content .lists-wrap .meeting-wrap {
   position: relative;

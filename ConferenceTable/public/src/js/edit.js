@@ -4,10 +4,11 @@
         return {
             editInput: function (editBtn, targetClass) {
                 $('body').on('click', '.' + editBtn, function () {
-                    $(this).parents('.meeting').find('.edit-text').prop('readonly', false).addClass(targetClass);
-                    $(this).parents('.meeting').find('.mr').prop('readonly', true).prop('disabled', false).addClass(targetClass);
-                    $(this).parents('.meeting').find('.datetimepicker1').prop('disabled', false).addClass(targetClass);
-                    $(this).parents('.meeting').find('.save,.cancal,.delete').show();
+                    var $meeting = $(this).parents('.meeting');
+                    $meeting.find('.edit-text').prop('readonly', false).addClass(targetClass);
+                    $meeting.find('.mr').prop('readonly', true).prop('disabled', false).addClass(targetClass);
+                    $meeting.find('.datetimepicker1').prop('disabled', false).addClass(targetClass);
+                    $meeting.find('.save,.cancal,.delete').show();
                 });
             },
             saveInput: function (saveBtn, targetClass) {
@@ -28,7 +29,7 @@
                     })
                     $this.parents('.list-meeting').find('.metting-bg').each(function () {
                         if ($(this).find('.met').val() != '' && $(this).find('.met').val() <= $(this).find('.mst').val()) {
-                            $(this).find('.error-show').text('结束时间小于开始时间').css('width', '130px').fadeIn().fadeOut(3000);
+                            $(this).find('.error-show').text('结束时间不能小于开始时间').css('width', '150px').fadeIn().fadeOut(3000);
                             number = 0;
                         }
                         if ($(this).find('.mst').val() != '') {
@@ -40,8 +41,9 @@
                     });
                     //只能选择当天当前时间之后的时间
                     if ($this.parents('.meeting-wrap').find('.date').text() == date) {
-                        var stime = $this.parent().siblings('.details').find('.mst').val(),
-                            etime = $this.parent().siblings('.details').find('.met').val();
+                        var $details = $this.parent().siblings('.details')
+                        var stime = $details.find('.mst').val(),
+                            etime = $details.find('.met').val();
                         if (stime != '' && etime != '') {
                             if (stime < time || etime < time) {
                                 $this.parent().prev('.user').find('.error-show').text('您选择的时间已过').css('width', '104px').fadeIn().fadeOut(3000);
@@ -112,20 +114,21 @@
             },
             cancalInput: function (cancalBtn, targetClass) {
                 $('body').on('click', '.' + cancalBtn, function () {
-                    var $mt = $(this).parents('.meeting').find('.mt').data('time');
-                    var $mr = $(this).parents('.meeting').find('.mr').data('time');
-                    var $mst = $(this).parents('.meeting').find('.mst').data('time');
-                    var $met = $(this).parents('.meeting').find('.met').data('time');
-                    var $mu = $(this).parents('.meeting').find('.mu').data('time');
-                    $(this).parents('.meeting').find('.mt').val($mt);
-                    $(this).parents('.meeting').find('.mr').val($mr);
-                    $(this).parents('.meeting').find('.mst').val($mst);
-                    $(this).parents('.meeting').find('.met').val($met);
-                    $(this).parents('.meeting').find('.mu').val($mu);
-                    $(this).parents('.meeting').find('.edit-text').prop('readonly', true).removeClass(targetClass);
-                    $(this).parents('.meeting').find('.mr').prop('disabled', true).removeClass(targetClass);
-                    $(this).parents('.meeting').find('.datetimepicker1').prop('disabled', true).removeClass(targetClass);
-                    $(this).parents('.meeting').find('.save,.cancal,.delete').hide();
+                    var $meeting = $(this).parents('.meeting');
+                    var $mt = $meeting.find('.mt').data('time');
+                    var $mr = $meeting.find('.mr').data('time');
+                    var $mst = $meeting.find('.mst').data('time');
+                    var $met = $meeting.find('.met').data('time');
+                    var $mu = $meeting.find('.mu').data('time');
+                    $meeting.find('.mt').val($mt);
+                    $meeting.find('.mr').val($mr);
+                    $meeting.find('.mst').val($mst);
+                    $meeting.find('.met').val($met);
+                    $meeting.find('.mu').val($mu);
+                    $meeting.find('.edit-text').prop('readonly', true).removeClass(targetClass);
+                    $meeting.find('.mr').prop('disabled', true).removeClass(targetClass);
+                    $meeting.find('.datetimepicker1').prop('disabled', true).removeClass(targetClass);
+                    $meeting.find('.save,.cancal,.delete').hide();
                 })
             }
         }
@@ -155,10 +158,8 @@
                         + "<div class='user'><div class='error-show'>时间冲突</div><input type='text' class='edit-text focus-input mu' value='' placeholder='使用人'></div>"
                         + "<div class='handle'><input type='button' class='btn edit' value= '编辑' /><input type='button' class='btn save' value= '保存' /><input type='button' class='btn cancal' value= '取消'/><input type='button' class='btn delete' value= '删除'/></div></div>";
                     $(this).parents('.list-meeting').find('.meeting-wrap').append(mettingHtml);
-
                     //解决默认添加，点击两次才能出现下拉时间段
                     $('.datetimepicker1').click();
-
                 })
             }
         }
@@ -199,10 +200,6 @@
                 $('body').on('click', function () {
                     $('.room-list').hide();
                 })
-                //$('.met').click(function () {
-                //    var $mst = $(this).parents('.details').find('.mst').val();
-                //    alert($mst)
-                //})
             }
         }
     })();
@@ -213,8 +210,6 @@
     var pageWidth = (function () {
         return {
             pageW: function () {
-                var w = $(window).width();
-                // $('.content').width(w);
                 var n = $('.list-meeting').length;
                 $('.lists-wrap').width(330 * n);
             }
