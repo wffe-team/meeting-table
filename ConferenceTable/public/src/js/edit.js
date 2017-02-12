@@ -77,6 +77,11 @@
                         }
                         //edit meeting
                         else {
+                            var $room = [];
+                            $this.parent().siblings('.details').find('.room-list').find('a').each(function () {
+                                var $this = $(this);                               
+                                $room.push($this.text());
+                            });
                             $.ajax({
                                 type: "GET",
                                 url: $('.lists-wrap').data('url'),
@@ -85,6 +90,7 @@
                                     meetingdate: $this.parents('.metting-bg').siblings('.date').text(),
                                     meetingtt: $this.parents('.bd').siblings('.title').find('.mt').val(),
                                     meetingroom: $this.parent().siblings('.details').find('.mr').val(),
+                                    meetingroomlist: $room,
                                     meetingst: $this.parent().siblings('.details').find('.mst').val(),
                                     meetinget: $this.parent().siblings('.details').find('.met').val(),
                                     meetinguser: $this.parent().siblings('.user').find('.mu').val()
