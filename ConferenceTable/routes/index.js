@@ -22,6 +22,11 @@ router.get('/', function (req, res) {
                         var currentdate = new Date();
                         var y = currentdate.getFullYear(), m = currentdate.getMonth() + 1, d = currentdate.getDate();
                         var date = y + "-" + m + "-" + (d + i);
+                        var weekdate = new Date(date);
+                        //日期排除周六周日
+                        if (weekdate.getDay() == 0 || weekdate.getDay() == 6) {
+                            date = y + "-" + m + "-" + (d + 2 + i);
+                        }
                         for (var j = 0; j < array.length; j++) {
                             if (array[j] == "") { continue; }
                             var jsonarr = JSON.parse(array[j]);//字符串转成json
