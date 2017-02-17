@@ -1,5 +1,5 @@
-﻿import express = require('express');
-import ConferenceTable = require('ConferenceTable');
+﻿var express = require('express');
+var ConferenceTable = require('./ConferenceTable');
 
 /**
  * 会议

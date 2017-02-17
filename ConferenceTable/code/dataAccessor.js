@@ -1,7 +1,7 @@
 ﻿var express = require('express');
 var fs = require('fs');
-var Conference = require('Conference');
-var ConferenceTable = require('ConferenceTable');
+var Conference = require('../model/Conference');
+var ConferenceTable = require('../model/ConferenceTable');
 
 var file = 'conferenceData.txt';
 

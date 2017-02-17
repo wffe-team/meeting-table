@@ -1,4 +1,4 @@
-﻿import express = require('express');
+﻿var express = require('express');
 
 class ConferenceTable{
     
