@@ -11,12 +11,20 @@ class Conference{
     /// <param name="introduction" type="String">会议简介</param>
     /// <param name="conferenceTable" type="ConferenceTable">会议桌</param>
     /// <param name="timeRange" type="Array">时间范围</param>
-    constructor(title,userName,introduction,conferenceTable,timeRange){
+    /// <param name="date" type="String">日期</param>
+    constructor(title,
+        userName,
+        introduction,
+        conferenceTable,
+        timeRange,
+        date){
         this.title = title;
         this.user = user;
         this.introduction = introduction;
         this.conferenceTable = conferenceTable;
         this.timeRange = timeRange;
+        this.date = date;
+        tihs.id = this.timeRange.push(this.date).join('.');
     }
 }
 

@@ -31,10 +31,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="code\dataAccessor.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controllers\conference.js" />
     <Compile Include="controllers\home.js" />
     <Compile Include="model\Conference.js" />
-    <Compile Include="model\conferenceTable.js">
+    <Compile Include="model\ConferenceTable.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
