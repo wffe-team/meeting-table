@@ -10,13 +10,13 @@ router.get('/', function (req, res) {
         fs.readFile(file, 'utf8', function (err, str) {
             if (err)
                 console.log("读取文件fail " + err);
-            else {  
+            else {
                 // 读取成功时  
                 // 输出字节数组  
                 var array = str.split('\r\n');
                 var arrtotal = [];
                 readArr(4);
-                function readArr(num) {                    
+                function readArr(num) {
                     for (var i = 0; i < num; i++) {
                         var arritem = [];
                         var currentdate = new Date();
@@ -31,17 +31,17 @@ router.get('/', function (req, res) {
                         }
                         arritem.sort(sortNumber);
                         arrtotal.push({ date: date, value: arritem });
-                    }                   
+                    }
                 }
                 function sortNumber(a, b) {
-                    if (a.meetingst > b.meetingst){ return 1; }
-                    else {return -1;}
+                    if (a.meetingst > b.meetingst) { return 1; }
+                    else { return -1; }
                 }
                 res.render('index', { value: arrtotal });
 
             }
         });
-    }    
+    }
 });
 
 module.exports = router;

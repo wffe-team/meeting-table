@@ -31,10 +31,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="controllers\conference.js" />
+    <Compile Include="controllers\home.js" />
+    <Compile Include="model\Conference.js" />
+    <Compile Include="model\conferenceTable.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
     <Compile Include="public\js\lib\jquery.datetimepicker.full.js" />
     <Compile Include="public\src\js\edit.js" />
-    <Compile Include="routes\delete.js" />
+    <Compile Include="routes.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\save.js" />
     <Compile Include="routes\users.js" />
@@ -71,6 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="controllers\" />
+    <Folder Include="code\" />
+    <Folder Include="model\" />
     <Folder Include="public\" />
     <Folder Include="public\css\" />
     <Folder Include="public\img\" />
@@ -81,7 +90,6 @@
     <Folder Include="public\src\img\" />
     <Folder Include="public\src\js\" />
     <Folder Include="public\src\less\" />
-    <Folder Include="routes\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\node\" />

@@ -6,7 +6,7 @@
     </div>
 </div>
 <div class="content">
-    <div class="lists-wrap clear" data-url="/save" data-delurl="/delete">
+    <div class="lists-wrap clear" data-url="/conference/save" data-delurl="/conference/delete">
         @for(var i=0;i < model.value.length; i++)
         {
         <div class="list-meeting">
