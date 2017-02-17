@@ -48,6 +48,10 @@
     <Compile Include="routes\save.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
+    <Compile Include="UnitTest.js">
+      <SubType>Code</SubType>
+      <TestFramework>Mocha</TestFramework>
+    </Compile>
     <None Include="compilerconfig.json" />
     <None Include="bundleconfig.json" />
     <Content Include="compilerconfig.json.defaults">
