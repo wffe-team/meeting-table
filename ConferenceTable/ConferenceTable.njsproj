@@ -97,6 +97,7 @@
     <Folder Include="public\src\img\" />
     <Folder Include="public\src\js\" />
     <Folder Include="public\src\less\" />
+    <Folder Include="routes\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\node\" />
