@@ -45,7 +45,6 @@
     <Compile Include="public\js\lib\jquery.datetimepicker.full.js" />
     <Compile Include="public\src\js\edit.js" />
     <Compile Include="routes.js" />
-    <Compile Include="routes\save.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
     <None Include="compilerconfig.json" />
@@ -92,7 +91,6 @@
     <Folder Include="public\src\img\" />
     <Folder Include="public\src\js\" />
     <Folder Include="public\src\less\" />
-    <Folder Include="routes\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\node\" />

@@ -9,7 +9,7 @@ var DataAccessor = require('../code/dataAccessor');
 router.get('/', function (req, res) {
     var accessor = new DataAccessor();
     accessor.get(4).then((data) => {
-        res.render('index', { value: data });
+        res.render('index', { data: data });
     });
 });
 

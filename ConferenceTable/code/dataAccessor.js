@@ -17,7 +17,7 @@ class DataAccessor {
         });
         data.forEach((conference) => {
             if (workDay.days.findIndex(date=>date === conference.date) > -1) {
-                result.push({ day: conference.date, conference: conference });
+                result[conference.date].push(conference);
             }
         });
         return result;
@@ -58,7 +58,7 @@ class DataAccessor {
     /// <param name="conference" type="Conference">会议</param>
     add(conference) {
         //TODO:检查
-        this.get().then((data) => {
+        return this.get().then((data) => {
             prefix = data.length == 0 ? '' : prefix;
             return new Promise((resolve, reject) => {
                 fs.appendFile(file, prefix + JSON.stringify(conference), 'utf8', (err) => {
