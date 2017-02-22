@@ -86,7 +86,6 @@
       <DependentUpon>public\src\less\index.css</DependentUpon>
     </Content>
     <Content Include="public\src\less\reset.css" />
-    <Content Include="README.md" />
     <Content Include="views\conference\index.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
