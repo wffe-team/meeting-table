@@ -11,5 +11,11 @@
       "public/src/less/index.css",
       "public/src/less/reset.css"
     ]
+  },
+  {
+    "outputFileName": "public/js/global.js",
+    "inputFiles": [
+      "public/src/js/conference.js"
+    ]
   }
 ]

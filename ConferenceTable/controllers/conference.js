@@ -1,10 +1,16 @@
 ﻿var express = require('express');
-var fs = require('fs');
 var router = express.Router();
 var Conference = require('../model/Conference');
 var ConferenceTable = require('../model/ConferenceTable');
 var DataAccessor = require('../code/dataAccessor');
 var accessor = new DataAccessor();
+
+router.get('/', function (req, res) {
+    var accessor = new DataAccessor();
+    accessor.get(4).then((data) => {
+        res.render('conference/index', { data: data });
+    });
+});
 
 router.get('/save', function (req, res) {
     accessor.add(new Conference(

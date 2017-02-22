@@ -1,67 +1,11 @@
-﻿@html.extend('layout', function(model){
-    @html.block('content', function(model){
-        <div class="nav">
-            <div class="icon-img">
-                <img src="../src/img/icon.png" alt="icon" />
-            </div>
-        </div>
-        <div class="content">
-            <div class="lists-wrap clear" data-url="/conference/save" data-delurl="/conference/delete">
-                @for(var key in model.data){
-                var conference;
-                <div class="list-meeting">
-                    <div class="meeting-wrap">
-                        <div class="date">@key</div>
-                        @for(var i = 0;i < model.data[key].length;i++){
-                        conference = model.data[key][i];
-                        <div class="metting-bg" id="@conference.id">
-                            <div class="meeting">
-                                <div class="title">
-                                    <input type="text" class="edit-text mt" placeholder="会议主题" data-time="@conference.title" value="@conference.title" readonly />
-                                </div>
-                                <div class="bd">
-                                    <div class="details clear">
-                                        <div class="meeting-room">
-                                            <input type="text" class="edit-text mr" placeholder="会议室" data-time="@conference.conferenceTable.roomNumber" value="@conference.conferenceTable.roomNumber" disabled />
-                                            <ul class="room-list">
-                                                <li><a href="javascript:;">231</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="time-start">
-                                            <input type="text" class="edit-text datetimepicker1 mst" data-time="@conference.timeRange[0]" value="@conference.timeRange[0]" placeholder="开始时间" disabled />
-                                        </div>
-                                        <div class="line">--</div>
-                                        <div class="time-end">
-                                            <input type="text" class="edit-text datetimepicker1 met" data-time="@conference.timeRange[1]" value="@conference.timeRange[1]" placeholder="结束时间" disabled />
-                                        </div>
-                                    </div>
-                                    <div class="user">
-                                        <div class="error-show">时间冲突</div>
-                                        <input type="text" class="edit-text mu" data-time="@conference.userName" value="@conference.userName" placeholder="使用人" readonly />
-                                    </div>
-                                    <div class="handle">
-                                        <input type="button" class="btn edit" value="编辑" />
-                                        <input type="button" class="btn save" value="保存" />
-                                        <input type="button" class="btn cancal" value="取消" />
-                                        <input type="button" class="btn delete" value="删除" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        }
-                    </div>
-                    <div class="metting-add"><a>Add Metting ...</a></div>
-                    <div class="metting-text">
-                        <button class="add-btn">Add</button><button class="cancal-btn">Cancal</button>
-                    </div>
-                </div>
-                }
-            </div>
-        </div>
+﻿@html.extend('layout', function(){
+    @html.block('content', function(){
+    <div class="content">
+        WFFE
+    </div>
     })
-    @html.block('script', function(model){
+    @html.block('script', function(){
         <script src="../js/lib/jquery-1.12.4.min.js"></script>
         <script src="../js/lib/jquery.datetimepicker.full.js"></script>
-        <script src="../src/js/edit.js"></script>
     })
 })
