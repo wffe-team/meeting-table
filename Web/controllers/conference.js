@@ -5,12 +5,6 @@ var ConferenceTable = require('../model/ConferenceTable');
 var ConferenceAccessor = require('../code/conferenceAccessor');
 var accessor = new ConferenceAccessor();
 
-router.get('/', function (req, res) {
-    accessor.get(4).then((data) => {
-        res.render('conference/index', { data: data });
-    });
-});
-
 router.get('/save', function (req, res) {
     accessor.add(new Conference(
         req.query.meetingtt,
