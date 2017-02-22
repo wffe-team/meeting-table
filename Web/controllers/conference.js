@@ -2,11 +2,10 @@
 var router = express.Router();
 var Conference = require('../model/Conference');
 var ConferenceTable = require('../model/ConferenceTable');
-var DataAccessor = require('../code/dataAccessor');
-var accessor = new DataAccessor();
+var ConferenceAccessor = require('../code/conferenceAccessor');
+var accessor = new ConferenceAccessor();
 
 router.get('/', function (req, res) {
-    var accessor = new DataAccessor();
     accessor.get(4).then((data) => {
         res.render('conference/index', { data: data });
     });

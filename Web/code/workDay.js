@@ -1,4 +1,7 @@
-﻿class WorkDay {
+﻿/**
+ * 计算给定天数的工作日
+ */
+class WorkDay {
 
     /// <param name="date" type="Date">日期</param>
     /// <param name="format" type="String">日期格式化</param>

@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="code\dataAccessor.js">
+    <Compile Include="code\conferenceAccessor.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="code\workDay.js" />
@@ -96,6 +96,7 @@
     <Folder Include="controllers\" />
     <Folder Include="code\" />
     <Folder Include="model\" />
+    <Folder Include="data\" />
     <Folder Include="public\" />
     <Folder Include="public\css\" />
     <Folder Include="public\img\" />

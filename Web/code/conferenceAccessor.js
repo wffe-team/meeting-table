@@ -2,9 +2,11 @@
 var Conference = require('../model/Conference');
 var ConferenceTable = require('../model/ConferenceTable');
 var WorkDay = require('../code/workDay');
-var prefix = ',';
-var file = 'conferenceData.txt';
+var file = 'data/conferenceData.txt';
 
+/**
+ * conference数据访问
+ */
 class DataAccessor {
 
     /// <param name="days" type="Number">天数</param>
@@ -59,7 +61,7 @@ class DataAccessor {
     add(conference) {
         //TODO:检查
         return this.get().then((data) => {
-            prefix = data.length == 0 ? '' : prefix;
+            var prefix = data.length == 0 ? ',' : prefix;
             return new Promise((resolve, reject) => {
                 fs.appendFile(file, prefix + JSON.stringify(conference), 'utf8', (err) => {
                     if (err) {
