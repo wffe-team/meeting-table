@@ -1,11 +1,26 @@
 ﻿@html.extend('layout', function(){
     @html.block('content', function(){
-    <div class="content">
-        WFFE
+    <div class="content" style="background-color:#fff;">
+        <span data-role="checkbox" class="wf-checkbox" id="checkbox-basic-demo">
+            <span class="wf-checkbox-inner">
+                <i class="wf-icon icon-selected"></i>
+            </span>
+            <input class="wf-checkbox-input" type="checkbox">
+            <span class="wf-checkbox-text">Checkbox</span>
+        </span>
     </div>
     })
     @html.block('script', function(){
         <script src="../js/lib/jquery-1.12.4.min.js"></script>
         <script src="../js/lib/jquery.datetimepicker.full.js"></script>
+        <script>
+            wf.require('page').render(
+                'doc', [
+                    'UI.Checkbox'
+                ], function (UI , instances) {
+                }, true  //是否自动渲染页面组件
+            );
+
+        </script>
     })
 })
