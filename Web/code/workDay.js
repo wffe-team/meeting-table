@@ -37,7 +37,7 @@ class WorkDay {
         var currentDay = new Date();
         this.days = [];
         while (this.days.length < days) {
-            if (0 < currentDay.getDay() < 6) {
+            if (0 < currentDay.getDay() && currentDay.getDay() < 6) {
                 this.days.push(this.dateFormat(currentDay, 'yyyy-MM-dd'));
             }
             currentDay = this.nextDay(currentDay);

@@ -32,7 +32,7 @@ class DataAccessor {
                 if (err) {
                     if (err.code === 'ENOENT') {
                         fs.writeFile(file, '', 'utf8', (err) => { });
-                        resolve([]);
+                        resolve(this.groupByDay(days, []));
                     } else {
                         console.log('读取文件' + file + '出错');
                         throw err;
@@ -61,7 +61,7 @@ class DataAccessor {
     add(conference) {
         //TODO:检查
         return this.get().then((data) => {
-            var prefix = data.length == 0 ? ',' : prefix;
+            var prefix = data.length == 0 ? '' : ',';
             return new Promise((resolve, reject) => {
                 fs.appendFile(file, prefix + JSON.stringify(conference), 'utf8', (err) => {
                     if (err) {
