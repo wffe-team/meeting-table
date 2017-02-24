@@ -27,7 +27,9 @@
                                 <div class="meeting-room">
                                     <input type="text" class="edit-text mr" placeholder="会议室" data-value="@conference.conferenceTable.roomNumber" disabled />
                                     <ul class="room-list">
-                                        <li><a href="javascript:;">231</a></li>
+                                        @for(var j = 0;j < model.conferenceTables.length;j++){
+                                        <li><a href="javascript:;">model.conferenceTables[j].roomNumber</a></li>
+                                        }
                                     </ul>
                                 </div>
                                 <div class="time-start">

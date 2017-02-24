@@ -38,6 +38,9 @@
     <Compile Include="code\workDay.js" />
     <Compile Include="controllers\conference.js" />
     <Compile Include="controllers\home.js" />
+    <Compile Include="data\conferenceTables.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="model\Conference.js" />
     <Compile Include="model\ConferenceTable.js">
       <SubType>Code</SubType>
@@ -105,6 +108,8 @@
     <Folder Include="public\js\" />
     <Folder Include="public\js\lib\" />
     <Folder Include="public\module\" />
+    <Folder Include="public\module\wfui-0.1.3\" />
+    <Folder Include="public\module\wfui-0.1.3\font\" />
     <Folder Include="public\module\wfui-0.1.4\" />
     <Folder Include="public\module\wfui-0.1.4\font\" />
     <Folder Include="public\src\" />
