@@ -1,2 +1,2 @@
-# WFFE
-万方前端
+# ConferenceTable
+会议室预定系统
