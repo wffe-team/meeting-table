@@ -10,7 +10,7 @@
 </head>
 <body>
     @html.block('content')
-    <script src="../module/wfui-0.1.4/wf.min.js"></script>
+    <script src="../module/wfui-0.1.4/wf.js"></script>
     @html.block('script')
 </body>
 </html>

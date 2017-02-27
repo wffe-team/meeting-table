@@ -4,199 +4,29 @@ body {
   color: #4d4d4d;
   background: #639;
 }
-.clear {
-  zoom: 1;
-}
-.clear:after {
-  display: block;
-  clear: both;
-  content: "";
-  visibility: hidden;
-  height: 0;
-}
-.nav {
-  overflow: hidden;
+.title {
   width: 100%;
-  height: 40px;
+  text-align: center;
   background: rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  color: #84888a;
+  font-family: cursive;
+  font-size: 26px;
+  line-height: 26px;
 }
-.nav .icon-img {
-  width: 120px;
-  height: 30px;
-  margin: 2px auto;
+.date-col {
+  padding: 20px;
 }
-.content {
-  height: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-.content .lists-wrap {
-  min-height: 650px;
-  margin-top: 20px;
-}
-.content .lists-wrap .meeting-wrap {
-  position: relative;
-  white-space: nowrap;
-}
-.content .lists-wrap .list-meeting {
-  display: inline-block;
-  float: left;
-  width: 290px;
-  margin: 0 20px;
-  border-radius: 3px;
+.date-col .date-wrapper {
   background-color: #E2E4E6;
+  border-radius: 3px;
 }
-.content .lists-wrap .list-meeting .date {
-  margin-top: 10px;
+.date-col .date-text {
+  padding-top: 10px;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
 }
-.content .lists-wrap .list-meeting .meeting {
-  position: relative;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
-}
-.content .lists-wrap .list-meeting .meeting input {
-  width: 50px;
-  height: 18px;
-  padding: 3px;
-  border: 1px solid #fff;
-  line-height: 18px;
-  color: #4d4d4d;
-}
-.content .lists-wrap .list-meeting .meeting .focus-input {
-  border: 1px solid #E2E4E6;
-  border-radius: 2px;
-}
-.content .lists-wrap .list-meeting .meeting .title {
-  height: 30px;
-  margin-bottom: 5px;
-  line-height: 30px;
-  font-size: 16px;
-}
-.content .lists-wrap .list-meeting .meeting .title .mt {
-  width: 70%;
-  text-indent: 13px;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details {
-  margin-bottom: 5px;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details div {
-  display: inline-block;
-  float: left;
-  padding-right: 5px;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room {
-  position: relative;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr {
-  width: 60px;
-  text-align: center;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .mr:hover {
-  cursor: pointer;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list {
-  display: none;
-  z-index: 2;
-  position: absolute;
-  top: 25px;
-  width: 66px;
-  background-color: #fff;
-  border: 1px solid #e2e4e6;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li {
-  line-height: 24px;
-  text-align: center;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover {
-  background-color: #ff8000;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list li:hover a {
-  color: #fff;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details div.meeting-room .room-list a {
-  display: inline-block;
-  width: 100%;
-  color: #4d4d4d;
-  text-decoration: none;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details .time-start .edit-text {
-  width: 65px;
-  text-align: center;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details .time-start .edit-text:hover {
-  cursor: pointer;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details .line {
-  line-height: 24px;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details .time-end .edit-text {
-  width: 65px;
-  text-align: center;
-}
-.content .lists-wrap .list-meeting .meeting .bd .details .time-end .edit-text:hover {
-  cursor: pointer;
-}
-.content .lists-wrap .list-meeting .meeting .bd .user {
-  position: relative;
-  margin-right: 9px;
-  text-align: right;
-}
-.content .lists-wrap .list-meeting .meeting .bd .user .error-show {
-  display: none;
-  position: absolute;
-  top: 7px;
-  left: 12px;
-  width: 60px;
-  text-align: center;
-  color: #FFFFFF;
-  background-color: tomato;
-}
-.content .lists-wrap .list-meeting .meeting .bd .user .edit-text {
-  width: 50px;
-  text-align: center;
-}
-.content .lists-wrap .list-meeting .meeting .bd .user .save {
-  display: none;
-}
-.content .lists-wrap .list-meeting .meeting .bd .user input {
-  width: 70px;
-}
-.content .lists-wrap .list-meeting .meeting .bd .handle {
-  margin-top: 8px;
-}
-.content .lists-wrap .list-meeting .meeting .bd .handle .edit {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-}
-.content .lists-wrap .list-meeting .meeting .bd .handle .edit:hover {
-  cursor: pointer;
-}
-.content .lists-wrap .list-meeting .meeting .bd .handle .save,
-.content .lists-wrap .list-meeting .meeting .bd .handle .cancal,
-.content .lists-wrap .list-meeting .meeting .bd .handle .delete {
-  display: none;
-}
-.content .lists-wrap .list-meeting .meeting .bd .handle .save:hover,
-.content .lists-wrap .list-meeting .meeting .bd .handle .cancal:hover,
-.content .lists-wrap .list-meeting .meeting .bd .handle .delete:hover {
-  cursor: pointer;
-}
-.content .lists-wrap .list-meeting .meeting .bd .handle .btn {
-  width: 43px;
-  height: 24px;
-  padding: 0;
-  margin-right: 5px;
-  line-height: 24px;
-  text-align: center;
-  background-color: #ddd;
-}
-.content .lists-wrap .list-meeting .new-metting .bd .handle .btn {
+.date-col .new-metting .bd .handle .btn {
   display: inline-block;
   width: 43px;
   height: 24px;
@@ -204,13 +34,13 @@ body {
   line-height: 24px;
   text-align: center;
 }
-.content .lists-wrap .list-meeting .metting-add {
+.date-col .metting-add {
   padding: 5px 10px;
   color: #8c8c8c;
   font-size: 14px;
   cursor: pointer;
 }
-.content .lists-wrap .list-meeting .metting-text {
+.date-col .metting-text {
   display: none;
 }
 @keyframes sharkbd {
@@ -241,6 +71,56 @@ body {
 }
 .shake {
   animation: sharkbd 1s;
+}
+.conferenceTemp {
+  display: none;
+}
+.meeting {
+  width: 100%;
+  box-sizing: border-box;
+}
+.meeting-col {
+  padding: 20px 10px;
+}
+.meeting-list-wrapper {
+  background-color: #E2E4E6;
+  border-radius: 3px;
+}
+.meeting-board {
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.meeting-board [name="title"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+.meeting-board .wf-input-label .wf-input-addon-prefix {
+  box-sizing: border-box;
+  width: 24%;
+  padding: 8px 0;
+  text-align: center;
+}
+.meeting-board .wf-input-label .wf-input {
+  width: 76%;
+  box-sizing: border-box;
+}
+.meeting-date {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+.meeting-add {
+  padding: 5px 10px;
+  color: #8c8c8c;
+  font-size: 14px;
+  cursor: pointer;
+}
+.meeting-action {
+  display: none;
 }
 body,
 a,

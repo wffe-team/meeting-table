@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
     <Compile Include="public\js\lib\jquery.datetimepicker.full.js" />
+    <Compile Include="public\module\wfui-0.1.4\wf.js" />
     <Compile Include="public\module\wfui-0.1.4\wf.min.js" />
     <Compile Include="public\src\js\conference.js" />
     <Compile Include="public\src\js\edit.js" />
@@ -71,7 +72,6 @@
     </Content>
     <Content Include="public\favicon.ico" />
     <Content Include="public\img\icon.png" />
-    <Content Include="public\module\wfui-0.1.3\font\iconfont.svg" />
     <Content Include="public\module\wfui-0.1.3\font\iconfont.ttf" />
     <Content Include="public\module\wfui-0.1.3\font\iconfont.woff" />
     <Content Include="public\module\wfui-0.1.4\font\iconfont.eot" />
@@ -79,6 +79,7 @@
     <Content Include="public\module\wfui-0.1.4\font\iconfont.svg" />
     <Content Include="public\module\wfui-0.1.4\font\iconfont.ttf" />
     <Content Include="public\module\wfui-0.1.4\font\iconfont.woff" />
+    <Content Include="public\module\wfui-0.1.4\wf.css" />
     <Content Include="public\module\wfui-0.1.4\wf.min.css" />
     <Content Include="public\src\img\icon.png" />
     <Content Include="public\src\less\index.css">
@@ -92,6 +93,7 @@
       <DependentUpon>public\src\less\index.css</DependentUpon>
     </Content>
     <Content Include="public\src\less\reset.css" />
+    <Content Include="views\_conference.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
     <Content Include="views\error.vash" />
@@ -108,8 +110,6 @@
     <Folder Include="public\js\" />
     <Folder Include="public\js\lib\" />
     <Folder Include="public\module\" />
-    <Folder Include="public\module\wfui-0.1.3\" />
-    <Folder Include="public\module\wfui-0.1.3\font\" />
     <Folder Include="public\module\wfui-0.1.4\" />
     <Folder Include="public\module\wfui-0.1.4\font\" />
     <Folder Include="public\src\" />

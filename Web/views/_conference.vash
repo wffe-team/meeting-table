@@ -1,0 +1,62 @@
+﻿@html.block('_conference',function(model){
+if(!model.conference){
+    var conference =!model.conference? {
+        id:'',
+        title:'',
+        userName:'',
+        introduction:'',
+        conferenceTable:{roomNumber:''},
+        timeRange:['','']
+    }:model.conference;
+<div class="meeting-board @(!model.conference?'conferenceTemp':'')" id="@conference.id">
+    <input type="text" name="title" class="wf-input" placeholder="会议主题" data-value="@conference.title" />
+    <div data-role="select" class="wf-select meeting-conferenceTable" id="roomNumber">
+        <div class="wf-select-selection">
+            <div class="wf-select-selection-value">
+                @(model.conferenceTables[0].roomNumber)室
+                @(model.conferenceTables[0].number)号桌
+            </div>
+            <i class="wf-icon icon-moreunfold"></i>
+        </div>
+        <input class="wf-select-input" name="roomNumber" type="text">
+        <ul class="wf-select-options">
+            @for(var j = 0;j < model.conferenceTables.length;j++){
+            <li data-value="@model.conferenceTables[j].id" class="wf-select-option">
+                @(model.conferenceTables[j].roomNumber)室
+                @(model.conferenceTables[j].number)号桌
+            </li>
+            }
+        </ul>
+    </div>
+    <div class="meeting-time">
+        <div data-role="select" class="wf-select" id="startTime">
+            <div class="wf-select-selection">
+                <div class="wf-select-selection-value">8:00</div>
+                <i class="wf-icon icon-moreunfold"></i>
+            </div>
+            <input class="wf-select-input" name="roomNumber" type="text">
+            <ul class="wf-select-options">
+                <li data-value="" class="wf-select-option">
+                    8:00
+                </li>
+            </ul>
+        </div>
+        <div data-role="select" class="wf-select" id="endTime">
+            <div class="wf-select-selection">
+                <div class="wf-select-selection-value">8:00</div>
+                <i class="wf-icon icon-moreunfold"></i>
+            </div>
+            <input class="wf-select-input" name="roomNumber" type="text">
+            <ul class="wf-select-options">
+                <li data-value="" class="wf-select-option">
+                    8:00
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="meeting-userName">
+        <input type="text" name="title" class="wf-input" placeholder="使用人" data-value="@conference.userName" />
+    </div>
+</div>
+}
+})
