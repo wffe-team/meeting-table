@@ -23,7 +23,8 @@ wf.require('page').render('conference', ['UI.Select'], function() {
     var $templete = $conferenceTemp.removeClass('conferenceTemp').clone();
     $conferenceTemp.remove();
     $('.meeting-add').click(function () {
-        $(this).prev().append($templete);
+        //准备时间条
+        $(this).hide().prev().append($templete);
         page.refresh();
     });
 });
