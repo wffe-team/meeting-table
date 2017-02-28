@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>会议室预定系统</title>
-    <link href="../module/wfui-0.1.4/wf.min.css" rel="stylesheet" />
+    <link href="../module/wfui-0.1.5/wf.min.css" rel="stylesheet" />
     <link href="../css/global.min.css" rel="stylesheet" />
     @html.block('head')
 </head>
 <body>
     @html.block('content')
-    <script src="../module/wfui-0.1.4/wf.js"></script>
+    <script src="../module/wfui-0.1.5/wf.js"></script>
     @html.block('script')
 </body>
 </html>

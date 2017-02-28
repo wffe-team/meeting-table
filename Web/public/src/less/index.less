@@ -16,87 +16,6 @@
     line-height: 26px;
 }
 
-.date-col {
-    padding: 20px;
-
-    .date-wrapper {
-        background-color: #E2E4E6;
-        border-radius: 3px;
-    }
-
-    .date-text {
-        padding-top: 10px;
-        text-align: center;
-        font-size: 20px;
-    }
-
-
-    .meeting {
-    }
-
-    .new-metting {
-        .bd {
-            .handle {
-                .btn {
-                    display: inline-block;
-                    width: 43px;
-                    height: 24px;
-                    margin-right: 5px;
-                    line-height: 24px;
-                    text-align: center;
-                }
-            }
-        }
-    }
-
-    .metting-add {
-        padding: 5px 10px;
-        color: #8c8c8c;
-        font-size: 14px;
-        cursor: pointer;
-    }
-
-    .metting-text {
-        display: none;
-    }
-}
-
-@keyframes sharkbd {
-    0% {
-        -webkit-transform: translateX(3px) rotate(2deg);
-        border: 1px solid red;
-    }
-
-    20% {
-        -webkit-transform: translateX(-3px) rotate(-2deg);
-        border: 1px solid red;
-    }
-
-    40% {
-        -webkit-transform: translateX(3px) rotate(2deg);
-        border: 1px solid red;
-    }
-
-    60% {
-        -webkit-transform: translateX(-3px) rotate(-2deg);
-        border: 1px solid red;
-    }
-
-    80% {
-        -webkit-transform: translateX(3px) rotate(2deg);
-        border: 1px solid red;
-    }
-
-    100% {
-        -webkit-transform: translateX(-3px) rotate(-2deg);
-        border: 1px solid red;
-    }
-}
-
-.shake {
-    animation: sharkbd 1s;
-}
-
 .conferenceTemp {
     display: none;
 }
@@ -128,6 +47,7 @@
         [name="title"] {
             width: 100%;
             box-sizing: border-box;
+            margin-bottom:10px;
         }
 
         .wf-input-label {
@@ -135,13 +55,21 @@
                 box-sizing: border-box;
                 width: 24%;
                 padding: 8px 0;
-                text-align:center;
+                text-align: center;
             }
 
             .wf-input {
                 width: 76%;
                 box-sizing: border-box;
             }
+        }
+    }
+
+    &-time {
+        .wf-col-2 {
+            text-align: center;
+            height:30px;
+            line-height:30px;
         }
     }
 
@@ -159,6 +87,10 @@
     }
 
     &-action {
-        display: none;
+        margin-top:10px;
+        float:right;
+        .wf-btn{
+            margin-left:5px;
+        }
     }
 }

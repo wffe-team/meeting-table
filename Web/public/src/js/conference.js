@@ -1,6 +1,7 @@
 ﻿"use strict";
 
-wf.require('page').render('conference', ['UI.Checkbox', 'UI.Select'], () => {
+wf.require('page').render('conference', ['UI.Select'], function() {
+    var page = this;
     var conferencer = (_=> {
         var sender = (url, data, callback) => {
             $.get(url, data, (rsp) => {
@@ -18,12 +19,11 @@ wf.require('page').render('conference', ['UI.Checkbox', 'UI.Select'], () => {
             }
         };
     })();
-
-    //保存会议示例，如果有id则为更新
-    //conferencer.save({会议数据}, (rsp) => {});
-    var $templete = $('.conferenceTemp').clone(true,true).removeClass('conferenceTemp');
-    //$('.conferenceTemp').remove();
+    var $conferenceTemp = $('.conferenceTemp');
+    var $templete = $conferenceTemp.removeClass('conferenceTemp').clone();
+    $conferenceTemp.remove();
     $('.meeting-add').click(function () {
         $(this).prev().append($templete);
+        page.refresh();
     });
 });

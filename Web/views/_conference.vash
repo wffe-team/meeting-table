@@ -8,28 +8,34 @@ if(!model.conference){
         conferenceTable:{roomNumber:''},
         timeRange:['','']
     }:model.conference;
-<div class="meeting-board @(!model.conference?'conferenceTemp':'')" id="@conference.id">
+<div class="meeting-board clearfix @(!model.conference?'conferenceTemp':'')" id="@conference.id">
     <input type="text" name="title" class="wf-input" placeholder="会议主题" data-value="@conference.title" />
-    <div data-role="select" class="wf-select meeting-conferenceTable" id="roomNumber">
-        <div class="wf-select-selection">
-            <div class="wf-select-selection-value">
-                @(model.conferenceTables[0].roomNumber)室
-                @(model.conferenceTables[0].number)号桌
+    <div class="wf-row">
+        <div data-role="select" class="wf-select meeting-conferenceTable wf-col-11">
+            <div class="wf-select-selection">
+                <div class="wf-select-selection-value">
+                    @(model.conferenceTables[0].roomNumber)室
+                    @(model.conferenceTables[0].number)号桌
+                </div>
+                <i class="wf-icon icon-moreunfold"></i>
             </div>
-            <i class="wf-icon icon-moreunfold"></i>
+            <input class="wf-select-input" name="roomNumber" type="text">
+            <ul class="wf-select-options">
+                @for(var j = 0;j < model.conferenceTables.length;j++){
+                <li data-value="@model.conferenceTables[j].id" class="wf-select-option">
+                    @(model.conferenceTables[j].roomNumber)室
+                    @(model.conferenceTables[j].number)号桌
+                </li>
+                }
+            </ul>
         </div>
-        <input class="wf-select-input" name="roomNumber" type="text">
-        <ul class="wf-select-options">
-            @for(var j = 0;j < model.conferenceTables.length;j++){
-            <li data-value="@model.conferenceTables[j].id" class="wf-select-option">
-                @(model.conferenceTables[j].roomNumber)室
-                @(model.conferenceTables[j].number)号桌
-            </li>
-            }
-        </ul>
+        <div class="wf-col-2"></div>
+        <div class="meeting-userName  wf-col-11">
+            <input type="text" name="title" class="wf-input" placeholder="使用人" data-value="@conference.userName" />
+        </div>
     </div>
-    <div class="meeting-time">
-        <div data-role="select" class="wf-select" id="startTime">
+    <div class="wf-row meeting-time">
+        <div data-role="select" class="wf-select wf-col-11">
             <div class="wf-select-selection">
                 <div class="wf-select-selection-value">8:00</div>
                 <i class="wf-icon icon-moreunfold"></i>
@@ -41,7 +47,8 @@ if(!model.conference){
                 </li>
             </ul>
         </div>
-        <div data-role="select" class="wf-select" id="endTime">
+        <span class="wf-col-2">至</span>
+        <div data-role="select" class="wf-select wf-col-11">
             <div class="wf-select-selection">
                 <div class="wf-select-selection-value">8:00</div>
                 <i class="wf-icon icon-moreunfold"></i>
@@ -54,8 +61,9 @@ if(!model.conference){
             </ul>
         </div>
     </div>
-    <div class="meeting-userName">
-        <input type="text" name="title" class="wf-input" placeholder="使用人" data-value="@conference.userName" />
+    <div class="wf-row meeting-action">
+        <button class="wf-btn wf-btn-primary">保存</button>
+        <button class="wf-btn">删除</button>
     </div>
 </div>
 }

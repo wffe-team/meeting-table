@@ -52,8 +52,8 @@
     </Compile>
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
     <Compile Include="public\js\lib\jquery.datetimepicker.full.js" />
-    <Compile Include="public\module\wfui-0.1.4\wf.js" />
-    <Compile Include="public\module\wfui-0.1.4\wf.min.js" />
+    <Compile Include="public\module\wfui-0.1.5\wf.js" />
+    <Compile Include="public\module\wfui-0.1.5\wf.min.js" />
     <Compile Include="public\src\js\conference.js" />
     <Compile Include="public\src\js\edit.js" />
     <Compile Include="routes.js" />
@@ -71,21 +71,17 @@
       <DependentUpon>public\css\global.css</DependentUpon>
     </Content>
     <Content Include="public\favicon.ico" />
-    <Content Include="public\img\icon.png" />
-    <Content Include="public\module\wfui-0.1.4\font\iconfont.eot" />
-    <Content Include="public\module\wfui-0.1.4\font\iconfont.less" />
-    <Content Include="public\module\wfui-0.1.4\font\iconfont.svg" />
-    <Content Include="public\module\wfui-0.1.4\font\iconfont.ttf" />
-    <Content Include="public\module\wfui-0.1.4\font\iconfont.woff" />
-    <Content Include="public\module\wfui-0.1.4\wf.css" />
-    <Content Include="public\module\wfui-0.1.4\wf.min.css" />
-    <Content Include="public\src\img\icon.png" />
+    <Content Include="public\module\wfui-0.1.5\font\iconfont.eot" />
+    <Content Include="public\module\wfui-0.1.5\font\iconfont.svg" />
+    <Content Include="public\module\wfui-0.1.5\font\iconfont.ttf" />
+    <Content Include="public\module\wfui-0.1.5\font\iconfont.woff" />
+    <Content Include="public\module\wfui-0.1.5\wf.css" />
+    <Content Include="public\module\wfui-0.1.5\wf.min.css" />
     <Content Include="public\src\less\index.css">
       <SubType>Content</SubType>
       <DependentUpon>public\src\less\index.less</DependentUpon>
     </Content>
     <Content Include="public\src\less\index.less" />
-    <Content Include="public\css\jquery.datetimepicker.css" />
     <Content Include="public\src\less\index.min.css">
       <SubType>Content</SubType>
       <DependentUpon>public\src\less\index.css</DependentUpon>
@@ -103,15 +99,12 @@
     <Folder Include="data\" />
     <Folder Include="public\" />
     <Folder Include="public\css\" />
-    <Folder Include="public\img\" />
     <Folder Include="public\js\" />
     <Folder Include="public\js\lib\" />
     <Folder Include="public\module\" />
-    <Folder Include="public\module\wfui-0.1.4\" />
-    <Folder Include="public\module\wfui-0.1.4\font\" />
+    <Folder Include="public\module\wfui-0.1.5\" />
+    <Folder Include="public\module\wfui-0.1.5\font\" />
     <Folder Include="public\src\" />
-    <Folder Include="public\src\font\" />
-    <Folder Include="public\src\img\" />
     <Folder Include="public\src\js\" />
     <Folder Include="public\src\less\" />
     <Folder Include="typings\" />

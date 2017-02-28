@@ -503,7 +503,7 @@ wf.define('browser', '_core_', function (logger) {
 /**
  * 事件系统
  */
-wf.define('Util', [], function () {
+wf.define('util', [], function () {
     return {
         /**
          * 获取滚动条宽度
@@ -526,7 +526,28 @@ wf.define('Util', [], function () {
             widthWithScroll = inner.offsetWidth;
             outer.parentNode.removeChild(outer);
             return widthNoScroll - widthWithScroll;
-        }
+        },
+        /**
+         * 获取guid
+         */
+        guid: function () {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                  .toString(16)
+                  .substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+              s4() + '-' + s4() + s4() + s4();
+        },
+        /**
+         * 获取guid
+         */
+        growingID: (function () {
+            var id = 0;
+            return function () {
+                return id++;
+            }
+        })()
     };
 });
 'use strict';
@@ -582,7 +603,7 @@ wf.define('Action', [], function () {
 /**
  * UI组件
  */
-wf.define('UI', ['logger'], function (logger) {
+wf.define('UI', ['logger', 'util'], function (logger, util) {
     
     /**
      * UI组件命名规则
@@ -774,7 +795,7 @@ wf.define('UI', ['logger'], function (logger) {
          * @param {String} name组件实例名
          */
         init: function ($element, name) {
-            this.name = name || $element.attr('id');
+            this.name = !!name || $element.attr('id') || (this.role + util.growingID());
             this.$element = $element;
             if (!this.name) {
                 logger.error('missing unique identifier');
@@ -796,7 +817,9 @@ wf.define('UI', ['logger'], function (logger) {
     UI.CLS_PREFIX = CLS_PREFIX;
     UI.ID_PREFIX = ID_PREFIX;
     UI.CHAIN = CHAIN;
-    
+    UI.AUTO_TAG = '[data-auto="true"]';
+    UI.DATA_RENDERED_STR = 'data-rendered';
+    UI.DATA_RENDERED = '[' + UI.DATA_RENDERED_STR + ']';
     return UI;
 });
 'use strict';
@@ -933,10 +956,7 @@ wf.define('UI.Checkbox', ['UI', 'logger', 'Action'], function (UI, logger, Actio
      * @param {String} index checkbox index
      * @param {Function} click click事件
      */
-    var generateCB = function ($elm, index, click) {
-        if (!$elm.attr('id')) {
-            $elm.attr('id', role + index);
-        }        
+    var generateCB = function ($elm, index, click) {       
         return new Checkbox(
             $elm,
             $elm.hasClass(UI.clsName('checked', role)),
@@ -984,18 +1004,20 @@ wf.define('UI.Checkbox', ['UI', 'logger', 'Action'], function (UI, logger, Actio
             }
         );
         result.name = groupId;
+        result.$element = result.controller.$element;
         return result;
     };
 
     /**
      * 自动初始化
      * @param {Object} page页面容器
+     * @param {Bool} 是否tagRender渲染方式
      */
-    Checkbox.auto = function (page) {
+    Checkbox.auto = function (page, tagRender) {
 
         var $this, target;
-
-        $.each($(dataRole).not(UI.CLS_PREFIX + UI.clsName('group-item', role)), function (index) {
+        var $target = tagRender ? $(dataRole).filter(UI.AUTO_TAG) : $(dataRole);
+        $.each($target.not(UI.CLS_PREFIX + UI.clsName('group-item', role)).not(UI.DATA_RENDERED), function (index) {
             $this = $(this);
             target = $this.data('target');
             page.addElement(target ?
@@ -1143,9 +1165,6 @@ wf.define('UI.Radio', ['UI', 'logger', 'Action'], function (UI, logger, Action) 
      * @param {Function} click click事件
      */
     var generateRD = function ($elm, index, click) {
-        if (!$elm.attr('id')) {
-            $elm.attr('id', role + index);
-        }
         return new Radio(
             $elm,
             $elm.hasClass(UI.clsName('checked', role)),
@@ -1173,22 +1192,24 @@ wf.define('UI.Radio', ['UI', 'logger', 'Action'], function (UI, logger, Action) 
             });
         });
         result.name = groupId;
+        result.$element = $group;
         return result;
     };
 
     /**
      * 自动初始化
      * @param {Object} page页面容器
+     * @param {Bool} 是否tagRender渲染方式
      */
-    Radio.auto = function (page) {
-
+    Radio.auto = function (page, tagRender) {
         var $this, target;
-
-        $.each($(dataRole).not('.' + UI.clsName('group-item', role)), function (index) {
+        var groupCls = '.' + UI.clsName('group', role);
+        var $target = tagRender ? $(dataRole).filter(UI.AUTO_TAG) : $(dataRole);
+        var $targetGroup = tagRender ? $(groupCls).filter(UI.AUTO_TAG) :$(groupCls);
+        $.each($target.not('.' + UI.clsName('group-item', role)).not(UI.DATA_RENDERED), function (index) {
             page.addElement(generateRD($(this), index));
         });
-
-        $.each($('.' + UI.clsName('group', role)), function (index) {
+        $.each($targetGroup.not(UI.DATA_RENDERED), function (index) {
             page.addElement(Radio.group($(this)));
         });
 
@@ -1406,11 +1427,8 @@ wf.define('UI.Select', ['logger', 'UI', 'Action', 'browser'], function (logger, 
      * @param {Bool} 是否tagRender渲染方式
      */
     Select.auto = function (page, tagRender) {
-        var $target = tagRender ? $(dataRole).filter('[data-auto="true"]') : $(dataRole);
-        $.each($target, function (index) {
-            if (!$(this).attr('id')) {
-                $(this).attr('id', role + index);
-            }
+        var $target = tagRender ? $(dataRole).filter(UI.AUTO_TAG) : $(dataRole);
+        $.each($target.not(UI.DATA_RENDERED), function (index) {
             page.addElement(new Select($(this)));
         });
 
@@ -1497,13 +1515,12 @@ wf.define('UI.Tab', ['UI', 'logger', 'Action'], function (UI, logger, Action) {
         /**
          * ui初始化
          * @param {String} _base_ 父类同名方法
-         * @param {String} name ui名
          * @param {Object} $element ui jquery对象
          * @param {Object} events 组件事件
          * events:{'change',function($element){}}
          */
-        init: function (_base_, name, $element, events) {
-            _base_($element,name);
+        init: function (_base_, $element, events) {
+            _base_($element);
             var me = this;
             this.initElement([
                 { selector: 'nav' },
@@ -1535,11 +1552,13 @@ wf.define('UI.Tab', ['UI', 'logger', 'Action'], function (UI, logger, Action) {
     /**
      * 自动初始化
      * @param {Object} page页面容器
+     * @param {Bool} 是否tagRender渲染方式
      */
-    Tab.auto = function (page) {
-        
-        $.each($(dataRole), function (index) {
-            page.addElement(new Tab($(this).attr('id') || role + index, $(this)));
+    Tab.auto = function (page, tagRender) {
+
+        var $target = tagRender ? $(dataRole).filter(UI.AUTO_TAG) : $(dataRole);
+        $.each($target.not(UI.DATA_RENDERED), function (index) {
+            page.addElement(new Tab($(this)));
         });
 
     };
@@ -1629,12 +1648,11 @@ wf.define('UI.Alert', ['UI', 'logger', 'Action'], function (UI, logger, Action) 
     /**
      * 自动初始化
      * @param {Object} page页面容器
+     * @param {Bool} 是否tagRender渲染方式
      */
-    Alert.auto = function (page) {
-        $.each($(dataRole), function (index) {            
-            if (!$(this).attr('id')) {
-                $(this).attr('id', role + index);
-            }
+    Alert.auto = function (page, tagRender) {
+        var $target = tagRender ? $(dataRole).filter(UI.AUTO_TAG) : $(dataRole);
+        $.each($target.not(UI.DATA_RENDERED), function (index) {
             page.addElement(new Alert($(this)));
         });
     };
@@ -1664,7 +1682,7 @@ wf.define('UI.Alert', ['UI', 'logger', 'Action'], function (UI, logger, Action) 
  * </div>
  */
 
-wf.define('UI.Modal', ['UI', 'logger', 'Action', 'Util'], function (UI, logger, Action, Util) {
+wf.define('UI.Modal', ['UI', 'logger', 'Action', 'util'], function (UI, logger, Action, util) {
 
     var role = 'modal';
 
@@ -1732,7 +1750,7 @@ wf.define('UI.Modal', ['UI', 'logger', 'Action', 'Util'], function (UI, logger, 
             var me = this;
             me.$element.removeClass(this.hideCls());
             if (me.supportCss3('animation')) {
-                scrollWidth = Util.getScrollbarWidth();
+                scrollWidth = util.getScrollbarWidth();
                 if (origin) {
                     offset = me.content.$element.offset();
                     transformOrigin = (origin.left - offset.left) + 'px ' + (origin.top - offset.top) + 'px';
@@ -1792,16 +1810,14 @@ wf.define('UI.Modal', ['UI', 'logger', 'Action', 'Util'], function (UI, logger, 
     });
 
     /**
-     * dataRole
-     */
-    var dataRole = '[data-role="' + role + '"]';
-
-    /**
      * 自动初始化
      * @param {Object} page页面容器
+     * @param {Bool} 是否tagRender渲染方式
      */
-    Modal.auto = function (page) {
-        $.each($('[data-modal'), function (index) {
+    Modal.auto = function (page, tagRender) {
+        var fireBtn = $('[data-modal]');
+        var $target = tagRender ? fireBtn.filter(UI.AUTO_TAG) : fireBtn;
+        $.each($target.not(UI.DATA_RENDERED), function (index) {
             var id = $(this).data('modal');
             var modal = new Modal($(UI.ID_PREFIX + id));
             $(this).click(function (e) {
@@ -1816,9 +1832,9 @@ wf.define('UI.Modal', ['UI', 'logger', 'Action', 'Util'], function (UI, logger, 
 });
 'use strict';
 /**
- * Page
+ * Page容器
  */
-wf.define('page', ['logger'], function (logger) {
+wf.define('page', ['logger', 'UI'], function (logger, UI) {
 
     /**
      * Page
@@ -1849,6 +1865,7 @@ wf.define('page', ['logger'], function (logger) {
                 return;
             }
             this.element[element.name] = element;
+            element.$element.attr(UI.DATA_RENDERED_STR, true);
         },
 
         /**
@@ -1895,6 +1912,13 @@ wf.define('page', ['logger'], function (logger) {
                 func.call(_pg_, _pg_.components, _pg_.element);
             }
             return _pg_;
+        },
+
+        /**
+         * page刷新对于新增的组件进行初始化 
+         */
+        refresh: function () {
+            this.auto();
         }
     };
 });

@@ -14,64 +14,6 @@
   font-size: 26px;
   line-height: 26px;
 }
-.date-col {
-  padding: 20px;
-}
-.date-col .date-wrapper {
-  background-color: #E2E4E6;
-  border-radius: 3px;
-}
-.date-col .date-text {
-  padding-top: 10px;
-  text-align: center;
-  font-size: 20px;
-}
-.date-col .new-metting .bd .handle .btn {
-  display: inline-block;
-  width: 43px;
-  height: 24px;
-  margin-right: 5px;
-  line-height: 24px;
-  text-align: center;
-}
-.date-col .metting-add {
-  padding: 5px 10px;
-  color: #8c8c8c;
-  font-size: 14px;
-  cursor: pointer;
-}
-.date-col .metting-text {
-  display: none;
-}
-@keyframes sharkbd {
-  0% {
-    -webkit-transform: translateX(3px) rotate(2deg);
-    border: 1px solid red;
-  }
-  20% {
-    -webkit-transform: translateX(-3px) rotate(-2deg);
-    border: 1px solid red;
-  }
-  40% {
-    -webkit-transform: translateX(3px) rotate(2deg);
-    border: 1px solid red;
-  }
-  60% {
-    -webkit-transform: translateX(-3px) rotate(-2deg);
-    border: 1px solid red;
-  }
-  80% {
-    -webkit-transform: translateX(3px) rotate(2deg);
-    border: 1px solid red;
-  }
-  100% {
-    -webkit-transform: translateX(-3px) rotate(-2deg);
-    border: 1px solid red;
-  }
-}
-.shake {
-  animation: sharkbd 1s;
-}
 .conferenceTemp {
   display: none;
 }
@@ -97,6 +39,7 @@
 .meeting-board [name="title"] {
   width: 100%;
   box-sizing: border-box;
+  margin-bottom: 10px;
 }
 .meeting-board .wf-input-label .wf-input-addon-prefix {
   box-sizing: border-box;
@@ -107,6 +50,11 @@
 .meeting-board .wf-input-label .wf-input {
   width: 76%;
   box-sizing: border-box;
+}
+.meeting-time .wf-col-2 {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
 }
 .meeting-date {
   padding-top: 10px;
@@ -120,5 +68,9 @@
   cursor: pointer;
 }
 .meeting-action {
-  display: none;
+  margin-top: 10px;
+  float: right;
+}
+.meeting-action .wf-btn {
+  margin-left: 5px;
 }

@@ -1437,8 +1437,7 @@ button[disabled]:hover {
   position: relative;
   border: 1px solid #e1e1e1;
   border-radius: 4px;
-  padding: 0 10px;
-  width: 140px;
+  width: 100%;
   font-size: 12px;
   cursor: pointer;
   height: 30px;
@@ -1459,15 +1458,11 @@ button[disabled]:hover {
 .wf-select-selection .wf-select-selection-value {
   display: inline-block;
   float: left;
-  width: 122px;
-  overflow: hidden;
-  -ms-text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  padding-left: 10px;
 }
 .wf-select-selection .wf-icon {
   float: right;
+  margin-right: 10px;
   font-size: 14px;
   -webkit-transition: transform 0.15s ease;
   -moz-transition: transform 0.15s ease;
@@ -1481,6 +1476,7 @@ button[disabled]:hover {
   display: none;
 }
 .wf-select-options {
+  width: 100%;
   background-color: #fff;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -1496,8 +1492,8 @@ button[disabled]:hover {
 .wf-select-options .wf-select-option {
   position: relative;
   display: block;
-  width: 124px;
-  padding: 10px 18px;
+  width: 90%;
+  padding: 10px 5%;
   font-weight: normal;
   color: #666;
   cursor: pointer;

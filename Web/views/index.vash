@@ -1,7 +1,4 @@
 ﻿@html.extend('layout', function(model){
-    @html.block('head', function(){
-<link href="../css/jquery.datetimepicker.css" rel="stylesheet" />
-    })
     @html.block('content', function(model){
 <h1 class="title">Meeting</h1>
 <div class="content wf-row meeting">
@@ -17,10 +14,6 @@
                 }                
             </div>
             <div class="meeting-add">Add Metting ...</div>
-            <div class="meeting-action">
-                <button class="wf-btn add-btn">Add</button>
-                <button class="wf-btn cancal-btn">Cancal</button>
-            </div>
         </div>
     </div>
     }
