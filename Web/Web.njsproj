@@ -90,7 +90,6 @@
       <SubType>Content</SubType>
       <DependentUpon>public\src\less\index.css</DependentUpon>
     </Content>
-    <Content Include="public\src\less\reset.css" />
     <Content Include="views\_conference.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />

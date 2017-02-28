@@ -1,15 +1,8 @@
 [
   {
-    "outputFileName": "public/css/global.min.css",
-    "inputFiles": [
-      "public/css/global.css"
-    ]
-  },
-  {
     "outputFileName": "public/css/global.css",
     "inputFiles": [
-      "public/src/less/index.css",
-      "public/src/less/reset.css"
+      "public/src/less/index.css"
     ]
   },
   {
