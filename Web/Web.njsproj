@@ -72,8 +72,6 @@
     </Content>
     <Content Include="public\favicon.ico" />
     <Content Include="public\img\icon.png" />
-    <Content Include="public\module\wfui-0.1.3\font\iconfont.ttf" />
-    <Content Include="public\module\wfui-0.1.3\font\iconfont.woff" />
     <Content Include="public\module\wfui-0.1.4\font\iconfont.eot" />
     <Content Include="public\module\wfui-0.1.4\font\iconfont.less" />
     <Content Include="public\module\wfui-0.1.4\font\iconfont.svg" />
