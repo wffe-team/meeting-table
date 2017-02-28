@@ -5,29 +5,29 @@ var ConferenceTable = require('../model/ConferenceTable');
 var ConferenceAccessor = require('../code/conferenceAccessor');
 var accessor = new ConferenceAccessor();
 
-router.get('/save', function (req, res) {
+router.post('/save', function (req, res) {
     var conference = new Conference(
-        req.query.title,
-        req.query.userName,
-        req.query.introduction,
-         new ConferenceTable(req.query.tableRoom),
-        [req.query.startTime, req.query.endTime],
-        req.query.date
+        req.body.title,
+        req.body.userName,
+        req.body.introduction,
+         new ConferenceTable(req.body.tableRoom),
+        [req.body.startTime, req.body.endTime],
+        req.body.date
     );
     //如果有id，则更新
-    if (req.query.id) {
+    if (req.body.id) {
         accessor.update(conference).then(_=> {
             res.json({ success: true });
         });
     } else {
         accessor.add(conference).then(_=> {
-            res.json({ success: true });
+            res.json({ success: true, id: conference.id });
         });
     }
 });
 
-router.get('/delete', function (req, res) {
-    accessor.remove(req.query.id);
+router.post('/delete', function (req, res) {
+    accessor.remove(req.body.id);
     res.json({ success: true });
 });
 

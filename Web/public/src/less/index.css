@@ -33,7 +33,7 @@
 }
 .meeting-board {
   padding: 10px;
-  margin: 10px;
+  margin: 0 10px 10px 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #fff;
@@ -53,13 +53,16 @@
   width: 76%;
   box-sizing: border-box;
 }
+.meeting-time {
+  margin-top: 10px;
+}
 .meeting-time .wf-col-2 {
   text-align: center;
   height: 30px;
   line-height: 30px;
 }
 .meeting-date {
-  padding-top: 10px;
+  padding: 10px 0;
   text-align: center;
   font-size: 20px;
 }
@@ -75,4 +78,8 @@
 }
 .meeting-action .wf-btn {
   margin-left: 5px;
+}
+.meeting-userName .wf-input {
+  width: 100%;
+  box-sizing: border-box;
 }

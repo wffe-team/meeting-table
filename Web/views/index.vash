@@ -22,7 +22,6 @@
     })
     @html.block('script', function(model){
 <script src="../js/lib/jquery-1.12.4.min.js"></script>
-<script src="../js/lib/jquery.datetimepicker.full.js"></script>
 <script src="../js/global.js"></script>
     })
 })

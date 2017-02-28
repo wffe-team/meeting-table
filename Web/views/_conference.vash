@@ -8,7 +8,7 @@ if(!model.conference){
         conferenceTable:{roomNumber:''},
         timeRange:['','']
     }:model.conference;
-<div class="meeting-board clearfix @(!model.conference?'conferenceTemp':'')" id="@conference.id">
+<div class="meeting-board clearfix @(!model.conference?'conferenceTemp':'')" data-id="@conference.id">
     <input type="text" name="title" class="wf-input" placeholder="会议主题" data-value="@conference.title" />
     <div class="wf-row">
         <div data-role="select" class="wf-select meeting-conferenceTable wf-col-11">
@@ -22,7 +22,7 @@ if(!model.conference){
             <input class="wf-select-input" name="roomNumber" type="text">
             <ul class="wf-select-options">
                 @for(var j = 0;j < model.conferenceTables.length;j++){
-                <li data-value="@model.conferenceTables[j].id" class="wf-select-option">
+                <li data-value="@(model.conferenceTables[j].roomNumber+'-'+model.conferenceTables[j].number)" class="wf-select-option">
                     @(model.conferenceTables[j].roomNumber)室
                     @(model.conferenceTables[j].number)号桌
                 </li>
@@ -30,40 +30,32 @@ if(!model.conference){
             </ul>
         </div>
         <div class="wf-col-2"></div>
-        <div class="meeting-userName  wf-col-11">
-            <input type="text" name="title" class="wf-input" placeholder="使用人" data-value="@conference.userName" />
+        <div class="meeting-userName wf-col-11">
+            <input type="text" name="userName" class="wf-input" placeholder="使用人" data-value="@conference.userName" />
         </div>
     </div>
     <div class="wf-row meeting-time">
-        <div data-role="select" class="wf-select wf-col-11">
+        <div data-role="select" class="wf-select wf-select-startTime wf-col-11">
             <div class="wf-select-selection">
                 <div class="wf-select-selection-value">8:00</div>
                 <i class="wf-icon icon-moreunfold"></i>
             </div>
-            <input class="wf-select-input" name="roomNumber" type="text">
-            <ul class="wf-select-options">
-                <li data-value="" class="wf-select-option">
-                    8:00
-                </li>
-            </ul>
+            <input class="wf-select-input" name="startTime" type="text">
+            <ul class="wf-select-options"></ul>
         </div>
         <span class="wf-col-2">至</span>
-        <div data-role="select" class="wf-select wf-col-11">
+        <div data-role="select" class="wf-select wf-select-endTime wf-col-11">
             <div class="wf-select-selection">
                 <div class="wf-select-selection-value">8:00</div>
                 <i class="wf-icon icon-moreunfold"></i>
             </div>
-            <input class="wf-select-input" name="roomNumber" type="text">
-            <ul class="wf-select-options">
-                <li data-value="" class="wf-select-option">
-                    8:00
-                </li>
-            </ul>
+            <input class="wf-select-input" name="endTime" type="text">
+            <ul class="wf-select-options"></ul>
         </div>
     </div>
     <div class="wf-row meeting-action">
-        <button class="wf-btn wf-btn-primary">保存</button>
-        <button class="wf-btn">删除</button>
+        <button class="wf-btn wf-btn-primary wf-btn-save">保存</button>
+        <button class="wf-btn wf-btn-delete">删除</button>
     </div>
 </div>
 }

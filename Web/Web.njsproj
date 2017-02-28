@@ -51,11 +51,11 @@
       <DependentUpon>public\js\global.js</DependentUpon>
     </Compile>
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
-    <Compile Include="public\js\lib\jquery.datetimepicker.full.js" />
     <Compile Include="public\module\wfui-0.1.5\wf.js" />
     <Compile Include="public\module\wfui-0.1.5\wf.min.js" />
     <Compile Include="public\src\js\conference.js" />
     <Compile Include="public\src\js\edit.js" />
+    <Compile Include="public\src\js\timeList.js" />
     <Compile Include="routes.js" />
     <Compile Include="bin\www" />
     <None Include="compilerconfig.json" />
@@ -64,6 +64,7 @@
       <SubType>Content</SubType>
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
+    <Content Include="data\conferenceData.txt" />
     <Content Include="package.json" />
     <Content Include="public\css\global.css" />
     <Content Include="public\css\global.min.css">
