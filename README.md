@@ -1,2 +1,2 @@
-# ConferenceTable
-会议室预定系统
+# MeetingTable
+会议桌预定系统
