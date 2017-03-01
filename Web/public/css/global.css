@@ -31,25 +31,25 @@ body {
 .meeting-board-wrapper {
   padding-bottom: 1px;
 }
-.meeting-board {
+.meeting-card {
   padding: 10px;
   margin: 0 10px 10px 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #fff;
 }
-.meeting-board [name="title"] {
+.meeting-card [name="title"] {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 10px;
 }
-.meeting-board .wf-input-label .wf-input-addon-prefix {
+.meeting-card .wf-input-label .wf-input-addon-prefix {
   box-sizing: border-box;
   width: 24%;
   padding: 8px 0;
   text-align: center;
 }
-.meeting-board .wf-input-label .wf-input {
+.meeting-card .wf-input-label .wf-input {
   width: 76%;
   box-sizing: border-box;
 }

@@ -8,7 +8,7 @@ if(!model.meeting){
         conferenceTable:{roomNumber:''},
         timeRange:['','']
     }:model.meeting;
-<div class="meeting-board clearfix @(!model.meeting?'conferenceTemp':'')" data-id="@meeting.id">
+<div class="meeting-card clearfix @(!model.meeting?'conferenceTemp':'')" data-id="@meeting.id">
     <input type="text" name="title" class="wf-input" placeholder="会议主题" data-value="@meeting.title" />
     <div class="wf-row">
         <div data-role="select" class="wf-select meeting-conferenceTable wf-col-11">
