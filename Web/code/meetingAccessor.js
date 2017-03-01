@@ -1,11 +1,11 @@
 ﻿var fs = require('fs');
-var Conference = require('../model/Conference');
-var ConferenceTable = require('../model/ConferenceTable');
+var Meeting = require('../model/Meeting');
+var MeetingTable = require('../model/MeetingTable');
 var WorkDay = require('../code/workDay');
-var file = 'data/conferenceData.txt';
+var file = 'data/meetingData.txt';
 
 /**
- * conference数据访问
+ * meeting数据访问
  */
 class DataAccessor {
 
@@ -17,9 +17,9 @@ class DataAccessor {
         workDay.days.forEach((value) => {
             result[value] = [];
         });
-        data.forEach((conference) => {
-            if (workDay.days.findIndex(date=>date === conference.date) > -1) {
-                result[conference.date].push(conference);
+        data.forEach((meeting) => {
+            if (workDay.days.findIndex(date=>date === meeting.date) > -1) {
+                result[meeting.date].push(meeting);
             }
         });
         return result;
@@ -57,18 +57,18 @@ class DataAccessor {
         });
     }
 
-    /// <param name="conference" type="Conference">会议</param>
-    add(conference) {
+    /// <param name="meeting" type="Meeting">会议</param>
+    add(meeting) {
         //TODO:检查
         return this.get().then((data) => {
             var prefix = data.length == 0 ? '' : ',';
             return new Promise((resolve, reject) => {
-                fs.appendFile(file, prefix + JSON.stringify(conference), 'utf8', (err) => {
+                fs.appendFile(file, prefix + JSON.stringify(meeting), 'utf8', (err) => {
                     if (err) {
                         reject(err);
                     } else {
                         resolve();
-                        console.log(conference.id + ' was appended to file!');
+                        console.log(meeting.id + ' was appended to file!');
                     }
                 });
             });
@@ -87,10 +87,10 @@ class DataAccessor {
         });
     }
 
-    /// <param name="conference" type="Conference">会议</param>
-    update(conference) {
-        this.remove(conference.id);
-        this.add(conference);
+    /// <param name="meeting" type="Meeting">会议</param>
+    update(meeting) {
+        this.remove(meeting.id);
+        this.add(meeting);
     }
 }
 

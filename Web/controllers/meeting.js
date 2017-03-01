@@ -1,27 +1,27 @@
 ﻿var express = require('express');
 var router = express.Router();
-var Conference = require('../model/Conference');
-var ConferenceTable = require('../model/ConferenceTable');
-var ConferenceAccessor = require('../code/conferenceAccessor');
-var accessor = new ConferenceAccessor();
+var Meeting = require('../model/Meeting');
+var MeetingTable = require('../model/MeetingTable');
+var MeetingAccessor = require('../code/meetingAccessor');
+var accessor = new MeetingAccessor();
 
 router.post('/save', function (req, res) {
-    var conference = new Conference(
+    var meeting = new Meeting(
         req.body.title,
         req.body.userName,
         req.body.introduction,
-         new ConferenceTable(req.body.tableRoom),
+         new MeetingTable(req.body.tableRoom),
         [req.body.startTime, req.body.endTime],
         req.body.date
     );
     //如果有id，则更新
     if (req.body.id) {
-        accessor.update(conference).then(_=> {
+        accessor.update(meeting).then(_=> {
             res.json({ success: true });
         });
     } else {
-        accessor.add(conference).then(_=> {
-            res.json({ success: true, id: conference.id });
+        accessor.add(meeting).then(_=> {
+            res.json({ success: true, id: meeting.id });
         });
     }
 });

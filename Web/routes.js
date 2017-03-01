@@ -6,8 +6,8 @@ var routes = [
         value: require('./controllers/home')
     },
     {
-        key: '/conference',
-        value: require('./controllers/conference')
+        key: '/meeting',
+        value: require('./controllers/meeting')
     }
 ];
 

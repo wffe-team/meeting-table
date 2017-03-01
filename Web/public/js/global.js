@@ -41,7 +41,7 @@ wf.define('timeList', [], function () {
 })
 "use strict";
 
-wf.require('page').render('conference', ['UI.Select'], function (UI, instances) {
+wf.require('page').render('meeting', ['UI.Select'], function (UI, instances) {
     var page = this;
     var conferencer = (_=> {
         var sender = (url, data, callback) => {
@@ -52,12 +52,12 @@ wf.require('page').render('conference', ['UI.Select'], function (UI, instances) 
             });
         };
         return {
-            save: (conference, callback) => {
-                sender('conference/save', conference, callback);
+            save: (meeting, callback) => {
+                sender('meeting/save', meeting, callback);
             },
             //避免关键字delete
             remove: (id, callback) => {
-                sender('conference/delete', conference, callback);
+                sender('meeting/delete', meeting, callback);
             }
         };
     })();

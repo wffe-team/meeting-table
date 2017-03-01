@@ -3,21 +3,21 @@
 <h1 class="title">Meeting</h1>
 <div class="content wf-row meeting">
     @for(var key in model.data){
-    var conference;
+    var meeting;
     <div class="wf-col-6 meeting-col">
         <div class="meeting-list-wrapper">
             <div class="meeting-board-wrapper">
                 <div class="meeting-date">@key</div>
                 @for(var i = 0;i < model.data[key].length;i++){
-                conference = model.data[key][i];
-                html.include('_conference',{conferenceTables:model.conferenceTables,conference:conference})
+                meeting = model.data[key][i];
+                html.include('_conference',{meetingTables:model.meetingTables,meeting:meeting})
                 }                
             </div>
             <div class="meeting-add">Add Metting ...</div>
         </div>
     </div>
     }
-    @html.include('_conference', {conferenceTables:model.conferenceTables})
+    @html.include('_meeting', {meetingTables:model.meetingTables})
 </div>
     })
     @html.block('script', function(model){

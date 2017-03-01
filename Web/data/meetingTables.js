@@ -1,4 +1,4 @@
-﻿var conferenceTables = [
+﻿var meetingTables = [
    {
        roomNumber: 231,
        number: 0
@@ -8,4 +8,4 @@
         number: 0
     }
 ];
-module.exports = conferenceTables;
+module.exports = meetingTables;

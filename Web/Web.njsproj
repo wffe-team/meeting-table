@@ -32,17 +32,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="code\conferenceAccessor.js">
+    <Compile Include="code\meetingAccessor.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="code\workDay.js" />
-    <Compile Include="controllers\conference.js" />
+    <Compile Include="controllers\meeting.js" />
     <Compile Include="controllers\home.js" />
-    <Compile Include="data\conferenceTables.js">
+    <Compile Include="data\meetingTables.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="model\Conference.js" />
-    <Compile Include="model\ConferenceTable.js">
+    <Compile Include="model\Meeting.js" />
+    <Compile Include="model\MeetingTable.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="public\js\global.js" />
@@ -53,7 +53,7 @@
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
     <Compile Include="public\module\wfui-0.1.5\wf.js" />
     <Compile Include="public\module\wfui-0.1.5\wf.min.js" />
-    <Compile Include="public\src\js\conference.js" />
+    <Compile Include="public\src\js\meeting.js" />
     <Compile Include="public\src\js\edit.js" />
     <Compile Include="public\src\js\timeList.js" />
     <Compile Include="routes.js" />
@@ -64,7 +64,7 @@
       <SubType>Content</SubType>
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
-    <Content Include="data\conferenceData.txt" />
+    <Content Include="data\meetingData.txt" />
     <Content Include="package.json" />
     <Content Include="public\css\global.css" />
     <Content Include="public\css\global.min.css">
@@ -87,7 +87,7 @@
       <SubType>Content</SubType>
       <DependentUpon>public\src\less\index.css</DependentUpon>
     </Content>
-    <Content Include="views\_conference.vash" />
+    <Content Include="views\_meeting.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
     <Content Include="views\error.vash" />

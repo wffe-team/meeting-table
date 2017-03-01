@@ -3,7 +3,7 @@
 /**
  * 会议桌
  */
-module.exports = class ConferenceTable {
+module.exports = class MeetingTable {
 
     /// <param name="id" type="String">会议桌id,房号-序号</param>
     constructor(id) {
