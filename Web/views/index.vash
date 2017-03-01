@@ -8,9 +8,12 @@
         introduction:'',
         meetingTable:{roomNumber:'',number:'',id:''},
         timeRange:['','']}:model.meeting;
-<div class="meeting-card clearfix @(!model.meeting?'meeting-temp':'')">
+<div class="meeting-card clearfix @(!model.meeting?'meeting-temp':'meeting-saved')">
     <input type="hidden" name="id" value="@meeting.id" />
     <input type="text" name="title" class="wf-input" placeholder="会议主题" value="@meeting.title" data-value="@meeting.title" />
+    <div class="meeting-edit">
+        <span class="wf-btn wf-btn-small">编辑</span>
+    </div>
     <div class="wf-row">
         <div data-role="select" class="wf-select meeting-tabel wf-col-11">
             <div class="wf-select-selection">
@@ -20,10 +23,10 @@
             <input class="wf-select-input" name="tableRoom" type="text">
             <ul class="wf-select-options">
                 @model.meetingTables.forEach(function(mt){
-                    <li data-value="@mt.id" class="wf-select-option @(mt.id==meeting.meetingTable.id?'wf-select-option-selected':'')">
-                        @(mt.roomNumber)室
-                        @(mt.number)号桌
-                    </li>
+                <li data-value="@mt.id" class="wf-select-option @(mt.id==meeting.meetingTable.id?'wf-select-option-selected':'')">
+                    @(mt.roomNumber)室
+                    @(mt.number)号桌
+                </li>
                 })
             </ul>
         </div>

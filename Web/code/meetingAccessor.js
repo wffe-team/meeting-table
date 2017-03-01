@@ -18,11 +18,11 @@ class DataAccessor {
         var result = [];
         var workDay = new WorkDay(days);
         workDay.days.forEach((value) => {
-            result.push({date:value,meetings:[]})
+            result.push({ date: value, meetings: [] })
         });
         data.forEach((meeting) => {
             if (workDay.days.findIndex(date=>date === meeting.date) > -1) {
-                result.forEach((item)=>{
+                result.forEach((item) => {
                     if (item.date == meeting.date) {
                         item.meetings.push(meeting);
                     }
@@ -92,20 +92,26 @@ class DataAccessor {
 
     /// <param name="id" type="String">会议id</param>
     remove(id) {
-        this.get().then((data) => {
-            var removeIndex = data.findIndex((value) => {
-                return value.id === id;
+        return new Promise((resolve, reject) => {
+            this.get().then((data) => {
+                var removeIndex = data.findIndex((value) => {
+                    return value.id === id;
+                });
+                data.splice(removeIndex, 1);
+                var str = JSON.stringify(data);
+                this.set(str.slice(1, str.length - 1)).then(_=> {
+                    resolve();
+                });
             });
-            data.splice(removeIndex, 1);
-            var str = JSON.stringify(data);
-            this.set(str.slice(1, str.length - 1));
         });
     }
 
     /// <param name="meeting" type="Meeting">会议</param>
     update(meeting) {
-        this.remove(meeting.id);
-        this.add(meeting);
+        var me = this;
+        this.remove(meeting.id).then(() => {
+            me.add(meeting);
+        });        
     }
 }
 

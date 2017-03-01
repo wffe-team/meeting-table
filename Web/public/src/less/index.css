@@ -37,6 +37,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #fff;
+  position: relative;
 }
 .meeting-card [name="title"] {
   width: 100%;
@@ -52,6 +53,21 @@
 .meeting-card .wf-input-label .wf-input {
   width: 76%;
   box-sizing: border-box;
+}
+.meeting-edit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
+}
+.meeting-edit .wf-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 .meeting-time {
   margin-top: 10px;
@@ -78,6 +94,9 @@
 }
 .meeting-action .wf-btn {
   margin-left: 5px;
+}
+.meeting-saved .meeting-action {
+  display: none;
 }
 .meeting-userName .wf-input {
   width: 100%;

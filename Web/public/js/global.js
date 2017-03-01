@@ -72,7 +72,9 @@ wf.define('meetingCard', [], function () {
         var $deleteBtn = $scope.find('.meeting-delete');
         var $startTime = $scope.find('.meeting-startTime');
         var $endTime = $scope.find('.meeting-endTime');
-
+        var SAVED_CLS = 'meeting-saved';
+        var EDIT_CLS = 'meeting-edit'
+        var $savedCard = $('.' + SAVED_CLS);
         var findByName = (name) => {
             return $scope.find('[name="{0}"]'.format(name));
         };
@@ -104,6 +106,7 @@ wf.define('meetingCard', [], function () {
                     if (rsp.success) {
                         //成功
                         findByName('id').val(rsp.id);
+                        $saveBtn.parent().parent().addClass(SAVED_CLS);
                     } else {
                         //失败
                     }
@@ -131,6 +134,15 @@ wf.define('meetingCard', [], function () {
             }
         });
 
+        $savedCard.hover(function () {
+            if ($(this).hasClass(SAVED_CLS)) {
+                $savedCard.find('.' + EDIT_CLS).toggle();
+            }
+        });
+        $scope.find('.' + EDIT_CLS + ' .wf-btn').click(function () {
+            $scope.removeClass(SAVED_CLS);
+            $(this).parent().hide();
+        });
         return {
             addTo: function ($container) {
                 $trigger.hide();
@@ -158,7 +170,7 @@ wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances
     });
     var $cards = $('.meeting-board-wrapper').find('.meeting-card');
     $.each($cards, function () {
-        meetingCard( '', $(this), '');
+        meetingCard('', $(this), $(this).parent().find('.meeting-date').html());
     });
     page.refresh();
 });

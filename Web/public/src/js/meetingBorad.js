@@ -17,7 +17,7 @@ wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances
     });
     var $cards = $('.meeting-board-wrapper').find('.meeting-card');
     $.each($cards, function () {
-        meetingCard( '', $(this), '');
+        meetingCard('', $(this), $(this).parent().find('.meeting-date').html());
     });
     page.refresh();
 });

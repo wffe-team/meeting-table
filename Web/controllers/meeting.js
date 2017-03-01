@@ -16,6 +16,7 @@ router.post('/save', function (req, res) {
     );
     //如果有id，则更新
     if (req.body.id) {
+        meeting.id = req.body.id;
         accessor.update(meeting).then(_=> {
             res.json({ success: true });
         });
