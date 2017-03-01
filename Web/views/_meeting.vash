@@ -1,17 +1,19 @@
-﻿@html.block('_conference',function(model){
+﻿@html.block('_meeting',function(model){
 if(!model.meeting){
     var meeting =!model.meeting? {
         id:'',
         title:'',
         userName:'',
         introduction:'',
-        conferenceTable:{roomNumber:''},
+        meetingTable:{roomNumber:''},
         timeRange:['','']
     }:model.meeting;
-<div class="meeting-card clearfix @(!model.meeting?'conferenceTemp':'')" data-id="@meeting.id">
+}
+<div class="meeting-card clearfix @(!model.meeting?'meeting-temp':'')">
+    <input type="hidden" name="id" value="@meeting.id" />
     <input type="text" name="title" class="wf-input" placeholder="会议主题" data-value="@meeting.title" />
     <div class="wf-row">
-        <div data-role="select" class="wf-select meeting-conferenceTable wf-col-11">
+        <div data-role="select" class="wf-select meeting-tabel wf-col-11">
             <div class="wf-select-selection">
                 <div class="wf-select-selection-value">
                     @(model.meetingTables[0].roomNumber)室
@@ -19,7 +21,7 @@ if(!model.meeting){
                 </div>
                 <i class="wf-icon icon-moreunfold"></i>
             </div>
-            <input class="wf-select-input" name="roomNumber" type="text">
+            <input class="wf-select-input" name="tableRoom" type="text">
             <ul class="wf-select-options">
                 @for(var j = 0;j < model.meetingTables.length;j++){
                 <li data-value="@(model.meetingTables[j].roomNumber+'-'+model.meetingTables[j].number)" class="wf-select-option">
@@ -35,28 +37,27 @@ if(!model.meeting){
         </div>
     </div>
     <div class="wf-row meeting-time">
-        <div data-role="select" class="wf-select wf-select-startTime wf-col-11">
+        <div data-role="select" class="wf-select meeting-startTime wf-col-11">
             <div class="wf-select-selection">
-                <div class="wf-select-selection-value">8:00</div>
+                <div class="wf-select-selection-value"></div>
                 <i class="wf-icon icon-moreunfold"></i>
             </div>
             <input class="wf-select-input" name="startTime" type="text">
-            <ul class="wf-select-options"></ul>
+            <ul class="wf-select-options time-option"></ul>
         </div>
         <span class="wf-col-2">至</span>
-        <div data-role="select" class="wf-select wf-select-endTime wf-col-11">
+        <div data-role="select" class="wf-select meeting-endTime wf-col-11">
             <div class="wf-select-selection">
-                <div class="wf-select-selection-value">8:00</div>
+                <div class="wf-select-selection-value"></div>
                 <i class="wf-icon icon-moreunfold"></i>
             </div>
             <input class="wf-select-input" name="endTime" type="text">
-            <ul class="wf-select-options"></ul>
+            <ul class="wf-select-options time-option"></ul>
         </div>
     </div>
     <div class="wf-row meeting-action">
-        <button class="wf-btn wf-btn-primary wf-btn-save">保存</button>
-        <button class="wf-btn wf-btn-delete">删除</button>
+        <button class="wf-btn wf-btn-primary meeting-save">保存</button>
+        <button class="wf-btn meeting-delete">删除</button>
     </div>
 </div>
-}
 })

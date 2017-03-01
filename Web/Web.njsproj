@@ -53,6 +53,7 @@
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
     <Compile Include="public\module\wfui-0.1.5\wf.js" />
     <Compile Include="public\module\wfui-0.1.5\wf.min.js" />
+    <Compile Include="public\src\js\meetingBorad.js" />
     <Compile Include="public\src\js\meeting.js" />
     <Compile Include="public\src\js\edit.js" />
     <Compile Include="public\src\js\meetingCard.js">

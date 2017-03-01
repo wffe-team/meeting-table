@@ -12,14 +12,21 @@ class DataAccessor {
     /// <param name="days" type="Number">天数</param>
     /// <param name="data" type="Array">会议数据</param>
     groupByDay(days, data) {
+        if (!days) {
+            return data;
+        }
         var result = [];
         var workDay = new WorkDay(days);
         workDay.days.forEach((value) => {
-            result[value] = [];
+            result.push({date:value,meetings:[]})
         });
         data.forEach((meeting) => {
             if (workDay.days.findIndex(date=>date === meeting.date) > -1) {
-                result[meeting.date].push(meeting);
+                result.forEach((item)=>{
+                    if (item.date == meeting.date) {
+                        item.meetings.push(meeting);
+                    }
+                });
             }
         });
         return result;
@@ -27,19 +34,27 @@ class DataAccessor {
 
     /// <param name="days" type="Number">展示天数</param>
     get(days) {
+        var me = this;
         return new Promise((resolve, reject) => {
             fs.readFile(file, 'utf8', (err, data) => {
+                var empty = function () {
+                    fs.writeFile(file, '', 'utf8', (err) => { });
+                    resolve(me.groupByDay(days, []));
+                }
                 if (err) {
                     if (err.code === 'ENOENT') {
-                        fs.writeFile(file, '', 'utf8', (err) => { });
-                        resolve(this.groupByDay(days, []));
+                        empty();
                     } else {
                         console.log('读取文件' + file + '出错');
                         throw err;
                     }
-                } else {
-                    resolve(this.groupByDay(days, JSON.parse('[' + data + ']')));
+                    return;
                 }
+                if (!data) {
+                    empty();
+                    return;
+                }
+                resolve(me.groupByDay(days, JSON.parse('[' + data + ']')));
             });
         });
     }

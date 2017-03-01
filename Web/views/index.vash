@@ -1,17 +1,19 @@
 ﻿@html.extend('layout', function(model){
     @html.block('content', function(model){
+    var item;
 <h1 class="title">Meeting</h1>
 <div class="content wf-row meeting">
-    @for(var key in model.data){
+    @for(var index=0;index < model.data.length; index++){
     var meeting;
+    item = model.data[index];
     <div class="wf-col-6 meeting-col">
         <div class="meeting-list-wrapper">
             <div class="meeting-board-wrapper">
-                <div class="meeting-date">@key</div>
-                @for(var i = 0;i < model.data[key].length;i++){
-                meeting = model.data[key][i];
-                html.include('_conference',{meetingTables:model.meetingTables,meeting:meeting})
-                }                
+                <div class="meeting-date">@item.date</div>
+                @for(var i = 0;i < item.meetings.length;i++){
+                    meeting = item.meetings[i];
+                    html.include('_meeting',{meetingTables:model.meetingTables,meeting:meeting})
+                }
             </div>
             <div class="meeting-add">Add Metting ...</div>
         </div>

@@ -14,12 +14,12 @@
   font-size: 26px;
   line-height: 26px;
 }
-.conferenceTemp {
-  display: none;
-}
 .meeting {
   width: 100%;
   box-sizing: border-box;
+}
+.meeting-temp {
+  display: none;
 }
 .meeting-col {
   padding: 20px 10px;

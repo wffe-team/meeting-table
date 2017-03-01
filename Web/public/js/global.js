@@ -41,9 +41,8 @@ wf.define('timeList', [], function () {
 })
 "use strict";
 
-wf.require('page').render('meeting', ['UI.Select'], function (UI, instances) {
-    var page = this;
-    var conferencer = (_=> {
+wf.define('meeting', [], function () {
+    return (_=> {
         var sender = (url, data, callback) => {
             $.post(url, data, (rsp) => {
                 if ($.isFunction(callback)) {
@@ -57,60 +56,101 @@ wf.require('page').render('meeting', ['UI.Select'], function (UI, instances) {
             },
             //避免关键字delete
             remove: (id, callback) => {
-                sender('meeting/delete', meeting, callback);
+                sender('meeting/delete', { id: id }, callback);
             }
         };
     })();
-    var timer = wf.require('timeList');
-    var tempCls = 'conferenceTemp';
-    var $conferenceTemp = $('.' + tempCls).remove().removeClass(tempCls);
-    var prapareData = function ($temp, date, id) {
-        var $title = $temp.find('[name="title"]');
-        var $userName = $temp.find('[name="userName"]');
-        var roomNumber = $temp.find('[name="roomNumber"]').val();
-        var startTime = $temp.find('[name="startTime"]').val();
-        var endTime = $temp.find('[name="endTime"]').val();
-        if (!$title.val()) { $title.focus(); return null; }
-        if (!$userName.val()) { $userName.focus(); return null; }
-        return {
-            title: $title.val(),
-            userName: $userName.val(),
-            introduction: '',
-            tableRoom: roomNumber,
-            startTime: startTime,
-            endTime: endTime,
-            date: date,
-            id: id
-        }
-    };
-    $('.meeting-add').click(function () {
-        var $addBtn = $(this);
-        var $templete = $conferenceTemp.clone();
-        var date = $addBtn.prev().find('.meeting-date').html();
-        var $startTimeSelect = $templete.find('.wf-select-startTime');
-        var $endTimeSelect = $templete.find('.wf-select-endTime');
-        var $saveBtn = $templete.find('.wf-btn-save');
-        var $deleteBtn = $templete.find('.wf-btn-delete');
-        var $board = $('.meeting-board');
-        $startTimeSelect.find('.wf-select-options').html(timer.render(date));
-        $endTimeSelect.find('.wf-select-options').html(timer.render(date));
-        $(this).hide().prev().append($templete);
+});
+"use strict";
+wf.define('meetingCard', [], function () {
+
+    var meeting = wf.require('meeting');
+    var timeList = wf.require('timeList');
+
+    return function ($trigger, $scope, date) {
+
+        var $saveBtn = $scope.find('.meeting-save');
+        var $deleteBtn = $scope.find('.meeting-delete');
+        var $startTime = $scope.find('.meeting-startTime');
+        var $endTime = $scope.find('.meeting-endTime');
+
+        var findByName = (name) => {
+            return $scope.find('[name="{0}"]'.format(name));
+        };
+
+        var prapareData = function () {
+            var model = {};
+            var result = { date: date };
+            var fields = ['id', 'title', 'userName', 'tableRoom', 'startTime', 'endTime'];
+            fields.forEach(field=> {
+                model[field] = findByName(field);
+            });
+            if (!model.title.val()) { model.title.focus(); return null; }
+            if (!model.userName.val()) { model.userName.focus(); return null; }
+            for (var key in model) {
+                result[key] = model[key].val();
+            }
+            return result;
+        };
+
+        $startTime.find('.time-option').html(timeList.render(date));
+        $endTime.find('.time-option').html(timeList.render(date));
+
         $saveBtn.click(function () {
-            var id = $board.data('id');
-            var data = prapareData($templete, date, id);
+            var data = prapareData();
             if (data) {
-                conferencer.save(data, function (rsp) {
+                meeting.save(data, rsp=> {
                     if (rsp.success) {
-                        console.log('add success');
-                        $board.data('id', rsp.id);
+                        //成功
+                    } else {
+                        //失败
                     }
-                })
+                });
             }
         });
         $deleteBtn.click(function () {
-            $templete.remove();
-            $addBtn.show();
-        })
+            var id = findByName('id').val();
+            var uiRemove = function () {
+                $scope.remove();
+                $trigger.show();
+            }
+            //删除已有
+            if (id) {
+                meeting.remove(id, rsp=> {
+                    if (rsp.success) {
+                        //成功
+                        uiRemove();
+                    } else {
+                        //失败
+                    }
+                });
+            } else {
+                uiRemove();
+            }
+        });
+
+        return {
+            addTo: function ($container) {
+                $trigger.hide();
+                $container.append($scope);
+            }
+        };
+    };
+})
+"use strict";
+
+wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances) {
+    var page = this;
+    var tempCls = 'meeting-temp';
+    var meetingCard = wf.require('meetingCard');    
+    var $meetingCard = $('.' + tempCls).remove().removeClass(tempCls);
+
+    $('.meeting-add').click(function () {
+        var $addBtn = $(this);
+        var $templete = $meetingCard.clone();
+        var date = $addBtn.prev().find('.meeting-date').html();
+        var card = meetingCard($addBtn, $templete, date);
+        card.addTo($addBtn.prev());
         page.refresh();
     });
 });
