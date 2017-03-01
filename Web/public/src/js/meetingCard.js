@@ -42,7 +42,9 @@ wf.define('meetingCard', [], function () {
                 meeting.save(data, rsp=> {
                     if (rsp.success) {
                         //成功
-                        findByName('id').val(rsp.id);
+                        if (!data.id) {
+                            findByName('id').val(rsp.id);
+                        }                        
                         $saveBtn.parent().parent().addClass(SAVED_CLS);
                     } else {
                         //失败
