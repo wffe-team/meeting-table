@@ -55,7 +55,6 @@
     <Compile Include="public\module\wfui-0.1.5\wf.min.js" />
     <Compile Include="public\src\js\meetingBorad.js" />
     <Compile Include="public\src\js\meeting.js" />
-    <Compile Include="public\src\js\edit.js" />
     <Compile Include="public\src\js\meetingCard.js">
       <SubType>Code</SubType>
     </Compile>

@@ -102,6 +102,7 @@ wf.define('meetingCard', [], function () {
                 meeting.save(data, rsp=> {
                     if (rsp.success) {
                         //成功
+                        findByName('id').val(rsp.id);
                     } else {
                         //失败
                     }
