@@ -3,9 +3,10 @@
 wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances) {
     var page = this;
     var tempCls = 'meeting-temp';
-    var meetingCard = wf.require('meetingCard');    
+    var meetingCard = wf.require('meetingCard');
+    var timeList = wf.require('timeList');
     var $meetingCard = $('.' + tempCls).remove().removeClass(tempCls);
-
+    $meetingCard.find('[data-rendered]').removeAttr('data-rendered');
     $('.meeting-add').click(function () {
         var $addBtn = $(this);
         var $templete = $meetingCard.clone();
@@ -14,4 +15,9 @@ wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances
         card.addTo($addBtn.prev());
         page.refresh();
     });
+    var $options = $('.time-option');
+    $.each($options, function () {
+        $(this).html(timeList.render('', $(this).prev().val()));
+    });
+    page.refresh();
 });

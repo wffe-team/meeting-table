@@ -1,25 +1,78 @@
 ﻿@html.extend('layout', function(model){
     @html.block('content', function(model){
-    var item;
+    var meetingCard = function(model){
+        var meeting =!model.meeting? {
+        id:'',
+        title:'',
+        userName:'',
+        introduction:'',
+        meetingTable:{roomNumber:'',number:'',id:''},
+        timeRange:['','']}:model.meeting;
+<div class="meeting-card clearfix @(!model.meeting?'meeting-temp':'')">
+    <input type="hidden" name="id" value="@meeting.id" />
+    <input type="text" name="title" class="wf-input" placeholder="会议主题" value="@meeting.title" data-value="@meeting.title" />
+    <div class="wf-row">
+        <div data-role="select" class="wf-select meeting-tabel wf-col-11">
+            <div class="wf-select-selection">
+                <div class="wf-select-selection-value"></div>
+                <i class="wf-icon icon-moreunfold"></i>
+            </div>
+            <input class="wf-select-input" name="tableRoom" type="text">
+            <ul class="wf-select-options">
+                @model.meetingTables.forEach(function(mt){
+                    <li data-value="@mt.id" class="wf-select-option @(mt.id==meeting.meetingTable.id?'wf-select-option-selected':'')">
+                        @(mt.roomNumber)室
+                        @(mt.number)号桌
+                    </li>
+                })
+            </ul>
+        </div>
+        <div class="wf-col-2"></div>
+        <div class="meeting-userName wf-col-11">
+            <input type="text" name="userName" class="wf-input" placeholder="使用人" value="@meeting.userName" data-value="@meeting.userName" />
+        </div>
+    </div>
+    <div class="wf-row meeting-time">
+        <div data-role="select" class="wf-select meeting-startTime wf-col-11">
+            <div class="wf-select-selection">
+                <div class="wf-select-selection-value"></div>
+                <i class="wf-icon icon-moreunfold"></i>
+            </div>
+            <input class="wf-select-input" name="startTime" type="text" value="@meeting.timeRange[0]">
+            <ul class="wf-select-options time-option"></ul>
+        </div>
+        <span class="wf-col-2">至</span>
+        <div data-role="select" class="wf-select meeting-endTime wf-col-11">
+            <div class="wf-select-selection">
+                <div class="wf-select-selection-value"></div>
+                <i class="wf-icon icon-moreunfold"></i>
+            </div>
+            <input class="wf-select-input" name="endTime" type="text" value="@meeting.timeRange[1]">
+            <ul class="wf-select-options time-option"></ul>
+        </div>
+    </div>
+    <div class="wf-row meeting-action">
+        <button class="wf-btn wf-btn-primary meeting-save">保存</button>
+        <button class="wf-btn meeting-delete">删除</button>
+    </div>
+</div>
+    }
 <h1 class="title">Meeting</h1>
 <div class="content wf-row meeting">
-    @for(var index=0;index < model.data.length; index++){
-    var meeting;
-    item = model.data[index];
+    @model.data.forEach(function(item){
     <div class="wf-col-6 meeting-col">
         <div class="meeting-list-wrapper">
             <div class="meeting-board-wrapper">
                 <div class="meeting-date">@item.date</div>
-                @for(var i = 0;i < item.meetings.length;i++){
-                    meeting = item.meetings[i];
-                    html.include('_meeting',{meetingTables:model.meetingTables,meeting:meeting})
-                }
+                @item.meetings.forEach(function(meeting){
+                meetingCard({meetingTables:model.meetingTables,meeting:meeting})
+                })
             </div>
             <div class="meeting-add">Add Metting ...</div>
         </div>
     </div>
-    }
-    @html.include('_meeting', {meetingTables:model.meetingTables})
+    })
+    @meetingCard({meetingTables:model.meetingTables})
 </div>
     })
     @html.block('script', function(model){

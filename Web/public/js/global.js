@@ -1,10 +1,9 @@
-"use strict";
 wf.define('timeList', [], function () {
     return (function () {
         var startTime = 8;                                                               //开始时间，默认早上8点
         var endTime = 17;                                                                //结束时间，默认下午17点
         var granularity = 10;                                                            //时间粒度，单位：分钟
-        var timeItemTemp = '<li data-value="{0}" class="wf-select-option">{1}</li>';     //时间列表模板
+        var timeItemTemp = '<li data-value="{0}" class="wf-select-option {2}">{1}</li>';     //时间列表模板
         var convert = (function () {
             var splitor = ':'
             return {
@@ -19,7 +18,7 @@ wf.define('timeList', [], function () {
             };
         })();
         return {
-            render: function (date) {
+            render: function (date,value) {
                 var result = [];
                 var currentDate = new Date();
                 var currentHour = currentDate.getHours();
@@ -32,7 +31,7 @@ wf.define('timeList', [], function () {
                     startTime * 60;
                 for (; time < endTime * 60; time = time + granularity) {
                     var timeStr = convert.toTime(time);
-                    result.push(timeItemTemp.format(timeStr, timeStr));
+                    result.push(timeItemTemp.format(timeStr, timeStr, timeStr == value ? 'wf-select-option-selected' : ''));
                 }
                 return result.join('');
             }
@@ -143,9 +142,10 @@ wf.define('meetingCard', [], function () {
 wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances) {
     var page = this;
     var tempCls = 'meeting-temp';
-    var meetingCard = wf.require('meetingCard');    
+    var meetingCard = wf.require('meetingCard');
+    var timeList = wf.require('timeList');
     var $meetingCard = $('.' + tempCls).remove().removeClass(tempCls);
-
+    $meetingCard.find('[data-rendered]').removeAttr('data-rendered');
     $('.meeting-add').click(function () {
         var $addBtn = $(this);
         var $templete = $meetingCard.clone();
@@ -154,4 +154,9 @@ wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances
         card.addTo($addBtn.prev());
         page.refresh();
     });
+    var $options = $('.time-option');
+    $.each($options, function () {
+        $(this).html(timeList.render('', $(this).prev().val()));
+    });
+    page.refresh();
 });
