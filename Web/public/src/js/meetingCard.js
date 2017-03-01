@@ -12,7 +12,6 @@ wf.define('meetingCard', [], function () {
         var $endTime = $scope.find('.meeting-endTime');
         var SAVED_CLS = 'meeting-saved';
         var EDIT_CLS = 'meeting-edit'
-        var $savedCard = $('.' + SAVED_CLS);
         var findByName = (name) => {
             return $scope.find('[name="{0}"]'.format(name));
         };
@@ -72,20 +71,22 @@ wf.define('meetingCard', [], function () {
             }
         });
 
-        $savedCard.hover(function () {
+        $scope.hover(function () {
             if ($(this).hasClass(SAVED_CLS)) {
-                $savedCard.find('.' + EDIT_CLS).toggle();
+                $(this).find('.' + EDIT_CLS).show();
             }
+        }, function () {
+            $(this).find('.' + EDIT_CLS).hide();
         });
         $scope.find('.' + EDIT_CLS + ' .wf-btn').click(function () {
             $scope.removeClass(SAVED_CLS);
             $(this).parent().hide();
         });
         return {
-            addTo: function ($container) {
+                addTo: function ($container) {
                 $trigger.hide();
                 $container.append($scope);
-            }
+        }
         };
     };
 })
