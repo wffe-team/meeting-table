@@ -3,7 +3,7 @@
         var startTime = 8;                                                               //开始时间，默认早上8点
         var endTime = 17;                                                                //结束时间，默认下午17点
         var granularity = 10;                                                            //时间粒度，单位：分钟
-        var timeItemTemp = '<li data-value="{0}" class="wf-select-option {2}">{1}</li>';     //时间列表模板
+        var timeItemTemp = '<li data-value="{0}" class="wf-select-option {2}">{1}</li>'; //时间列表模板
         var convert = (function () {
             var splitor = ':'
             return {
