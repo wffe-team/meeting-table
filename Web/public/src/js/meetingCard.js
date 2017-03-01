@@ -30,8 +30,10 @@ wf.define('meetingCard', [], function () {
             return result;
         };
 
-        $startTime.find('.time-option').html(timeList.render(date));
-        $endTime.find('.time-option').html(timeList.render(date));
+        $startTime.find('.time-option')
+            .html(timeList.render(date, findByName('startTime').val()));
+        $endTime.find('.time-option')
+            .html(timeList.render(date, findByName('endTime').val()));
 
         $saveBtn.click(function () {
             var data = prapareData();

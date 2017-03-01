@@ -15,9 +15,9 @@ wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances
         card.addTo($addBtn.prev());
         page.refresh();
     });
-    var $options = $('.time-option');
-    $.each($options, function () {
-        $(this).html(timeList.render('', $(this).prev().val()));
+    var $cards = $('.meeting-board-wrapper').find('.meeting-card');
+    $.each($cards, function () {
+        meetingCard( '', $(this), '');
     });
     page.refresh();
 });

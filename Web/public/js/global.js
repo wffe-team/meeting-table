@@ -29,7 +29,7 @@ wf.define('timeList', [], function () {
                 var time = currentDate.format('yyyy-MM-dd') == date ?
                     currentHour * 60 + Math.ceil(currentMinutes / granularity) * granularity :
                     startTime * 60;
-                for (; time < endTime * 60; time = time + granularity) {
+                for (; time <= endTime * 60; time = time + granularity) {
                     var timeStr = convert.toTime(time);
                     result.push(timeItemTemp.format(timeStr, timeStr, timeStr == value ? 'wf-select-option-selected' : ''));
                 }
@@ -92,8 +92,10 @@ wf.define('meetingCard', [], function () {
             return result;
         };
 
-        $startTime.find('.time-option').html(timeList.render(date));
-        $endTime.find('.time-option').html(timeList.render(date));
+        $startTime.find('.time-option')
+            .html(timeList.render(date, findByName('startTime').val()));
+        $endTime.find('.time-option')
+            .html(timeList.render(date, findByName('endTime').val()));
 
         $saveBtn.click(function () {
             var data = prapareData();
@@ -154,9 +156,9 @@ wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances
         card.addTo($addBtn.prev());
         page.refresh();
     });
-    var $options = $('.time-option');
-    $.each($options, function () {
-        $(this).html(timeList.render('', $(this).prev().val()));
+    var $cards = $('.meeting-board-wrapper').find('.meeting-card');
+    $.each($cards, function () {
+        meetingCard( '', $(this), '');
     });
     page.refresh();
 });
