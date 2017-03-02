@@ -4,7 +4,6 @@ wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances
     var page = this;
     var tempCls = 'meeting-temp';
     var meetingCard = wf.require('meetingCard');
-    var timeList = wf.require('timeList');
     var $meetingCard = $('.' + tempCls).remove().removeClass(tempCls);
     $meetingCard.find('[data-rendered]').removeAttr('data-rendered');
     $('.meeting-add').click(function () {

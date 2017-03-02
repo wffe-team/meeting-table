@@ -58,7 +58,7 @@
     <Compile Include="public\src\js\meetingCard.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="public\src\js\timeList.js" />
+    <Compile Include="public\src\js\meetingTime.js" />
     <Compile Include="routes.js" />
     <Compile Include="bin\www" />
     <None Include="compilerconfig.json" />

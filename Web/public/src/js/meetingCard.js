@@ -2,7 +2,7 @@
 wf.define('meetingCard', [], function () {
 
     var meeting = wf.require('meeting');
-    var timeList = wf.require('timeList');
+    var meetingTime = wf.require('meetingTime');
 
     return function ($trigger, $scope, date) {
 
@@ -34,9 +34,9 @@ wf.define('meetingCard', [], function () {
         };
 
         $startTime.find('.time-option')
-            .html(timeList.render(date, findByName('startTime').val()));
+            .html(meetingTime.render(date, findByName('startTime').val()));
         $endTime.find('.time-option')
-            .html(timeList.render(date, findByName('endTime').val()));
+            .html(meetingTime.render(date, findByName('endTime').val()));
 
         $saveBtn.click(function () {
             var data = prapareData();

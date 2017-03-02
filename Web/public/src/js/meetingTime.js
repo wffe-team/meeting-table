@@ -1,4 +1,4 @@
-﻿wf.define('timeList', [], function () {
+﻿wf.define('meetingTime', [], function () {
     return (function () {
         var startTime = 8;                                                               //开始时间，默认早上8点
         var endTime = 17;                                                                //结束时间，默认下午17点
@@ -18,6 +18,9 @@
             };
         })();
         return {
+            
+            /// <param name="date" type="String">时间列表所处日期</param>
+            /// <param name="value" type="String">时间选中值用于已有会议时间的初始化</param>
             render: function (date,value) {
                 var result = [];
                 var currentDate = new Date();

@@ -1,43 +1,3 @@
-wf.define('timeList', [], function () {
-    return (function () {
-        var startTime = 8;                                                               //开始时间，默认早上8点
-        var endTime = 17;                                                                //结束时间，默认下午17点
-        var granularity = 10;                                                            //时间粒度，单位：分钟
-        var timeItemTemp = '<li data-value="{0}" class="wf-select-option {2}">{1}</li>'; //时间列表模板
-        var convert = (function () {
-            var splitor = ':'
-            return {
-                toTime: minutes=> {
-                    var minute = minutes % 60;
-                    return Math.floor(minutes / 60) + splitor + (minute < 10 ? '0' + minute : minute);
-                },
-                toMinutes: timeStr=> {
-                    var arr = timeStr.split(splitor);
-                    return parseInt(arr[0]) * 60 + parseInt(arr[1]);
-                }
-            };
-        })();
-        return {
-            render: function (date,value) {
-                var result = [];
-                var currentDate = new Date();
-                var currentHour = currentDate.getHours();
-                var currentMinutes = currentDate.getMinutes();
-                if (currentHour >= endTime) {
-                    return timeItemTemp.format('', '下班');
-                }
-                var time = currentDate.format('yyyy-MM-dd') == date ?
-                    currentHour * 60 + Math.ceil(currentMinutes / granularity) * granularity :
-                    startTime * 60;
-                for (; time <= endTime * 60; time = time + granularity) {
-                    var timeStr = convert.toTime(time);
-                    result.push(timeItemTemp.format(timeStr, timeStr, timeStr == value ? 'wf-select-option-selected' : ''));
-                }
-                return result.join('');
-            }
-        };
-    })();
-})
 "use strict";
 
 wf.define('meeting', [], function () {
@@ -64,7 +24,7 @@ wf.define('meeting', [], function () {
 wf.define('meetingCard', [], function () {
 
     var meeting = wf.require('meeting');
-    var timeList = wf.require('timeList');
+    var meetingTime = wf.require('meetingTime');
 
     return function ($trigger, $scope, date) {
 
@@ -96,9 +56,9 @@ wf.define('meetingCard', [], function () {
         };
 
         $startTime.find('.time-option')
-            .html(timeList.render(date, findByName('startTime').val()));
+            .html(meetingTime.render(date, findByName('startTime').val()));
         $endTime.find('.time-option')
-            .html(timeList.render(date, findByName('endTime').val()));
+            .html(meetingTime.render(date, findByName('endTime').val()));
 
         $saveBtn.click(function () {
             var data = prapareData();
@@ -163,7 +123,6 @@ wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances
     var page = this;
     var tempCls = 'meeting-temp';
     var meetingCard = wf.require('meetingCard');
-    var timeList = wf.require('timeList');
     var $meetingCard = $('.' + tempCls).remove().removeClass(tempCls);
     $meetingCard.find('[data-rendered]').removeAttr('data-rendered');
     $('.meeting-add').click(function () {
