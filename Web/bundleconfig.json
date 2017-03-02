@@ -8,7 +8,7 @@
   {
     "outputFileName": "public/js/global.js",
     "inputFiles": [
-      "public/src/js/timeList.js",
+      "public/src/js/meetingTime.js",
       "public/src/js/meeting.js",
       "public/src/js/meetingCard.js",
       "public/src/js/meetingBorad.js"
