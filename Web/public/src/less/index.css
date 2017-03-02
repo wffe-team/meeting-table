@@ -69,6 +69,9 @@
   top: 5px;
   right: 5px;
 }
+.meeting-editing .meeting-add {
+  display: none;
+}
 .meeting-time {
   margin-top: 10px;
 }

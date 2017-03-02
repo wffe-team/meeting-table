@@ -73,7 +73,9 @@ wf.define('meetingCard', [], function () {
         var $startTime = $scope.find('.meeting-startTime');
         var $endTime = $scope.find('.meeting-endTime');
         var SAVED_CLS = 'meeting-saved';
-        var EDIT_CLS = 'meeting-edit'
+        var EDIT_CLS = 'meeting-edit';
+        var EDITING_CLS = 'meeting-editing';
+        var MEETING_LIST = '.meeting-list-wrapper';
         var findByName = (name) => {
             return $scope.find('[name="{0}"]'.format(name));
         };
@@ -106,8 +108,9 @@ wf.define('meetingCard', [], function () {
                         //成功
                         if (!data.id) {
                             findByName('id').val(rsp.id);
-                        }                        
+                        }
                         $saveBtn.parent().parent().addClass(SAVED_CLS);
+                        $scope.closest(MEETING_LIST).removeClass(EDITING_CLS);
                     } else {
                         //失败
                     }
@@ -117,8 +120,8 @@ wf.define('meetingCard', [], function () {
         $deleteBtn.click(function () {
             var id = findByName('id').val();
             var uiRemove = function () {
-                $scope.remove();
-                $trigger.show();
+                $scope.closest(MEETING_LIST).removeClass(EDITING_CLS);
+                $scope.remove();                
             }
             //删除已有
             if (id) {
@@ -143,14 +146,14 @@ wf.define('meetingCard', [], function () {
             $(this).find('.' + EDIT_CLS).hide();
         });
         $scope.find('.' + EDIT_CLS + ' .wf-btn').click(function () {
-            $scope.removeClass(SAVED_CLS);
+            $scope.removeClass(SAVED_CLS).closest(MEETING_LIST).addClass(EDITING_CLS);;
             $(this).parent().hide();
         });
         return {
-                addTo: function ($container) {
-                $trigger.hide();
+            addTo: function ($container) {
                 $container.append($scope);
-        }
+                $scope.closest(MEETING_LIST).addClass(EDITING_CLS);
+            }
         };
     };
 })
