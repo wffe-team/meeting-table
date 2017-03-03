@@ -17,19 +17,14 @@ router.post('/save', function (req, res) {
     //如果有id，则更新
     if (req.body.id) {
         meeting.id = req.body.id;
-        accessor.update(meeting).then(_=> {
-            res.json({ success: true });
-        });
+        res.json({ success: accessor.update(meeting) });
     } else {
-        accessor.add(meeting).then(_=> {
-            res.json({ success: true, id: meeting.id });
-        });
+        res.json({ success: accessor.add(meeting), id: meeting.id });
     }
 });
 
 router.post('/delete', function (req, res) {
-    accessor.remove(req.body.id);
-    res.json({ success: true });
+    res.json({ success: accessor.remove(req.body.id) });
 });
 
 module.exports = router;
