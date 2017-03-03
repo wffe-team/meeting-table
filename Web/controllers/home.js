@@ -11,11 +11,10 @@ router.get('/', function (req, res) {
     meetingTables.forEach(mt=> {
         mts.push(new MeetingTable(mt.roomNumber + '-' + mt.number));
     });
-    accessor.get(4).then((data) => {
-        res.render('index', {
-            data: data,
-            meetingTables: mts
-        });
+    let meetings = accessor.get(4);
+    res.render('index', {
+        data: meetings,
+        meetingTables: mts
     });
 });
 module.exports = router;

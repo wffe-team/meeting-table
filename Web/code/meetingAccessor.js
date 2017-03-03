@@ -34,80 +34,67 @@ class DataAccessor {
 
     /// <param name="days" type="Number">展示天数</param>
     get(days) {
-        var me = this;
-        return new Promise((resolve, reject) => {
-            fs.readFile(file, 'utf8', (err, data) => {
-                var empty = function () {
-                    fs.writeFile(file, '', 'utf8', (err) => { });
-                    resolve(me.groupByDay(days, []));
-                }
-                if (err) {
-                    if (err.code === 'ENOENT') {
-                        empty();
-                    } else {
-                        console.log('读取文件' + file + '出错');
-                        throw err;
-                    }
-                    return;
-                }
-                if (!data) {
-                    empty();
-                    return;
-                }
-                resolve(me.groupByDay(days, JSON.parse('[' + data + ']')));
-            });
-        });
+        try {
+            let meetingStr = fs.readFileSync(file, 'utf8');
+            return meetingStr ?
+                this.groupByDay(days, JSON.parse('[' + meetingStr + ']')) :
+                this.groupByDay(days, []);
+        } catch (error) {
+            if (error.code === 'ENOENT') {
+                fs.writeFileSync(file, '');
+                return this.groupByDay(days, []);
+            } else {
+                console.log('读取文件' + file + '出错');
+                throw error;
+            }
+        }
     }
 
     /// <param name="text" type="String">会议文本</param>
     set(text) {
-        return new Promise((resolve, reject) => {
-            fs.writeFile(file, text, 'utf8', (err) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve();
-                }
-            });
-        });
+        try {
+            fs.writeFileSync(file, text);
+            return true;
+        } catch (error) {
+            console.log('写文件' + file + '出错,error' + error);
+            return false;
+        }
     }
 
     /// <param name="meeting" type="Meeting">会议</param>
     add(meeting) {
+        let meetings = this.get();
         //TODO:检查
-        return this.get().then((data) => {
-            var prefix = data.length == 0 ? '' : ',';
-            return new Promise((resolve, reject) => {
-                fs.appendFile(file, prefix + JSON.stringify(meeting), 'utf8', (err) => {
-                    if (err) {
-                        reject(err);
-                    } else {
-                        resolve();
-                        console.log(meeting.id + ' was appended to file!');
-                    }
-                });
-            });
-        });
+        let prefix = meetings.length == 0 ? '' : ',';
+        try {
+            fs.appendFileSync(file, prefix + JSON.stringify(meeting));
+            return true;
+        } catch (error) {
+            console.log('append文件' + file + '出错,error' + error);
+            return false;
+        }
     }
 
     /// <param name="id" type="String">会议id</param>
     remove(id) {
-        return this.get().then((data) => {
-            var removeIndex = data.findIndex((value) => {
-                return value.id === id;
-            });
-            data.splice(removeIndex, 1);
-            var str = JSON.stringify(data);
-            return this.set(str.slice(1, str.length - 1))
+        let meetings = this.get();
+        //TODO:检查
+        let removeIndex = meetings.findIndex((value) => {
+            return value.id === id;
         });
+        meetings.splice(removeIndex, 1);
+        let str = JSON.stringify(meetings);
+        return this.set(str.slice(1, str.length - 1));
+
     }
 
     /// <param name="meeting" type="Meeting">会议</param>
     update(meeting) {
-        var me = this;
-        return this.remove(meeting.id).then(() => {
-            return me.add(meeting);
-        });
+        if (this.remove(meeting.id)) {
+            return this.add(meeting);
+        } else {
+            return false;
+        }
     }
 }
 
