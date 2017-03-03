@@ -105,3 +105,6 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
+.meeting-error {
+  border: 1px solid #f00;
+}

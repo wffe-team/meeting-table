@@ -10,7 +10,8 @@
     "inputFiles": [
       "public/src/js/meetingTime.js",
       "public/src/js/meeting.js",
-      "public/src/js/meetingCard.js",
+      "public/src/js/meetingCheck.js",
+      "public/src/js/meetingCard.js",      
       "public/src/js/meetingBorad.js"
     ]
   }

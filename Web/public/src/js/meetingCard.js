@@ -3,6 +3,7 @@ wf.define('meetingCard', [], function () {
 
     var meeting = wf.require('meeting');
     var meetingTime = wf.require('meetingTime');
+    var meetingCheck = wf.require('meetingCheck');
 
     return function ($trigger, $scope, date) {
 
@@ -14,10 +15,30 @@ wf.define('meetingCard', [], function () {
         var EDIT_CLS = 'meeting-edit';
         var EDITING_CLS = 'meeting-editing';
         var MEETING_LIST = '.meeting-list-wrapper';
+        var ERROR_CLS = 'meeting-error';
+        
         var findByName = (name) => {
             return $scope.find('[name="{0}"]'.format(name));
         };
 
+        var prevData = function () {
+            var fields = ['tableRoom', 'startTime', 'endTime'];
+            var model = { date: date };
+            var prevDataArr = [];
+            $saveBtn.parents('.meeting-card').each(function () {
+                var cardData = [];
+                $(this).find('.wf-select-input').each(function () {
+                    var $this = $(this);
+                    cardData.push($this.val());
+                });
+                for (var i = 0; i < cardData.length; i++) {
+                    model[fields[i]] = cardData[i];
+                }
+                prevDataArr.push(model);
+            });
+            return prevDataArr;
+        }
+        
         var prapareData = function () {
             var model = {};
             var result = { date: date };
@@ -30,7 +51,19 @@ wf.define('meetingCard', [], function () {
             for (var key in model) {
                 result[key] = model[key].val();
             }
-            return result;
+
+            var check = meetingCheck();
+            var prevDataArr = prevData();
+            for (var i = 0; i < prevDataArr.length; i++) {                
+                if (check.check(result, prevDataArr[i])) {
+                    return result;
+                } else {
+                    $saveBtn.parent().parent().addClass(ERROR_CLS);
+                    setTimeout(function () {
+                        $saveBtn.parent().parent().removeClass(ERROR_CLS);
+                    }, 2000);                                      
+                }                
+            }  
         };
 
         $startTime.find('.time-option')
