@@ -79,6 +79,21 @@
     </div>
     })
     @meetingCard({meetingTables:model.meetingTables})
+    <button id="message-trigger" class="wf-btn" data-modal="message-modal" style="display:none;">消息提示</button>
+    <div id="message-modal" class="wf-modal wf-modal-message wf-modal-message-error wf-modal-hidden" data-role="modal">
+        <div class="wf-modal-mask"></div>
+        <div class="wf-modal-content">
+            <div class="wf-modal-header">
+                <i class="wf-icon icon-wrong"></i>
+            </div>
+            <div class="wf-modal-body">
+                <p>会议桌或时间冲突！</p>
+            </div>
+            <div class="wf-modal-footer">
+                <button type="button" class="wf-btn wf-btn-error wf-modal-okBtn">确定</button>
+            </div>
+        </div>
+    </div>
 </div>
     })
     @html.block('script', function(model){

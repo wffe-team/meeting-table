@@ -207,6 +207,7 @@ wf.define('meetingCard', [], function () {
                         $scope.closest(MEETING_LIST).removeClass(EDITING_CLS);
                     } else {
                         //失败
+                        $('#message-trigger').click();
                     }
                 });
             }
@@ -253,7 +254,7 @@ wf.define('meetingCard', [], function () {
 })
 "use strict";
 
-wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances) {
+wf.require('page').render('meetingBorad', ['UI.Select', 'UI.Modal'], function (UI, instances) {
     var page = this;
     var tempCls = 'meeting-temp';
     var meetingCard = wf.require('meetingCard');

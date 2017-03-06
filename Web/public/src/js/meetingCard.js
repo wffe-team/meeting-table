@@ -101,6 +101,7 @@ wf.define('meetingCard', [], function () {
                         $scope.closest(MEETING_LIST).removeClass(EDITING_CLS);
                     } else {
                         //失败
+                        $('#message-trigger').click();
                     }
                 });
             }

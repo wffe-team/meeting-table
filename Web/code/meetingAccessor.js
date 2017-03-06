@@ -66,6 +66,20 @@ class DataAccessor {
         let meetings = this.get();
         //TODO:检查
         let prefix = meetings.length == 0 ? '' : ',';
+        let clash = false;
+        if (meetings.length > 0) {
+            meetings.forEach(m=> {
+                if (meeting.date == m.date &&
+                    meeting.meetingTable.id == m.meetingTable.id) {
+                    if (!(meeting.timeRange[1] <= m.timeRange[0] ||
+                        meeting.timeRange[0] >= m.timeRange[1])) {
+                        clash = true;
+                        return;
+                    }
+                }
+            });
+        }
+        if (clash) { return false; }
         try {
             fs.appendFileSync(file, prefix + JSON.stringify(meeting));
             return true;

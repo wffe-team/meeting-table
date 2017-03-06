@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-wf.require('page').render('meetingBorad', ['UI.Select'], function (UI, instances) {
+wf.require('page').render('meetingBorad', ['UI.Select', 'UI.Modal'], function (UI, instances) {
     var page = this;
     var tempCls = 'meeting-temp';
     var meetingCard = wf.require('meetingCard');
