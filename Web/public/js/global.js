@@ -84,6 +84,8 @@ wf.define('meetingCheck', [], function () {
                 }
                 if (currentData.date == prevData.date && currentData.tableRoom == prevData.tableRoom) {
                     if (currentData.startTime >= prevData.endTime || currentData.endTime <= prevData.startTime) {
+                        return true;
+                    } else {
                         return false;
                     }
                 }
@@ -114,12 +116,17 @@ wf.define('meetingCard', [], function () {
         var findByName = (name) => {
             return $scope.find('[name="{0}"]'.format(name));
         };
-
+        var format = function (str) {
+            if (str.substring(0, 1) > 1) {
+                str = '0' + str;
+            }
+            return str;
+        }
         var prevData = function () {
             var fields = ['tableRoom', 'startTime', 'endTime'];
             var model = { date: date };
             var prevDataArr = [];
-            $saveBtn.parents('.meeting-card').each(function () {
+            $saveBtn.parents('.meeting-card').siblings('.meeting-saved').each(function () {
                 var cardData = [];
                 $(this).find('.wf-select-input').each(function () {
                     var $this = $(this);
@@ -148,16 +155,29 @@ wf.define('meetingCard', [], function () {
 
             var check = meetingCheck();
             var prevDataArr = prevData();
-            for (var i = 0; i < prevDataArr.length; i++) {                
-                if (check.check(result, prevDataArr[i])) {
-                    return result;
+            if (prevDataArr.length == 0) {
+                result.startTime = format(result.startTime);
+                result.endTime = format(result.endTime);
+                if (result.endTime <= result.startTime) {
+                    $saveBtn.parent().parent().addClass(ERROR_CLS);
+                    setTimeout(function () {
+                        $saveBtn.parent().parent().removeClass(ERROR_CLS);
+                    }, 2000);
                 } else {
+                    return result;
+                }
+            }
+            var flag = true;
+            for (var i = 0; i < prevDataArr.length; i++) {                            
+                if (!check.check(result, prevDataArr[i])) {
+                    flag = false;
                     $saveBtn.parent().parent().addClass(ERROR_CLS);
                     setTimeout(function () {
                         $saveBtn.parent().parent().removeClass(ERROR_CLS);
                     }, 2000);                                      
-                }                
-            }  
+                }              
+            }
+            if (flag) { return result; }
         };
 
         $startTime.find('.time-option')

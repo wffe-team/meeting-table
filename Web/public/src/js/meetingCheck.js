@@ -19,6 +19,8 @@ wf.define('meetingCheck', [], function () {
                 }
                 if (currentData.date == prevData.date && currentData.tableRoom == prevData.tableRoom) {
                     if (currentData.startTime >= prevData.endTime || currentData.endTime <= prevData.startTime) {
+                        return true;
+                    } else {
                         return false;
                     }
                 }
