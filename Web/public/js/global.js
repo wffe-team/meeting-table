@@ -165,19 +165,18 @@ wf.define('meetingCard', [], function () {
 
             var check = meetingCheck();
             var prevDataArr = prevData();
+            var flag = true;
             if (prevDataArr.length == 0) {
                 result.startTime = format(result.startTime);
                 result.endTime = format(result.endTime);
                 if (result.endTime <= result.startTime) {
+                    flag = false;
                     $saveBtn.parent().parent().addClass(ERROR_CLS);
                     setTimeout(function () {
                         $saveBtn.parent().parent().removeClass(ERROR_CLS);
                     }, 2000);
-                } else {
-                    return result;
-                }
+                } 
             }
-            var flag = true;
             for (var i = 0; i < prevDataArr.length; i++) {                            
                 if (!check.check(result, prevDataArr[i])) {
                     flag = false;
