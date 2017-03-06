@@ -3,9 +3,9 @@ wf.define('meetingTime', [], function () {
         var startTime = 8;                                                               //开始时间，默认早上8点
         var endTime = 17;                                                                //结束时间，默认下午17点
         var granularity = 10;                                                            //时间粒度，单位：分钟
+        var splitor = ':'
         var timeItemTemp = '<li data-value="{0}" class="wf-select-option {2}">{1}</li>'; //时间列表模板
         var convert = (function () {
-            var splitor = ':'
             return {
                 toTime: minutes=> {
                     var minute = minutes % 60;
@@ -18,20 +18,30 @@ wf.define('meetingTime', [], function () {
             };
         })();
         return {
-            
+
             /// <param name="date" type="String">时间列表所处日期</param>
             /// <param name="value" type="String">时间选中值用于已有会议时间的初始化</param>
-            render: function (date,value) {
+            render: function (date, value) {
                 var result = [];
                 var currentDate = new Date();
                 var currentHour = currentDate.getHours();
                 var currentMinutes = currentDate.getMinutes();
+                var valueHour,valueMinutes;
                 if (currentHour >= endTime) {
                     return timeItemTemp.format('', '下班');
                 }
-                var time = currentDate.format('yyyy-MM-dd') == date ?
+                if(value){
+                    var valueArr = value.split(splitor);
+                    valueHour = parseInt(valueArr[0]);
+                    valueMinutes = parseInt(valueArr[1]);
+                }
+
+                var time = currentDate.format('yyyy-MM-dd') == 
+                    date ?
+                    value?
+                    valueHour * 60 + Math.ceil(valueMinutes / granularity) * granularity :
                     currentHour * 60 + Math.ceil(currentMinutes / granularity) * granularity :
-                    startTime * 60;
+                    startTime;
                 for (; time <= endTime * 60; time = time + granularity) {
                     var timeStr = convert.toTime(time);
                     result.push(timeItemTemp.format(timeStr, timeStr, timeStr == value ? 'wf-select-option-selected' : ''));
