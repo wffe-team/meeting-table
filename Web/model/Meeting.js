@@ -26,6 +26,7 @@ class Meeting {
         this.timeRange = timeRange;
         this.date = date;
         this.id = this.date + ',' + this.timeRange.toString();
+        this.createDate = new Date().toLocaleString();
     }
 }
 

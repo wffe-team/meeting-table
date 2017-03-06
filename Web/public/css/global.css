@@ -108,3 +108,6 @@ body {
 .meeting-error {
   border: 1px solid #f00;
 }
+.meeting-obsolete .meeting-save {
+  display: none;
+}
