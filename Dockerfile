@@ -2,12 +2,12 @@ FROM  mhart/alpine-node:latest
 
 MAINTAINER yangsj <guobayang@gmail.com>
 
-ADD ConferenceTable /conferencetable
+ADD MeetingTable /meetingtable
 
-WORKDIR /conferencetable
+WORKDIR /meetingtable
 
 RUN npm install --production && npm cache clean
 
 EXPOSE 3000
 
-CMD ["node", "/conferencetable/bin/www"]
+CMD ["node", "/meetingtable/bin/www"]
