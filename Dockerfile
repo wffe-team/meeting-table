@@ -2,9 +2,9 @@ FROM  mhart/alpine-node:latest
 
 MAINTAINER yangsj <guobayang@gmail.com>
 
-ADD MeetingTable /web
+ADD Web /web
 
-WORKDIR /meetingtable
+WORKDIR /web
 
 RUN npm install --production && npm cache clean
 
