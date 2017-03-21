@@ -26,20 +26,11 @@ wf.define('meetingTime', [], function () {
                 var currentDate = new Date();
                 var currentHour = currentDate.getHours();
                 var currentMinutes = currentDate.getMinutes();
-                var valueHour,valueMinutes;
                 if (currentHour >= endTime) {
                     return timeItemTemp.format('', '下班');
                 }
-                if(value){
-                    var valueArr = value.split(splitor);
-                    valueHour = parseInt(valueArr[0]);
-                    valueMinutes = parseInt(valueArr[1]);
-                }
-
                 var time = currentDate.format('yyyy-MM-dd') == 
                     date ?
-                    value?
-                    valueHour * 60 + Math.ceil(valueMinutes / granularity) * granularity :
                     currentHour * 60 + Math.ceil(currentMinutes / granularity) * granularity :
                     startTime * 60;
                 for (; time <= endTime * 60; time = time + granularity) {
