@@ -22,6 +22,7 @@ body {
   display: none;
 }
 .meeting-col {
+  min-width: 286px;
   padding: 20px 10px;
 }
 .meeting-list-wrapper {

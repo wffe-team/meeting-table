@@ -10,7 +10,9 @@
         timeRange:['','']}:model.meeting;
     var currentDate = new Date();
     var startTimeArr = meeting.timeRange[0]?meeting.timeRange[0].split(':'):'';
-    var obsolete = startTimeArr&&(startTimeArr[0]*60+startTimeArr[1] < (currentDate.getHours()*60+currentDate.getMinutes()))?'meeting-obsolete':'';
+    var obsolete ='';
+    //startTimeArr&&(parseInt(startTimeArr[0])*60+parseInt(startTimeArr[1])) <
+    //(currentDate.getHours()*60+currentDate.getMinutes())?'meeting-obsolete':'';
 <div class="meeting-card clearfix @(!model.meeting?'meeting-temp':'meeting-saved') @(obsolete)">
     <input type="hidden" name="id" value="@meeting.id" />
     <input type="text" name="title" class="wf-input" placeholder="会议主题" value="@meeting.title" data-value="@meeting.title" />
@@ -80,7 +82,7 @@
     })
     @meetingCard({meetingTables:model.meetingTables})
     <button id="message-trigger" class="wf-btn" data-modal="message-modal" style="display:none;">消息提示</button>
-    <div id="message-modal" class="wf-modal wf-modal-message wf-modal-message-error wf-modal-hidden" data-role="modal">
+    <div id="message-modal" class="wf-modal wf-modal-message wf-modal-message-error wf-modal-hidden" data-role="modal" data-auto="true">
         <div class="wf-modal-mask"></div>
         <div class="wf-modal-content">
             <div class="wf-modal-header">

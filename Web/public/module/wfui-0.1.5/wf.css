@@ -85,6 +85,10 @@ body {
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
  */
+a {
+  text-decoration: none;
+  color: #333;
+}
 a:focus {
   outline: 0;
 }
