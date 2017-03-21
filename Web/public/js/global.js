@@ -122,7 +122,7 @@ wf.define('meetingCard', [], function () {
         var EDITING_CLS = 'meeting-editing';
         var MEETING_LIST = '.meeting-list-wrapper';
         var ERROR_CLS = 'meeting-error';
-        
+
         var findByName = (name) => {
             return $scope.find('[name="{0}"]'.format(name));
         };
@@ -149,7 +149,7 @@ wf.define('meetingCard', [], function () {
             });
             return prevDataArr;
         }
-        
+
         var prapareData = function () {
             var model = {};
             var result = { date: date };
@@ -162,29 +162,27 @@ wf.define('meetingCard', [], function () {
             for (var key in model) {
                 result[key] = model[key].val();
             }
-
             var check = meetingCheck();
             var prevDataArr = prevData();
             var flag = true;
-            if (prevDataArr.length == 0) {
-                result.startTime = format(result.startTime);
-                result.endTime = format(result.endTime);
-                if (result.endTime <= result.startTime) {
-                    flag = false;
-                    $saveBtn.parent().parent().addClass(ERROR_CLS);
-                    setTimeout(function () {
-                        $saveBtn.parent().parent().removeClass(ERROR_CLS);
-                    }, 2000);
-                } 
+            result.startTime = format(result.startTime);
+            result.endTime = format(result.endTime);
+            if (result.endTime <= result.startTime) {
+                flag = false;
+                var $selection = $saveBtn.parent().prev().find('.wf-select-selection').addClass(ERROR_CLS);
+                setTimeout(function () {
+                    $selection.removeClass(ERROR_CLS);
+                }, 2000);
+                return;
             }
-            for (var i = 0; i < prevDataArr.length; i++) {                            
+            for (var i = 0; i < prevDataArr.length; i++) {
                 if (!check.check(result, prevDataArr[i])) {
                     flag = false;
                     $saveBtn.parent().parent().addClass(ERROR_CLS);
                     setTimeout(function () {
                         $saveBtn.parent().parent().removeClass(ERROR_CLS);
-                    }, 2000);                                      
-                }              
+                    }, 2000);
+                }
             }
             if (flag) { return result; }
         };
@@ -216,7 +214,7 @@ wf.define('meetingCard', [], function () {
             var id = findByName('id').val();
             var uiRemove = function () {
                 $scope.closest(MEETING_LIST).removeClass(EDITING_CLS);
-                $scope.remove();                
+                $scope.remove();
             }
             //删除已有
             if (id) {
