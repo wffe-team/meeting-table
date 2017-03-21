@@ -41,7 +41,7 @@
                     value?
                     valueHour * 60 + Math.ceil(valueMinutes / granularity) * granularity :
                     currentHour * 60 + Math.ceil(currentMinutes / granularity) * granularity :
-                    startTime;
+                    startTime * 60;
                 for (; time <= endTime * 60; time = time + granularity) {
                     var timeStr = convert.toTime(time);
                     result.push(timeItemTemp.format(timeStr, timeStr, timeStr == value ? 'wf-select-option-selected' : ''));
