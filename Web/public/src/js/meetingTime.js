@@ -26,11 +26,11 @@
                 var currentDate = new Date();
                 var currentHour = currentDate.getHours();
                 var currentMinutes = currentDate.getMinutes();
-                if (currentHour >= endTime) {
+                var isToday = currentDate.format('yyyy-MM-dd') == date;
+                if (currentHour >= endTime && isToday) {
                     return timeItemTemp.format('', '下班');
                 }
-                var time = currentDate.format('yyyy-MM-dd') == 
-                    date ?
+                var time = isToday ?
                     currentHour * 60 + Math.ceil(currentMinutes / granularity) * granularity :
                     startTime * 60;
                 for (; time <= endTime * 60; time = time + granularity) {
