@@ -38,7 +38,7 @@
     <Compile Include="code\workDay.js" />
     <Compile Include="controllers\meeting.js" />
     <Compile Include="controllers\home.js" />
-    <Compile Include="data\meetingTables.js">
+    <Compile Include="code\meetingTables.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="model\Meeting.js" />

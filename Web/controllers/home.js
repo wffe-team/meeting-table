@@ -3,7 +3,7 @@ var router = express.Router();
 var MeetingAccessor = require('../code/meetingAccessor');
 var MeetingTable = require('../model/MeetingTable');
 var accessor = new MeetingAccessor();
-var meetingTables = require('../data/meetingTables');
+var meetingTables = require('../code/meetingTables');
 
 /* GET home page. */
 router.get('/', function (req, res) {
