@@ -26,12 +26,19 @@ wf.define('meetingTime', [], function () {
                 var currentDate = new Date();
                 var currentHour = currentDate.getHours();
                 var currentMinutes = currentDate.getMinutes();
+                var valueHour = 24;
+                var valueMinutes = 60;
                 var isToday = currentDate.format('yyyy-MM-dd') == date;
                 if (currentHour >= endTime && isToday) {
                     return timeItemTemp.format('', '下班');
                 }
+                if (value) {
+                    var valueArr = value.split(splitor);
+                    valueHour = parseInt(valueArr[0]);
+                    valueMinutes = parseInt(valueArr[1]);
+                }
                 var time = isToday ?
-                    currentHour * 60 + Math.ceil(currentMinutes / granularity) * granularity :
+                    Math.min(currentHour, valueHour) * 60 + Math.ceil(Math.min(currentMinutes, valueMinutes) / granularity) * granularity :
                     startTime * 60;
                 for (; time <= endTime * 60; time = time + granularity) {
                     var timeStr = convert.toTime(time);
