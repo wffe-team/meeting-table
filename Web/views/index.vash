@@ -76,7 +76,7 @@
                 meetingCard({meetingTables:model.meetingTables,meeting:meeting})
                 })
             </div>
-            <div class="meeting-add">Add Metting ...</div>
+            <div class="meeting-add">Add Meeting ...</div>
         </div>
     </div>
     })
