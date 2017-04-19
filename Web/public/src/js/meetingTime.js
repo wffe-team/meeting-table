@@ -42,7 +42,7 @@
                     startTime * 60;
                 for (; time <= endTime * 60; time = time + granularity) {
                     var timeStr = convert.toTime(time);
-                    result.push(timeItemTemp.format(timeStr, timeStr, timeStr == value ? 'wf-select-option-selected' : ''));
+                    result.push(timeItemTemp.format(timeStr, timeStr, time === convert.toMinutes(value) ? 'wf-select-option-selected' : ''));
                 }
                 return result.join('');
             }
