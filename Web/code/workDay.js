@@ -42,6 +42,7 @@ class WorkDay {
             }
             currentDay = this.nextDay(currentDay);
         }
+        this.days.push('History');
     }
 }
 

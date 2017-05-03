@@ -21,12 +21,14 @@ class DataAccessor {
             result.push({ date: value, meetings: [] })
         });
         data.forEach((meeting) => {
-            if (workDay.days.findIndex(date=>date === meeting.date) > -1) {
+            if (workDay.days.findIndex(date => date === meeting.date) > -1) {
                 result.forEach((item) => {
                     if (item.date == meeting.date) {
                         item.meetings.push(meeting);
                     }
                 });
+            } else {
+                result[result.length - 1].meetings.push(meeting);
             }
         });
         return result;

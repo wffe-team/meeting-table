@@ -115,6 +115,7 @@ wf.define('meetingCard', [], function () {
         var $deleteBtn = $scope.find('.meeting-delete');
         var $startTime = $scope.find('.meeting-startTime');
         var $endTime = $scope.find('.meeting-endTime');
+        var $meetDate = $('.meeting-date');
         var SAVED_CLS = 'meeting-saved';
         var EDIT_CLS = 'meeting-edit';
         var EDITING_CLS = 'meeting-editing';
@@ -184,6 +185,15 @@ wf.define('meetingCard', [], function () {
             }
             if (flag) { return result; }
         };
+
+        var showHisDate = function () {
+            $meetDate.each(function () {
+                if ($(this).text() == 'History') {
+                    $(this).siblings().find('.meeting-date').removeClass('hide');
+                }
+            });
+        }
+        showHisDate();
 
         $startTime.find('.time-option')
             .html(meetingTime.render(date, findByName('startTime').val()));

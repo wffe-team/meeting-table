@@ -5,7 +5,7 @@
         id:'',
         title:'',
         userName:'',
-        introduction:'',
+        introduction:'', 
         meetingTable:{roomNumber:'',number:'',id:''},
         timeRange:['','']}:model.meeting;
     var currentDate = new Date();
@@ -15,6 +15,7 @@
     //(currentDate.getHours()*60+currentDate.getMinutes())?'meeting-obsolete':'';
 <div class="meeting-card clearfix @(!model.meeting?'meeting-temp':'meeting-saved') @(obsolete)">
     <input type="hidden" name="id" value="@meeting.id" />
+    <div class="meeting-date hide">@meeting.date</div>
     <input type="text" name="title" class="wf-input" placeholder="会议主题" value="@meeting.title" data-value="@meeting.title" />
     <div class="meeting-edit">
         <span class="wf-btn wf-btn-small">编辑</span>

@@ -11,8 +11,14 @@
       "public/src/js/meetingTime.js",
       "public/src/js/meeting.js",
       "public/src/js/meetingCheck.js",
-      "public/src/js/meetingCard.js",      
+      "public/src/js/meetingCard.js",
       "public/src/js/meetingBorad.js"
+    ]
+  },
+  {
+    "outputFileName": "public/module/wfui-0.1.5/wf.min.css",
+    "inputFiles": [
+      "public/module/wfui-0.1.5/wf.css"
     ]
   }
 ]
