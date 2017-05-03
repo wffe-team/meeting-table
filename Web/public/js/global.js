@@ -190,6 +190,11 @@ wf.define('meetingCard', [], function () {
             $meetDate.each(function () {
                 if ($(this).text() == 'History') {
                     $(this).siblings().find('.meeting-date').removeClass('hide');
+                    $(this).siblings($scope).hover(function () {
+                      $(this).find('.' + EDIT_CLS).children().hide();                       
+                    }, function () {
+                        $(this).find('.' + EDIT_CLS).children().hide();
+                    });
                 }
             });
         }
