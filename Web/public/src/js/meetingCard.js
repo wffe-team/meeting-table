@@ -82,20 +82,6 @@ wf.define('meetingCard', [], function () {
             if (flag) { return result; }
         };
 
-        var showHisDate = function () {
-            $meetDate.each(function () {
-                if ($(this).text() == 'History') {
-                    $(this).siblings().find('.meeting-date').removeClass('hide');
-                    $(this).siblings($scope).hover(function () {
-                      $(this).find('.' + EDIT_CLS).children().hide();                       
-                    }, function () {
-                        $(this).find('.' + EDIT_CLS).children().hide();
-                    });
-                }
-            });
-        }
-        showHisDate();
-
         $startTime.find('.time-option')
             .html(meetingTime.render(date, findByName('startTime').val()));
         $endTime.find('.time-option')

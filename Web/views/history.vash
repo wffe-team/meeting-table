@@ -1,0 +1,28 @@
+﻿@html.extend('layout', function(model){
+    @html.block('content', function(model){
+
+<div class="history">
+    <h1>会议历史记录</h1>
+    <table>
+        <tr>
+            <th>会议日期 </th>
+            <th>会议主题</th>
+            <th>使用人</th>
+            <th>会议桌</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+        </tr>        
+        @model.data.forEach(function(item){
+        <tr>
+            <td>@item.date</td>
+            <td>@item.title</td>
+            <td>@item.userName</td>
+            <td>@item.meetingTable.id</td>
+            <td>@item.timeRange[0]</td>
+            <td>@item.timeRange[1]</td>
+        </tr>
+        })
+    </table>
+</div>
+    })
+})

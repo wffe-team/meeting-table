@@ -35,7 +35,9 @@
     <Compile Include="code\meetingAccessor.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="code\meetingHistory.js" />
     <Compile Include="code\workDay.js" />
+    <Compile Include="controllers\history.js" />
     <Compile Include="controllers\meeting.js" />
     <Compile Include="controllers\home.js" />
     <Compile Include="code\meetingTables.js">
@@ -91,6 +93,7 @@
       <SubType>Content</SubType>
       <DependentUpon>public\src\less\index.css</DependentUpon>
     </Content>
+    <Content Include="views\history.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
     <Content Include="views\error.vash" />

@@ -12,7 +12,11 @@ body {
   color: #84888a;
   font-family: cursive;
   font-size: 26px;
-  line-height: 26px;
+  line-height: 32px;
+}
+.title .btn-history {
+  float: right;
+  margin-right: 20px;
 }
 .hide {
   display: none;
@@ -117,4 +121,26 @@ body {
 }
 .meeting-obsolete .meeting-save {
   display: none;
+}
+.history {
+  color: #fff;
+  padding-top: 30px;
+}
+.history h1 {
+  text-align: center;
+}
+.history table {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.history table td,
+.history table th {
+  border: 1px dashed #fff;
+  width: 16%;
+  text-align: center;
+  line-height: 24px;
+}
+.history table th {
+  font-size: 14px;
 }

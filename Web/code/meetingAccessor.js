@@ -27,9 +27,7 @@ class DataAccessor {
                         item.meetings.push(meeting);
                     }
                 });
-            } else {
-                result[result.length - 1].meetings.push(meeting);
-            }
+            } 
         });
         return result;
     }

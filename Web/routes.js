@@ -8,6 +8,10 @@ var routes = [
     {
         key: '/meeting',
         value: require('./controllers/meeting')
+    },
+    {
+        key: '/history',
+        value: require('./controllers/history')
     }
 ];
 
