@@ -29,7 +29,7 @@
   ]},
 ]
 ```
-* www/data/codeview/details/2017-08-16.json
+* www/data/codeview/details/2017-08-16.json  
 点击`开启新评审`按钮后，如果已经存在当天的json文件，则不再创建；否则按照yyyy-MM-dd的格式创建新的json文件
 ```javascript
 [
