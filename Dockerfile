@@ -6,7 +6,7 @@ ADD Web /web
 
 WORKDIR /web
 
-RUN npm install --production && npm cache clean
+RUN npm install --production && npm cache clean --force
 
 EXPOSE 3000
 
