@@ -207,9 +207,10 @@ wf.define('meetingCard', [], function () {
                     setTimeout(function () {
                         $saveBtn.parent().parent().removeClass(ERROR_CLS);
                     }, 2000);
-                }
-                if (sort.sort(result, prevDataArr[i])) {
-                    $saveBtn.parent().parent().prev().before($saveBtn.parent().parent());
+                } else if (sort.sort(result, prevDataArr[i])) {
+                    $saveBtn.parent().parent().prev('.meeting-card').before($saveBtn.parent().parent());
+                } else {
+                    $saveBtn.parent().parent().next('.meeting-card').after($saveBtn.parent().parent());
                 }
             }
             if (flag) { return result; }
