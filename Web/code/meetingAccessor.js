@@ -82,10 +82,30 @@ class DataAccessor {
         if (clash) { return false; }
         try {
             fs.appendFileSync(file, prefix + JSON.stringify(meeting));
+            this.sort(meeting);
             return true;
         } catch (error) {
             console.log('append文件' + file + '出错,error' + error);
             return false;
+        }
+    }    
+
+    ///<param name="meeting" type="Meeting">会议</param>
+    sort(meeting) {
+        let meetings = this.get();
+        let convert = function (time) {
+            let splitor = ':';
+            let arr = time.split(splitor);
+            return parseInt(arr[0]) * 60 + parseInt(arr[1]);
+        }
+        if (meetings.length > 0) {
+            meetings.sort(function (a, b) {
+                let prev = convert(a.timeRange[0]);
+                let next = convert(b.timeRange[0]);               
+                return prev - next;
+            });
+            let str = JSON.stringify(meetings);
+            return this.set(str.slice(1, str.length - 1));
         }
     }
 

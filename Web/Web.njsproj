@@ -61,6 +61,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="public\src\js\meetingCheck.js" />
+    <Compile Include="public\src\js\meetingSort.js" />
     <Compile Include="public\src\js\meetingTime.js" />
     <Compile Include="routes.js" />
     <Compile Include="bin\www" />

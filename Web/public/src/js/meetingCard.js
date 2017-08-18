@@ -4,6 +4,7 @@ wf.define('meetingCard', [], function () {
     var meeting = wf.require('meeting');
     var meetingTime = wf.require('meetingTime');
     var meetingCheck = wf.require('meetingCheck');
+    var meetingSort = wf.require('meetingSort');
 
     return function ($trigger, $scope, date) {
 
@@ -28,11 +29,11 @@ wf.define('meetingCard', [], function () {
             return str;
         }
         var prevData = function () {
-            var fields = ['tableRoom', 'startTime', 'endTime'];
-            var model = { date: date };
+            var fields = ['tableRoom', 'startTime', 'endTime'];            
             var prevDataArr = [];
             $saveBtn.parents('.meeting-card').siblings('.meeting-saved').each(function () {
                 var cardData = [];
+                var model = { date: date };
                 $(this).find('.wf-select-input').each(function () {
                     var $this = $(this);
                     cardData.push($this.val());
@@ -58,6 +59,7 @@ wf.define('meetingCard', [], function () {
                 result[key] = model[key].val();
             }
             var check = meetingCheck();
+            var sort = meetingSort();
             var prevDataArr = prevData();
             var flag = true;
             result.startTime = format(result.startTime);
@@ -77,6 +79,9 @@ wf.define('meetingCard', [], function () {
                     setTimeout(function () {
                         $saveBtn.parent().parent().removeClass(ERROR_CLS);
                     }, 2000);
+                }
+                if (sort.sort(result, prevDataArr[i])) {
+                    $saveBtn.parent().parent().prev().before($saveBtn.parent().parent());
                 }
             }
             if (flag) { return result; }
