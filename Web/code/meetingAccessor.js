@@ -114,7 +114,7 @@ class DataAccessor {
         let meetings = this.get();
         //TODO:检查
         let removeIndex = meetings.findIndex((value) => {
-            return value.id === id;
+            return value.id.toString() === id;
         });
         meetings.splice(removeIndex, 1);
         let str = JSON.stringify(meetings);
